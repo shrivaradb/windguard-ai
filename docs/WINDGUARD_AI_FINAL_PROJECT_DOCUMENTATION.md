@@ -39,7 +39,7 @@ depends_on:
 Project Title       : WindGuard AI: Physics-Informed, Context-Aware and Evidence-Grounded Wind Turbine
                       Operations & Maintenance Decision Support System
 Document Type       : Final Academic Project Documentation & Comprehensive Technical Specification
-Academic Lineage    : Bhagwatikar & Bhagwatikar (2026)
+Academic Lineage    : Academic Literature (2026)
 Governing Baseline  : Phases 1–9 Complete, Reconciled, Verified and Frozen
 Target Domain       : Utility-Scale Wind Farm Condition Monitoring & Financial Asset Health Assurance
 Target Audience     : Academic Examination Committee, Project Guides, Peer Researchers & Industrial O&M
@@ -312,15 +312,15 @@ The WindGuard AI project was designed and implemented to satisfy nine core engin
 
 # 6. Literature Review
 
-## 6.1 Foundational Lineage: Bhagwatikar & Bhagwatikar (2026)
-The theoretical foundation of WindGuard AI is directly anchored in the comprehensive research monograph by **Tejal Bhagwatikar and Shrivarad Bhagwatikar (2026)**, titled *"Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems"*. 
+## 6.1 Foundational Lineage: Academic Literature (2026)
+The theoretical foundation of WindGuard AI is directly anchored in the comprehensive research monograph by **Academic Research Survey (2026) (2026)**, titled *"Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems"*. 
 
-Bhagwatikar & Bhagwatikar (2026) establish an exhaustive 36-section critical survey evaluating the state-of-the-art in cyber-physical wind turbine intelligence, identifying the core failure modes of purely data-driven black-box models and outlining the architectural blueprint for hybrid, physics-informed, and uncertainty-aware decision-support platforms.
+Academic Literature (2026) establish an exhaustive 36-section critical survey evaluating the state-of-the-art in cyber-physical wind turbine intelligence, identifying the core failure modes of purely data-driven black-box models and outlining the architectural blueprint for hybrid, physics-informed, and uncertainty-aware decision-support platforms.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                      5 GENERATIONS OF WIND TURBINE INTELLIGENCE TAXONOMY                         │
-│                           (Bhagwatikar & Bhagwatikar, 2026)                                      │
+│                           (Academic Literature, 2026)                                      │
 ├────────────────────────┬───────────────────────────────────┬─────────────────────────────────────┤
 │ Generation             │ Core Methodological Architecture  │ Primary Operational Limitation      │
 ├────────────────────────┼───────────────────────────────────┼─────────────────────────────────────┤
@@ -1289,7 +1289,7 @@ In accordance with academic transparency, eight system limitations are explicitl
 
 # 38. Conclusion
 
-WindGuard AI successfully operationalizes the 4th Generation wind turbine intelligence paradigm formulated by **Bhagwatikar & Bhagwatikar (2026)**. By coupling physics-informed machine learning baselines with a 5-level operational context precedence hierarchy, cryptographically governed local RAG retrieval, prospective financial loss valuation, and strict human-in-the-loop governance, WindGuard AI bridges the long-standing void between raw SCADA anomaly detection and actionable engineering maintenance triage.
+WindGuard AI successfully operationalizes the 4th Generation wind turbine intelligence paradigm formulated by **Academic Literature (2026)**. By coupling physics-informed machine learning baselines with a 5-level operational context precedence hierarchy, cryptographically governed local RAG retrieval, prospective financial loss valuation, and strict human-in-the-loop governance, WindGuard AI bridges the long-standing void between raw SCADA anomaly detection and actionable engineering maintenance triage.
 
 The platform achieves **100.0% false alarm suppression during grid curtailment**, an **MRR of 1.0000** on technical knowledge retrieval, **100.0% numerical fidelity** in advisory synthesis, and an end-to-end latency of **185.57 ms**, while maintaining an absolute non-actuation safety boundary. WindGuard AI establishes a rigorous, transparent, and reproducible benchmark for future research in explainable cyber-physical renewable energy management.
 
@@ -1297,7 +1297,7 @@ The platform achieves **100.0% false alarm suppression during grid curtailment**
 
 # 39. References
 
-1. Bhagwatikar, T., & Bhagwatikar, S. (2026). *Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems*. Research Monograph / Survey Paper.
+1. Academic Research Survey (2026). *Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems*. Research Monograph / Survey Paper.
 2. International Electrotechnical Commission. (2017). *IEC 61400-12-1: Wind energy generation systems – Part 12-1: Power performance measurements of electricity producing wind turbines*. Geneva: IEC.
 3. International Electrotechnical Commission. (2015). *IEC 61400-25: Communications for monitoring and control of wind power plants*. Geneva: IEC.
 4. National Renewable Energy Laboratory (NREL). (2023). *Wind Turbine Drivetrain Condition Monitoring and SCADA Anomaly Detection Benchmarks*. Technical Report NREL/TP-5000.

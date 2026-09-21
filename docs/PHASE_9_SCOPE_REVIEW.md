@@ -479,8 +479,8 @@ The following activities are **STRICTLY PROHIBITED** in Phase 9:
 
 ### Decision 3: Academic Paper Alignment & Research Reference Framing (OD-P9-03)
 * **Decision ID**: `OD-P9-03`
-* **Decision Question**: How shall Phase 9 deliverables reference and integrate the academic research framework of Bhagwatikar & Bhagwatikar (2026)?
-* **Option A**: Formally anchor technical documentation, model cards, and presentation slides to the 5 generations of wind turbine intelligence, physics-informed hybrid AI, and digital shadows as articulated by Bhagwatikar & Bhagwatikar (2026).
+* **Decision Question**: How shall Phase 9 deliverables reference and integrate the academic research framework of Academic Literature (2026)?
+* **Option A**: Formally anchor technical documentation, model cards, and presentation slides to the 5 generations of wind turbine intelligence, physics-informed hybrid AI, and digital shadows as articulated by Academic Literature (2026).
 * **Option B**: Treat the software as a generic commercial engineering tool without explicit academic paper synthesis.
 * **Trade-Off Analysis**: Option A establishes unbroken academic lineage between domain literature and implementation, maximizing academic credibility. Option B simplifies documentation but loses research depth.
 * **Impact**: Determines the theoretical framing across `WS-P9-02`, `WS-P9-03`, and `WS-P9-05`.

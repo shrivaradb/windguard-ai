@@ -24,7 +24,7 @@ Current monitoring systems rely predominantly on static threshold alarms or blac
 
 Wind energy has emerged as a cornerstone of the global transition toward clean, decarbonized electricity generation, directly supporting the United Nations Sustainable Development Goal 7 (SDG 7: Affordable and Clean Energy). Over the past three decades, commercial wind turbine designs have evolved from sub-megawatt, fixed-speed machines into flexible multi-megawatt systems characterized by rotor diameters exceeding 150 meters, hub heights surpassing 120 meters, and complex multi-stage drivetrains and power electronics.
 
-As documented in the foundational research by Bhagwatikar & Bhagwatikar (2026) [SOURCE-DERIVED CLAIM], modern turbines represent tightly coupled aeroelastic, structural, mechanical, electrical, and thermal systems:
+As documented in the foundational research by Academic Literature (2026) [SOURCE-DERIVED CLAIM], modern turbines represent tightly coupled aeroelastic, structural, mechanical, electrical, and thermal systems:
 
 $$\text{Wind Inflow} \xrightarrow{\text{Aerodynamics}} \text{Rotor/Blades} \xrightarrow{\text{Drivetrain/Torque}} \text{Gearbox/Bearings} \xrightarrow{\text{Electromechanics}} \text{Generator/Converter} \xrightarrow{\text{Grid Integration}} \text{Power Grid}$$
 
@@ -42,7 +42,7 @@ The operational landscape of commercial wind energy—particularly within high-g
 4. **Grid Congestion and Dynamic Curtailment**: Grid infrastructure constraints force frequent dispatch curtailment (feathering blades and capping electrical output despite high available wind), creating operational profiles that traditional monitoring algorithms misclassify as severe hardware faults.
 
 ### 3.2 Economic and Sustainability Impact
-Operation and maintenance (O&M) expenditures account for 20% to 30% of the lifetime levelized cost of energy (LCOE) for onshore wind farms and up to 40% for offshore installations [SOURCE-DERIVED CLAIM: Bhagwatikar & Bhagwatikar, 2026]. Catastrophic failures of major components (e.g., high-speed gearbox bearings, planetary stages, generator stator insulation) require crane mobilizations, extended supply-chain lead times, and catastrophic downtime lasting from several weeks to months. Early, explainable detection can avert catastrophic failures through minor pre-emptive interventions (e.g., oil flushing, sensor recalibration, pitch bearing re-greasing), directly increasing clean energy yields and protecting asset value.
+Operation and maintenance (O&M) expenditures account for 20% to 30% of the lifetime levelized cost of energy (LCOE) for onshore wind farms and up to 40% for offshore installations [SOURCE-DERIVED CLAIM: Academic Literature, 2026]. Catastrophic failures of major components (e.g., high-speed gearbox bearings, planetary stages, generator stator insulation) require crane mobilizations, extended supply-chain lead times, and catastrophic downtime lasting from several weeks to months. Early, explainable detection can avert catastrophic failures through minor pre-emptive interventions (e.g., oil flushing, sensor recalibration, pitch bearing re-greasing), directly increasing clean energy yields and protecting asset value.
 
 ---
 
@@ -190,7 +190,7 @@ Current commercial wind farm monitoring relies on a fragmented patchwork of lega
 9. **Empirical Evaluation Framework**: Quantitative evaluation scripts measuring regression accuracy ($R^2$, RMSE, MAE), anomaly detection metrics (Precision, Recall, F1, FAR), and RAG retrieval relevance.
 
 ### 12.2 Out of Scope
-1. **Direct Turbine Actuation / Autonomous Control**: WindGuard AI will **never** directly issue control signals (pitch angle commands, yaw actuation, generator torque modulation, or emergency shutdown). All decisions remain strictly advisory [SOURCE-DERIVED SAFETY BOUNDARY: Bhagwatikar & Bhagwatikar, 2026].
+1. **Direct Turbine Actuation / Autonomous Control**: WindGuard AI will **never** directly issue control signals (pitch angle commands, yaw actuation, generator torque modulation, or emergency shutdown). All decisions remain strictly advisory [SOURCE-DERIVED SAFETY BOUNDARY: Academic Literature, 2026].
 2. **Raw High-Frequency Vibration CMS (FFT Demodulation)**: Processing $50\,\text{kHz}$ raw accelerometer waveforms is out of scope for the SCADA-based MVP. Vibration indicators are treated as integrated statistical SCADA features (e.g., RMS/peak acceleration).
 3. **Full Multi-Body Aeroelastic Digital Twin Simulation**: A complete numerical finite-element / FAST / aeroelastic simulation of physical blade deformation is designated as future scope.
 4. **Fleet-Wide Electricity Market Trading Optimization**: Automated bidding into day-ahead spot electricity markets is excluded.

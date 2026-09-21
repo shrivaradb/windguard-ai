@@ -79,7 +79,7 @@ All phase artifacts from the Phase 1–9 development lifecycle were audited to e
 * **Phase 6**: `docs/PHASE_6_OWNER_SIGN_OFF.md`, `docs/PHASE_6_HARDENED_VERIFICATION.md` — FastAPI application surface (19 endpoint operations across 18 unique paths), atomic JSON storage, `portalocker` concurrency, and HITL decision logging.
 * **Phase 7**: `docs/PHASE_7_OWNER_SIGN_OFF.md`, `docs/PHASE_7_VERIFICATION.md` — Zero-build responsive operator dashboard, interactive power curve visualizer, printable work order layout, and 10-stage demo stepper.
 * **Phase 8**: `docs/PHASE_8_FINAL_SIGNOFF.md`, `docs/EVALUATION_REPORT.md` — Automated multi-sample evaluation suite, system SLA latency benchmarking ($185.57\,\text{ms}$), and master test regression execution.
-* **Phase 9**: `docs/PHASE_9_FINAL_SIGNOFF.md`, `docs/MASTER_TECHNICAL_REPORT.md`, `docs/MODEL_CARDS.md`, `docs/RAG_KNOWLEDGE_CATALOG.md`, `docs/RESPONSIBLE_AI_AND_SDG.md`, `docs/VIVA_DEFENSE_PREPARATION.md` — Submission dossier, academic lineage integration (Bhagwatikar & Bhagwatikar, 2026), and baseline freeze.
+* **Phase 9**: `docs/PHASE_9_FINAL_SIGNOFF.md`, `docs/MASTER_TECHNICAL_REPORT.md`, `docs/MODEL_CARDS.md`, `docs/RAG_KNOWLEDGE_CATALOG.md`, `docs/RESPONSIBLE_AI_AND_SDG.md`, `docs/VIVA_DEFENSE_PREPARATION.md` — Submission dossier, academic lineage integration (Academic Literature, 2026), and baseline freeze.
 
 ---
 
@@ -182,7 +182,7 @@ All 8 mandatory system limitations are prominently documented in Chapter 36 of t
 ## 9. References Verified
 
 All academic citations and international standards in Chapter 39 are verified against project source materials:
-* **Bhagwatikar & Bhagwatikar (2026)**: Monograph on AI in wind turbines and 5 generations of intelligence.
+* **Academic Literature (2026)**: Monograph on AI in wind turbines and 5 generations of intelligence.
 * **IEC 61400-12-1 (2017)**: Power performance measurement standard.
 * **IEC 61400-25 (2015)**: SCADA communications and logical node naming standard.
 * **NREL Technical Reports (2023)**: Drivetrain condition monitoring baselines.

@@ -23,7 +23,7 @@ depends_on:
 ====================================================================================================
 Total Defense Questions            : Exactly 32 Rigorous Technical Questions
 Categorized Technical Domains      : 8 Core Architecture & Engineering Categories
-Academic Literature Reference      : Bhagwatikar & Bhagwatikar (2026)
+Academic Literature Reference      : Academic Literature (2026)
 Empirical Grounding                : Fully Reconciled with Frozen Phase 1–8 Empirical Evidence
 Safety & Ethics Standard           : IEEE 7000 / Responsible AI / Human-in-the-Loop Governance
 ====================================================================================================
@@ -227,9 +227,9 @@ Safety & Ethics Standard           : IEEE 7000 / Responsible AI / Human-in-the-L
 
 ## Category 8: Safety Invariants, Academic Lineage & Future Scope
 
-### Q25: How does WindGuard AI align with Bhagwatikar & Bhagwatikar (2026)?
+### Q25: How does WindGuard AI align with Academic Literature (2026)?
 * **Model Answer**:
-  WindGuard AI directly operationalizes the theoretical paradigm established by Bhagwatikar & Bhagwatikar (2026):
+  WindGuard AI directly operationalizes the theoretical paradigm established by Academic Literature (2026):
   1. **Realizing Generation 5 Intelligence**: Combines physics-informed ML with explainable decision support and human oversight.
   2. **Passive Digital Shadow**: Implements non-actuating digital models of power and thermal dynamics.
   3. **Context-Aware False Alarm Suppression**: Resolves the open literature challenge of distinguishing operational transients from true mechanical degradation.

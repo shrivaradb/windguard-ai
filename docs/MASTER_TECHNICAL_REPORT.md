@@ -35,7 +35,7 @@ depends_on:
 Project Name                       : WindGuard AI
 Canonical Architecture             : 6-Layer Modular Hybrid Decision Support System
 Primary Target Domain              : Utility-Scale Wind Farm Condition Monitoring & Revenue Assurance
-Academic Literature Anchor         : Bhagwatikar & Bhagwatikar (2026)
+Academic Literature Anchor         : Academic Literature (2026)
 Governing Implementation Baseline   : Phases 1–8 Frozen & Fully Verified
 FastAPI Production API Surface     : Exactly 19 Endpoint Operations across 18 Unique Paths
 Governed Technical RAG Corpus      : Exactly 7 Documents / 29 Indexed Chunks
@@ -67,7 +67,7 @@ WindGuard AI establishes a **physics-informed, context-aware, explainable hybrid
 ## Chapter 2: Literature Lineage & Research Gap Analysis
 
 ### 2.1 The 5 Generations of Wind Turbine Intelligence
-Following the theoretical taxonomy of **Bhagwatikar & Bhagwatikar (2026)**, wind turbine condition monitoring has evolved across five distinct architectural eras:
+Following the theoretical taxonomy of **Academic Literature (2026)**, wind turbine condition monitoring has evolved across five distinct architectural eras:
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐

@@ -348,7 +348,7 @@ The following specific corrections are applied to `docs/PHASE_9_OWNER_DECISION_R
 | :--- | :--- | :--- | :--- | :---: | :---: |
 | **`OD-P9-01`** | Scope & Boundaries of Phase 9 | Option A (Comprehensive) / Option B (Minimal) / Option C (Reopen Dev) | Workstreams `WS-P9-01` through `WS-P9-06` | Zero Production Code Changes | **`OWNER DECISION REQUIRED`** |
 | **`OD-P9-02`** | Packaging & Quickstart Tooling | Option A (Native Python) / Option B (Containerized) / Option C (Docs Only) | `requirements.txt`, `README.md`, `run_demo.py` | Non-Production Tooling Only | **`OWNER DECISION REQUIRED`** |
-| **`OD-P9-03`** | Academic Paper Alignment | Option A (Bhagwatikar 2026 Lineage) / Option B (Generic Standalone Tool) | Academic synthesis in reports and slides | Documentation Framing Only | **`OWNER DECISION REQUIRED`** |
+| **`OD-P9-03`** | Academic Paper Alignment | Option A (Academic Literature Lineage) / Option B (Generic Standalone Tool) | Academic synthesis in reports and slides | Documentation Framing Only | **`OWNER DECISION REQUIRED`** |
 | **`OD-P9-04`** | ML Model Cards Presentation | Option A (Dedicated Model Cards) / Option B (Report Subsection Only) | `docs/MODEL_CARDS.md` | Documentation Framing Only | **`OWNER DECISION REQUIRED`** |
 | **`OD-P9-05`** | Presentation Deck Format | Option A (18-Slide Master Deck) / Option B (10-Slide Pitch) / Option C (Dual) | `docs/PRESENTATION_DECK_18_SLIDES.md` | Presentation Asset Only | **`OWNER DECISION REQUIRED`** |
 | **`OD-P9-06`** | Demo Guide & Viva Defense Scope | Option A (10-Stage Guide + 30+ Q&A Pack) / Option B (Minimal Demo Summary) | `docs/DEMO_WALKTHROUGH_GUIDE.md`, `docs/VIVA_DEFENSE_PREPARATION.md` | Documentation Asset Only | **`OWNER DECISION REQUIRED`** |

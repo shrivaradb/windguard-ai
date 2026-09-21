@@ -120,9 +120,9 @@ The Project Owner has explicitly reviewed and approved **Option A** across all s
 ---
 
 ### OD-P9-03 — Academic Paper Alignment & Research Reference Framing
-* **Question**: How shall Phase 9 deliverables reference, integrate, and align with the academic research framework articulated by Bhagwatikar & Bhagwatikar (2026)?
+* **Question**: How shall Phase 9 deliverables reference, integrate, and align with the academic research framework articulated by Academic Literature (2026)?
 * **Approved Option**: **Option A — Formal Academic Lineage Integration**
-* **Determination**: Anchored master technical report, presentation deck, and viva defense pack to the academic framework of Bhagwatikar & Bhagwatikar (2026), structuring findings around the 5 generations of wind turbine intelligence, physics-informed hybrid AI, digital shadows, and contextual false-alarm suppression.
+* **Determination**: Anchored master technical report, presentation deck, and viva defense pack to the academic framework of Academic Literature (2026), structuring findings around the 5 generations of wind turbine intelligence, physics-informed hybrid AI, digital shadows, and contextual false-alarm suppression.
 * **Status**: **`APPROVED & IMPLEMENTED`**
 
 ---

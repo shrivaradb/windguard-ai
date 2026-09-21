@@ -25,7 +25,7 @@ Project Name                       : WindGuard AI
 Presentation Title                 : Explainable Wind Turbine Predictive Health & Decision Support
 Target Presentation Duration       : 20 Minutes (plus 10 Minutes Oral Viva Q&A)
 Total Slide Count                  : Exactly 18 Technical Slides
-Academic Literature Reference      : Bhagwatikar & Bhagwatikar (2026)
+Academic Literature Reference      : Academic Literature (2026)
 Architecture Coverage              : Full 6-Layer Hybrid Architecture & Empirical Verification
 Safety Protocol                    : Non-Actuating Human-in-the-Loop Governance
 ====================================================================================================
@@ -50,7 +50,7 @@ Safety Protocol                    : Non-Actuating Human-in-the-Loop Governance
 
 ### Key Technical Talking Points
 * **Core Focus**: Bridging the critical gap between stochastic wind turbine SCADA telemetry, physical drivetrain mechanics, and actionable financial decision support.
-* **Academic Lineage**: Built upon the foundational research framework of **Bhagwatikar & Bhagwatikar (2026)**.
+* **Academic Lineage**: Built upon the foundational research framework of **Academic Literature (2026)**.
 * **Key Innovation**: Integrating physical ODE simulation, machine learning baselines ($R^2=1.0$), context-aware false alarm suppression ($100\%$), local hybrid RAG (MRR = 1.0), and numerical guardrails into a sub-200ms decision-support tool.
 
 ### Speaker Notes (Timing: 1.0 min)
@@ -114,7 +114,7 @@ Safety Protocol                    : Non-Actuating Human-in-the-Loop Governance
 ### Visual Layout & Wireframe
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                   5 GENERATIONS OF WIND TURBINE INTELLIGENCE (Bhagwatikar 2026)                  │
+│                   5 GENERATIONS OF WIND TURBINE INTELLIGENCE (Academic Literature (2026))                  │
 │                                                                                                  │
 │   Gen 1: Static Thresholds      ──> High False Alarms (>85% FAR)                                 │
 │   Gen 2: Statistical SCADA      ──> Moving averages; misses nonlinear aerodynamics               │
@@ -125,12 +125,12 @@ Safety Protocol                    : Non-Actuating Human-in-the-Loop Governance
 ```
 
 ### Key Technical Talking Points
-* **Theoretical Framework**: Formally grounded in **Bhagwatikar & Bhagwatikar (2026)**.
+* **Theoretical Framework**: Formally grounded in **Academic Literature (2026)**.
 * **Evolutionary Transition**: Traces the transition from primitive thresholding through black-box neural networks to explainable hybrid decision support.
 * **Passive Digital Shadow**: Establishes a passive digital shadow that accurately models expected physical states without introducing unsafe closed-loop actuators.
 
 ### Speaker Notes (Timing: 1.0 min)
-> *"In their 2026 survey, Bhagwatikar and Bhagwatikar categorized wind turbine condition monitoring into five evolutionary generations. While Generation 3 introduced deep neural networks, it created a severe trust deficit due to black-box uninterpretability. WindGuard AI realizes Generation 5: an explainable, physics-informed hybrid architecture that combines mathematical baselines with operational context filtering and guardrailed technical retrieval."*
+> *"In their 2026 survey, Academic Domain Literature categorized wind turbine condition monitoring into five evolutionary generations. While Generation 3 introduced deep neural networks, it created a severe trust deficit due to black-box uninterpretability. WindGuard AI realizes Generation 5: an explainable, physics-informed hybrid architecture that combines mathematical baselines with operational context filtering and guardrailed technical retrieval."*
 
 ---
 

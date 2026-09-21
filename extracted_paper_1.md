@@ -2,7 +2,7 @@ Absolutely. Below is a substantially more academic version, structured in an IEE
 
 Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems
 
-Tejal Bhagwatikar and Shrivarad Bhagwatikar
+Academic Research Survey (2026)
 
 Abstract
 

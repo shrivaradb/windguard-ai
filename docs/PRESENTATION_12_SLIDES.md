@@ -96,7 +96,7 @@ Safety & Operational Governance    : Zero Closed-Loop Actuation | Zero Cloud LLM
 * **Project Title**: **WindGuard AI**
 * **Subtitle**: *Physics-Informed, Context-Aware and Evidence-Grounded Wind Turbine O&M Decision Support*
 * **Core Research Theme**: Bridging the operational divide between raw stochastic SCADA anomaly detection and verifiable, economically prioritized maintenance action.
-* **Academic Lineage**: Built upon foundational literature and intelligence taxonomy by **Bhagwatikar & Bhagwatikar (2026)**.
+* **Academic Lineage**: Built upon foundational literature and intelligence taxonomy by **Academic Literature (2026)**.
 * **Governance**: 100% offline, deterministic execution with strict non-actuation safety covenants.
 
 ### Key Metrics on Slide

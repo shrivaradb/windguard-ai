@@ -81,7 +81,7 @@ Establish professional academic presence, introduce the candidate and project cr
 
 ### Key Technical Points
 * Core domain: Utility-scale onshore wind farm condition monitoring and revenue assurance.
-* Academic lineage: Built on condition monitoring principles established in recent literature (**Bhagwatikar & Bhagwatikar, 2026**).
+* Academic lineage: Built on condition monitoring principles established in recent literature (**Academic Literature, 2026**).
 * Core identity: Human-in-the-Loop decision support tool, strictly non-actuating.
 
 ### Likely Examiner Question

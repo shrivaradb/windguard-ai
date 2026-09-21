@@ -165,7 +165,7 @@ Every single quantitative metric across the 12 slides and speaker notes has been
 
 * **Synthetic Dataset Framing**: Verified that all 12 slides and speaker notes explicitly frame the quantitative evaluation around standardized **first-order ODE simulations (Scenarios S1–S5)** and `sample_scada.csv`.
 * **Zero Production Exaggeration**: Verified that zero claims of live multi-year utility wind farm deployment, closed-loop grid control, or unverified commercial fleet rollouts are made.
-* **Academic References**: Bhagwatikar & Bhagwatikar (2026), IEC 61400-12-1, IEC 61400-25, and UN SDG 7 are cited accurately in context.
+* **Academic References**: Academic Literature (2026), IEC 61400-12-1, IEC 61400-25, and UN SDG 7 are cited accurately in context.
 
 ---
 

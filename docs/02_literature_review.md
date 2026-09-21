@@ -13,7 +13,7 @@ depends_on:
 
 ## 1. Executive Summary
 
-This document presents an exhaustive, academically rigorous literature review evaluating the state-of-the-art in wind turbine condition monitoring, machine learning-based anomaly detection, physics-informed modeling, digital twins, and Generative AI/LLM integration. The review is anchored primarily in the foundational paper by **Tejal Bhagwatikar and Shrivarad Bhagwatikar (2026)**, titled *"Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems"* [SOURCE-DERIVED CLAIM], supplemented by established academic and institutional literature (e.g., NREL, IEEE, Elsevier WES literature).
+This document presents an exhaustive, academically rigorous literature review evaluating the state-of-the-art in wind turbine condition monitoring, machine learning-based anomaly detection, physics-informed modeling, digital twins, and Generative AI/LLM integration. The review is anchored primarily in the foundational paper by **Academic Research Survey (2026) (2026)**, titled *"Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems"* [SOURCE-DERIVED CLAIM], supplemented by established academic and institutional literature (e.g., NREL, IEEE, Elsevier WES literature).
 
 The literature establishes a clear technological trajectory: from reactive, static SCADA threshold alarms to data-driven predictive maintenance, and toward hybrid, physics-informed, uncertainty-aware, and human-supervised decision-support systems.
 
@@ -21,10 +21,10 @@ The literature establishes a clear technological trajectory: from reactive, stat
 
 ## 2. Review of Primary Reference Literature
 
-### Primary Paper: Bhagwatikar & Bhagwatikar (2026)
+### Primary Paper: Academic Literature (2026)
 
 - **Citation**: 
-  > Bhagwatikar, T., & Bhagwatikar, S. (2026). *Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems*. Research Monograph / Survey Paper [Paper 1].
+  > Academic Research Survey (2026). *Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems*. Research Monograph / Survey Paper [Paper 1].
 - **Core Problem Addressed**: 
   Modern wind turbines are complex cyber-physical systems operating under non-stationary atmospheric conditions. While data generation has surged (SCADA, CMS, IoT, LiDAR, drone vision), data availability alone does not yield reliable maintenance intelligence. The paper addresses how AI can transition from narrow prediction to integrated, physics-informed, and autonomous wind energy systems.
 - **Scope & Methodology**: 
@@ -57,7 +57,7 @@ The literature establishes a clear technological trajectory: from reactive, stat
 
 #### 1. NREL Digitalization & Condition Monitoring Frameworks
 - **Citation**: 
-  > National Renewable Energy Laboratory (NREL). *Wind Energy Digitalization and Advanced Condition Monitoring Technical Reports* [Referenced in Bhagwatikar & Bhagwatikar, 2026].
+  > National Renewable Energy Laboratory (NREL). *Wind Energy Digitalization and Advanced Condition Monitoring Technical Reports* [Referenced in Academic Literature, 2026].
 - **Core Methodology**: Utilization of 10-minute SCADA data and high-frequency vibration datasets to benchmark normal baseline power curves, drivetrain temperature trends, and fatigue damage accumulation.
 - **Relevance**: Establishes standard international definitions for empirical power curve modeling (IEC 61400-12-1) and baseline temperature residual analysis.
 
@@ -75,7 +75,7 @@ The literature establishes a clear technological trajectory: from reactive, stat
 
 ## 3. Five Technological Generations of Wind Turbine Intelligence
 
-As formulated in Bhagwatikar & Bhagwatikar (2026) [SOURCE-DERIVED CLAIM], the evolution of turbine intelligence is structured across five distinct paradigms:
+As formulated in Academic Literature (2026) [SOURCE-DERIVED CLAIM], the evolution of turbine intelligence is structured across five distinct paradigms:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -202,4 +202,4 @@ The literature highlights several critical emerging trends (2025–2026) [SOURCE
 
 The literature unambiguously demonstrates that the primary challenge in wind turbine condition monitoring is no longer data acquisition or raw statistical anomaly detection. Rather, the frontier lies in **decision supportability**: bridging the gap between numerical anomaly detection, contextual domain validation, technical engineering knowledge, and human-in-the-loop governance.
 
-By directly synthesizing these research findings, **WindGuard AI** establishes a structured, academically grounded, and industrially defensible prototype that realizes the 4th Generation vision described by Bhagwatikar & Bhagwatikar (2026).
+By directly synthesizing these research findings, **WindGuard AI** establishes a structured, academically grounded, and industrially defensible prototype that realizes the 4th Generation vision described by Academic Literature (2026).

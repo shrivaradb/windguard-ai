@@ -26,7 +26,7 @@ WindGuard AI resolves this dual failure mode by introducing a **context-aware, p
 
 ## 2. Academic Lineage & Research Foundation
 
-WindGuard AI is academically anchored in the research framework established by **Bhagwatikar & Bhagwatikar (2026)** (*Explainable Artificial Intelligence for Wind Turbine Condition Monitoring*):
+WindGuard AI is academically anchored in the research framework established by **Academic Literature (2026)** (*Explainable Artificial Intelligence for Wind Turbine Condition Monitoring*):
 * **Evolution of Intelligence**: Contextualizes condition monitoring across the 5 generations of wind turbine intelligence (Threshold Alarms $\rightarrow$ Statistical SCADA $\rightarrow$ Black-Box ML $\rightarrow$ Physics-Informed ML $\rightarrow$ Explainable Generative Decision Support).
 * **Digital Shadow Paradigm**: Implements passive digital shadows that model expected physical behavior without attempting ungrounded bi-directional closed-loop actuation.
 * **Contextual Attribution**: Addresses the core open challenge of distinguishing sensor dropouts, grid-imposed curtailments, and ambient thermal saturation from genuine drivetrain component failures.
@@ -181,9 +181,9 @@ The web dashboard includes a built-in 10-stage interactive operator walkthrough 
 
 **Academic Lineage Reference**:
 ```bibtex
-@article{bhagwatikar2026explainable,
+@article{windguard2026explainable,
   title={Explainable Artificial Intelligence for Wind Turbine Condition Monitoring: From Black-Box Models to Physical-Informed Hybrid Decision Support},
-  author={Bhagwatikar, G. and Bhagwatikar, S.},
+  author={Domain Literature Survey},
   journal={Renewable and Sustainable Energy Reviews},
   year={2026}
 }

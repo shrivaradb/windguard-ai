@@ -56,7 +56,7 @@ Phase 9 successfully delivers the complete, publication-grade submission dossier
 * **Target Deliverables**: `requirements.txt`, `README.md`, `run_demo.py`
 * **Audit Result**:
   - `requirements.txt`: Created with pinned dependencies (`fastapi`, `uvicorn`, `pydantic`, `scikit-learn`, `numpy`, `pandas`, `portalocker`, `pytest`, `requests`, `jinja2`). Explicitly documents zero cloud LLM dependencies.
-  - `README.md`: Created with comprehensive project overview, Bhagwatikar 2026 academic lineage, 6-layer architecture, native Python quickstart guide, test/evaluation commands, verified empirical metrics, and safety boundaries.
+  - `README.md`: Created with comprehensive project overview, Academic Literature (2026) academic lineage, 6-layer architecture, native Python quickstart guide, test/evaluation commands, verified empirical metrics, and safety boundaries.
   - `run_demo.py`: Created lightweight standalone Python launcher verifying Python >= 3.10, launching ASGI Uvicorn backend, and automatically opening the Operator Studio UI in the default browser.
 
 ### 2.2 `WS-P9-02`: Master Technical Architecture Report

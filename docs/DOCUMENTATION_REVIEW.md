@@ -28,7 +28,7 @@ depends_on:
 
 This document presents the comprehensive post-hardening consistency audit, completeness evaluation, and quality review of the **16-document WindGuard AI Specification Suite** (`docs/00` to `docs/14` and root `implementation_plan.md`). 
 
-The documentation establishes an academically grounded, mathematically formulated, and technically actionable blueprint directly operationalizing the research survey of **Bhagwatikar & Bhagwatikar (2026)** [Established] for the **1M1B AI for Sustainability Virtual Internship in collaboration with IBM SkillsBuild & AICTE**.
+The documentation establishes an academically grounded, mathematically formulated, and technically actionable blueprint directly operationalizing the research survey of **Academic Literature (2026)** [Established] for the **1M1B AI for Sustainability Virtual Internship in collaboration with IBM SkillsBuild & AICTE**.
 
 ---
 
@@ -83,7 +83,7 @@ The documentation establishes an academically grounded, mathematically formulate
       - [BENCHMARK]: Industry baselines and literature reference levels.
       - [MEASURED RESULT]: None yet (zero fabricated measurements prior to implementation).
       - [ASSUMPTION]: Engineering baselines (e.g. ₹3.20/kWh default tariff, 10-min SCADA).
-      - [SOURCE-DERIVED CLAIM]: Citations from Bhagwatikar & Bhagwatikar (2026) and OEMs.
+      - [SOURCE-DERIVED CLAIM]: Citations from Academic Literature (2026) and OEMs.
 
   [✓] MULTI-MODE TARIFF ARCHITECTURE & PROVENANCE
       Reframed ₹3.20/kWh as an [ASSUMPTION / CONFIGURABLE BASELINE] rather than
@@ -125,7 +125,7 @@ The documentation establishes an academically grounded, mathematically formulate
 
 ## 5. Resolved Source Material Conflicts
 
-During the review of the primary research paper (**Bhagwatikar & Bhagwatikar, 2026**) and initial project notes, two critical tensions were identified and formally resolved:
+During the review of the primary research paper (**Academic Literature, 2026**) and initial project notes, two critical tensions were identified and formally resolved:
 
 1. **Autonomous Control vs. Decision Support**:
    - *Conflict*: Sections XXIX and XXXII of the paper discuss the 2030–2040 vision of "Autonomous Wind Farms" where AI directly optimizes pitch and dispatch.

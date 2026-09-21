@@ -11,7 +11,7 @@ WindGuard AI is an integrated, explainable decision-support platform designed to
 
 ### Grounding in Reference Literature
 The project builds directly upon the conceptual frameworks articulated in the reference research paper:
-> *“Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems”* (Tejal Bhagwatikar & Shrivarad Bhagwatikar, 2026) [Established].
+> *“Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems”* (Academic Research Survey (2026), 2026) [Established].
 
 Key insights incorporated from the paper:
 1. **The Evolution of Turbine Intelligence**: Moving from purely reactive threshold SCADA monitoring $\to$ Machine Learning prediction $\to$ Hybrid Physics-Data-Knowledge systems $\to$ Supervised Decision Support (Sections II, XXVIII).

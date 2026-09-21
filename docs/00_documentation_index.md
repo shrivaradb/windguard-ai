@@ -11,7 +11,7 @@ depends_on: []
 
 ## 1. Purpose of the Documentation System
 
-The **WindGuard AI Documentation Baseline** serves as the authoritative, self-contained engineering specification for all research, architecture, implementation, evaluation, and deployment phases. It establishes an unbroken traceability chain connecting domain research findings (**Bhagwatikar & Bhagwatikar, 2026**), user requirements, mathematical models, system architecture, API contracts, empirical benchmarks, and oral viva defense materials.
+The **WindGuard AI Documentation Baseline** serves as the authoritative, self-contained engineering specification for all research, architecture, implementation, evaluation, and deployment phases. It establishes an unbroken traceability chain connecting domain research findings (**Academic Literature, 2026**), user requirements, mathematical models, system architecture, API contracts, empirical benchmarks, and oral viva defense materials.
 
 ---
 
@@ -82,7 +82,7 @@ flowchart TD
 | :--- | :--- | :---: | :---: | :--- |
 | [`00_documentation_index.md`](file:///c:/Users/shriv/OneDrive/Desktop/WindGuardAI/docs/00_documentation_index.md) | Documentation Index & Governance | 1.0 | `PUBLISHED` | Master documentation map, hierarchy, and traceability. |
 | [`01_problem_statement.md`](file:///c:/Users/shriv/OneDrive/Desktop/WindGuardAI/docs/01_problem_statement.md) | Problem Statement & Objectives | 0.2 | `FROZEN` | O&M crisis, stakeholders, scope, and SDG 7 alignment. |
-| [`02_literature_review.md`](file:///c:/Users/shriv/OneDrive/Desktop/WindGuardAI/docs/02_literature_review.md) | Academic Literature Review | 0.2 | `FROZEN` | State-of-the-art, 5 intelligence generations, Bhagwatikar 2026. |
+| [`02_literature_review.md`](file:///c:/Users/shriv/OneDrive/Desktop/WindGuardAI/docs/02_literature_review.md) | Academic Literature Review | 0.2 | `FROZEN` | State-of-the-art, 5 intelligence generations, Academic Literature (2026). |
 | [`03_gap_analysis.md`](file:///c:/Users/shriv/OneDrive/Desktop/WindGuardAI/docs/03_gap_analysis.md) | Technical & Operational Gap Analysis | 0.2 | `FROZEN` | 8-dimension gap matrix, research & field evidence. |
 | [`04_proposed_solution.md`](file:///c:/Users/shriv/OneDrive/Desktop/WindGuardAI/docs/04_proposed_solution.md) | Proposed Solution Architecture | 0.2 | `FROZEN` | Hybrid decision-support philosophy, 8 core modules. |
 | [`05_uniqueness_and_innovation.md`](file:///c:/Users/shriv/OneDrive/Desktop/WindGuardAI/docs/05_uniqueness_and_innovation.md) | Uniqueness & Novelty Analysis | 0.2 | `FROZEN` | 4-tier contribution taxonomy, core innovation hypothesis. |

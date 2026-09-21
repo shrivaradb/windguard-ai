@@ -68,8 +68,8 @@ The Project Owner has explicitly granted binding approval for **Option A** acros
    - Authorizes native Python execution path (`requirements.txt`, root `README.md`, standalone `run_demo.py`) for Python 3.10–3.13 without container daemon overhead.
    - *Status*: **`OWNER APPROVED & FROZEN`**
 
-3. **`OD-P9-03` — Academic Paper Alignment**: **`A — Bhagwatikar 2026 Lineage`**
-   - Formally integrates the academic research lineage of **Bhagwatikar & Bhagwatikar (2026)** into technical reports, model cards, presentation slides, and viva preparation.
+3. **`OD-P9-03` — Academic Paper Alignment**: **`A — Academic Literature Lineage`**
+   - Formally integrates the academic research lineage of **Academic Literature (2026)** into technical reports, model cards, presentation slides, and viva preparation.
    - *Status*: **`OWNER APPROVED & FROZEN`**
 
 4. **`OD-P9-04` — ML Model Cards Presentation**: **`A — Dedicated Model Cards`**

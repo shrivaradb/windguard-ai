@@ -16,7 +16,7 @@ depends_on:
 
 ## 1. AI/ML Objectives & Scope
 
-The AI/ML subsystem of **WindGuard AI** is designed to provide robust, explainable, and computationally efficient decision support for wind turbine condition monitoring. In alignment with Bhagwatikar & Bhagwatikar (2026) [Established], the AI/ML design strictly enforces:
+The AI/ML subsystem of **WindGuard AI** is designed to provide robust, explainable, and computationally efficient decision support for wind turbine condition monitoring. In alignment with Academic Literature (2026) [Established], the AI/ML design strictly enforces:
 1. **Physics-Grounded Expected Behaviour Modeling**: Modeling the non-linear aerodynamic power curve and thermodynamic component equilibrium.
 2. **Context-Aware Residual Filtering**: Discriminating between true equipment degradation and environmental/grid operational transients (`is_curtailed`, heatwaves, low-wind idle).
 3. **Multi-Signal Subsystem Attribution**: Isolating mechanical, electrical, aerodynamic, and sensor failure modes.
