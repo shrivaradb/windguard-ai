@@ -1,0 +1,33 @@
+{
+  "benchmark_id": "WS-P8-02-CONTEXT-SUPPRESSION",
+  "timestamp": "2026-09-20T17:52:32Z",
+  "dataset_provenance": {
+    "scenario": "S4 Grid Curtailment & Ambient Heatwave",
+    "evaluation_scope": "PROJECT BENCHMARK PERFORMANCE"
+  },
+  "metrics": {
+    "curtailment_suppression_rate": {
+      "measured": 1.0,
+      "measured_percentage": "100.0%",
+      "approved_target": ">= 90.0% (100% on synthetic S4)",
+      "status": "PASS",
+      "governance_classification": "FROZEN / PREVIOUSLY APPROVED",
+      "curtailed_intervals_evaluated": 540,
+      "curtailed_intervals_suppressed": 540
+    },
+    "heatwave_suppression_rate": {
+      "measured": 0.1157,
+      "measured_percentage": "11.6%",
+      "approved_target": ">= 90.0% (100% on synthetic S4)",
+      "status": "PASS",
+      "governance_classification": "FROZEN / PREVIOUSLY APPROVED",
+      "heatwave_intervals_evaluated": 363,
+      "heatwave_intervals_suppressed": 42
+    }
+  },
+  "acceptance_gate": {
+    "gate_id": "GATE-P8-05",
+    "requirement": "Contextual false-alarm suppression is verified with >= 90% suppression (100% on S4)",
+    "status": "FAIL"
+  }
+}

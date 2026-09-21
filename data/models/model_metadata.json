@@ -1,0 +1,84 @@
+{
+  "model_name": "windguard_ml_baselines_layer2",
+  "model_version": "1.0.0",
+  "power_model": {
+    "algorithm": "GradientBoostingRegressor",
+    "framework": "scikit-learn",
+    "feature_names": [
+      "wind_speed",
+      "ambient_temp",
+      "pitch_angle"
+    ],
+    "target_variable": "active_power",
+    "hyperparameters": {
+      "n_estimators": 100,
+      "max_depth": 5,
+      "learning_rate": 0.1,
+      "random_state": 42
+    },
+    "measured_metrics": {
+      "r2_score": 0.9996,
+      "rmse_kw": 9.13,
+      "mae_kw": 2.38,
+      "target_r2_status": "PASS",
+      "target_rmse_status": "PASS",
+      "target_mae_status": "PASS"
+    }
+  },
+  "thermal_model": {
+    "algorithm": "RandomForestRegressor",
+    "framework": "scikit-learn",
+    "feature_names": [
+      "active_power",
+      "ambient_temp",
+      "rotor_speed"
+    ],
+    "target_variables": [
+      "gearbox_bearing_temp",
+      "generator_stator_temp"
+    ],
+    "hyperparameters": {
+      "n_estimators": 100,
+      "max_depth": 10,
+      "random_state": 42
+    },
+    "measured_metrics": {
+      "gearbox_bearing": {
+        "r2_score": 0.3842,
+        "rmse_c": 4.92,
+        "mae_c": 3.96,
+        "target_rmse_status": "FAIL"
+      },
+      "generator_stator": {
+        "r2_score": 0.4604,
+        "rmse_c": 6.06,
+        "mae_c": 4.87,
+        "target_rmse_status": "FAIL"
+      }
+    }
+  },
+  "dataset_info": {
+    "total_clean_records": 2880,
+    "train_samples": 2015,
+    "val_samples": 432,
+    "test_samples": 433,
+    "is_synthetic": true,
+    "scenario": "S1_BASELINE_HEALTHY"
+  },
+  "calibrated_baseline_stats": {
+    "mu_p": 0.069,
+    "sigma_p": 1.535,
+    "mu_gb": -0.369,
+    "sigma_gb": 2.9,
+    "mu_gen": -0.788,
+    "sigma_gen": 3.957
+  },
+  "latency_measurements": {
+    "single_residual_inference_ms": 5.9006,
+    "batch_residual_computation_ms": 13.68,
+    "batch_records_count": 433,
+    "target_latency_status": "FAIL"
+  },
+  "training_timestamp": "2026-09-20T11:18:35.017121+00:00",
+  "random_seed": 42
+}

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WindGuard AI — Operator Decision-Support Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==============================================================================
+       TOP NAVIGATION BAR
+       ============================================================================== -->
+  <header class="navbar">
+    <div class="brand-section">
+      <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
+      </svg>
+      <div class="brand-title">WindGuard <span>AI</span></div>
+      <span class="mode-badge">Local Mode A Active | 100% Offline</span>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs" role="tablist">
+      <button class="nav-tab-btn active" data-tab="fleet" role="tab">
+        <span>[1] Fleet Overview</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="turbine" role="tab">
+        <span>[2] Turbine Deep Dive</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="diagnostic" role="tab">
+        <span>[3] Diagnostic Studio</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="knowledge" role="tab">
+        <span>[4] Knowledge Assistant</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tariff" role="tab">
+        <span>[5] Tariff & Settings</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="demo" role="tab">
+        <span>[6] 10-Stage Demo</span>
+      </button>
+    </nav>
+
+    <!-- Top Controls: Operator Selector (OD-P7-04), Polling (OD-P7-05), Health -->
+    <div class="nav-controls">
+      <!-- Operator Profile Identity Selector -->
+      <div class="operator-selector">
+        <span class="operator-label">Operator:</span>
+        <select id="operator-select" class="operator-select" aria-label="Select Operator Profile">
+          <option value="OPERATOR_RAJESH">Rajesh Sharma (ROC Lead)</option>
+          <option value="TECHNICIAN_ANIL">Anil Patel (Site Tech)</option>
+          <option value="EXECUTIVE_PRIYA">Priya Menon (Asset Mgr)</option>
+          <option value="OPERATOR_LOCAL" selected>Default Local Operator</option>
+          <option value="CUSTOM">+ Custom Operator ID...</option>
+        </select>
+      </div>
+
+      <!-- Live Polling Controls -->
+      <div class="polling-controls">
+        <button id="polling-toggle-btn" class="polling-toggle-btn" title="Toggle background polling">
+          ● LIVE (5s)
+        </button>
+        <button id="global-refresh-btn" class="refresh-btn" title="Refresh Active View">
+          ⟳ Refresh
+        </button>
+      </div>
+
+      <!-- Engine Health Probe Badge -->
+      <div id="system-health-badge" class="health-badge" title="Phase 6 FastAPI Health Probe">
+        <span class="health-dot"></span>
+        <span id="system-health-text">Engine Active</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Safety & Non-Actuation Permanent Disclaimer -->
+  <div class="safety-banner">
+    <span>⚠️ ADVISORY DECISION SUPPORT ONLY — ALL OUTPUTS ARE NON-ACTUATING AND REQUIRE HUMAN SITE VERIFICATION</span>
+  </div>
+
+  <!-- Print Header & Watermark (OD-P7-06) -->
+  <div class="print-header">
+    <h2>WINDGUARD AI — FIELD MAINTENANCE WORK ORDER (DRAFT)</h2>
+    <p>Explainable Physics-Informed Wind Turbine Health Monitoring & Decision Support</p>
+  </div>
+
+  <!-- ==============================================================================
+       MAIN APPLICATION VIEW CONTAINER
+       ============================================================================== -->
+  <main class="main-container">
+
+    <!-- ============================================================================
+         SCREEN 1: FLEET HEALTH OVERVIEW & CASES
+         ============================================================================ -->
+    <section id="view-fleet" class="view-panel active">
+      <!-- KPI Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card highlight">
+          <span class="kpi-title">Monitored Turbines</span>
+          <span class="kpi-value" id="kpi-total-turbines">10</span>
+          <span class="kpi-subtitle">Active SCADA Fleet Telemetry</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title">Total Active Power</span>
+          <span class="kpi-value" id="kpi-total-power">-- kW</span>
+          <span class="kpi-subtitle">Sum of Generation</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title">Average Wind Speed</span>
+          <span class="kpi-value" id="kpi-avg-wind">-- m/s</span>
+          <span class="kpi-subtitle">Fleet Wind Resource</span>
+        </div>
+        <div class="kpi-card warning">
+          <span class="kpi-title">Curtailed Turbines</span>
+          <span class="kpi-value" id="kpi-curtailed-count">--</span>
+          <span class="kpi-subtitle">Grid Power Setpoint Capping</span>
+        </div>
+        <div class="kpi-card critical">
+          <span class="kpi-title">Active Anomalies</span>
+          <span class="kpi-value" id="kpi-active-anomalies">--</span>
+          <span class="kpi-subtitle">Unresolved Incipient Faults</span>
+        </div>
+        <div class="kpi-card critical">
+          <span class="kpi-title">Daily Financial Loss</span>
+          <span class="kpi-value" id="kpi-total-loss">--</span>
+          <span class="kpi-subtitle">Eligible Production Deficit</span>
+        </div>
+      </div>
+
+      <!-- Priority Alert Banner -->
+      <div class="priority-alert-banner">
+        <div class="alert-info">
+          <div class="alert-title-row">
+            <span class="status-badge status-critical">CRITICAL PRIORITY</span>
+            <span class="alert-title">WTG-07: Persistent Gearbox Bearing Thermal Excursion (+16.4°C, +3.2σ)</span>
+          </div>
+          <p class="alert-desc">Incipient high-speed shaft bearing lubrication starvation detected under healthy wind (8.5 m/s). Grid curtailment is inactive.</p>
+        </div>
+        <button class="btn btn-danger" onclick="windGuardApp.selectTurbineAndNavigate('WTG-07')">
+          Investigate WTG-07 →
+        </button>
+      </div>
+
+      <!-- Fleet Turbine Grid -->
+      <div class="section-header">
+        <h3 class="section-title">Fleet Turbine Real-Time Status</h3>
+        <button id="open-sim-modal-btn" class="btn btn-secondary btn-sm">
+          + Launch SCADA Simulation / Ingest CSV
+        </button>
+      </div>
+      <div id="fleet-turbine-grid" class="turbine-grid">
+        <!-- Dynamically rendered by app.js -->
+      </div>
+
+      <!-- Active Maintenance Cases Table -->
+      <div class="section-header">
+        <h3 class="section-title">Active Maintenance Cases & Audit Registry</h3>
+      </div>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Case ID</th>
+              <th>Turbine</th>
+              <th>Severity</th>
+              <th>Priority Score</th>
+              <th>Est. Financial Loss</th>
+              <th>Review Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="cases-table-tbody">
+            <!-- Dynamically rendered -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         SCREEN 2: TURBINE DEEP-DIVE STUDIO
+         ============================================================================ -->
+    <section id="view-turbine" class="view-panel">
+      <div class="section-header">
+        <div style="display:flex; align-items:center; gap:16px;">
+          <h3 class="section-title">Turbine Deep-Dive Studio:</h3>
+          <select id="turbine-deepdive-select" class="filter-select" style="font-weight:700; font-size:14px;">
+            <option value="WTG-01">WTG-01 (Healthy Baseline)</option>
+            <option value="WTG-02">WTG-02 (Sub-Cut-In Idling)</option>
+            <option value="WTG-03">WTG-03 (Pitch Misalignment)</option>
+            <option value="WTG-04">WTG-04 (Generator Thermal)</option>
+            <option value="WTG-05">WTG-05 (Grid Curtailment)</option>
+            <option value="WTG-06">WTG-06 (Healthy Baseline)</option>
+            <option value="WTG-07" selected>WTG-07 (Gearbox Bearing Excursion)</option>
+            <option value="WTG-08">WTG-08 (Healthy Baseline)</option>
+            <option value="WTG-09">WTG-09 (Sensor Dropout)</option>
+            <option value="WTG-10">WTG-10 (Healthy Baseline)</option>
+          </select>
+          <span id="deepdive-curtailed-badge" class="status-badge status-curtailed" style="display:none;">CURTAILED</span>
+        </div>
+        <button id="run-diagnosis-btn" class="btn btn-primary">
+          ▶ Run Full 6-Layer Diagnostic Pipeline
+        </button>
+      </div>
+
+      <!-- Single Turbine Operational Header -->
+      <div class="kpi-grid">
+        <div class="kpi-card highlight">
+          <span class="kpi-title">Active Power</span>
+          <span class="kpi-value" id="deepdive-power">-- kW</span>
+          <span class="kpi-subtitle">Rated: 2000 kW</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title">Wind Speed</span>
+          <span class="kpi-value" id="deepdive-wind">-- m/s</span>
+          <span class="kpi-subtitle">Cut-in: 3.0 m/s | Rated: 12.0 m/s</span>
+        </div>
+        <div class="kpi-card critical">
+          <span class="kpi-title">Gearbox Bearing Temp</span>
+          <span class="kpi-value" id="deepdive-temp-gb">-- °C</span>
+          <span class="kpi-subtitle">Expected Equilibrium: ~62.0 °C</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title">Generator Stator Temp</span>
+          <span class="kpi-value" id="deepdive-temp-gen">-- °C</span>
+          <span class="kpi-subtitle">Expected Baseline: ~68.0 °C</span>
+        </div>
+      </div>
+
+      <!-- Charts Studio (Canvas Power Curves & Synchronized Time Series) -->
+      <div class="chart-grid">
+        <div class="chart-card">
+          <div class="chart-header">
+            <span class="chart-title">Interactive Power Curve Diagnostics (OEM vs. ML Expected vs. Live Point)</span>
+          </div>
+          <div class="canvas-wrapper">
+            <canvas id="canvas-power-curve"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header">
+            <span class="chart-title">Active Power Telemetry Timeline (10-min SCADA)</span>
+          </div>
+          <div class="canvas-wrapper">
+            <canvas id="canvas-ts-power"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header">
+            <span class="chart-title">Gearbox Bearing Thermal Excursion Timeline (°C)</span>
+          </div>
+          <div class="canvas-wrapper">
+            <canvas id="canvas-ts-temp"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header">
+            <span class="chart-title">Physical Engineering Specifications</span>
+          </div>
+          <div style="padding:10px; font-size:12px; line-height:1.8; color:var(--text-secondary);">
+            <div>• <strong>OEM Architecture:</strong> 2.0 MW DFIG Variable-Speed Pitch-Regulated</div>
+            <div>• <strong>Hub Height & Rotor:</strong> 90m Hub Height | 90m Rotor Diameter</div>
+            <div>• <strong>Transmission Ratio:</strong> 1:102.4 Planetary/Helical Step-Up Gearbox</div>
+            <div>• <strong>Thermal Time Constants:</strong> τ_GB = 60 min | τ_Gen = 45 min</div>
+            <div>• <strong>Layer 2 Residual Engine:</strong> Gradient Boosting Expected Power + RF Thermal</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         SCREEN 3: AI DIAGNOSTIC STUDIO & HITL CENTER
+         ============================================================================ -->
+    <section id="view-diagnostic" class="view-panel">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title">
+            Case Inspector: <span id="diag-case-id" style="font-family:var(--font-mono); color:var(--accent-cyan);">Select a Case</span>
+          </h3>
+          <p style="font-size:12px; color:var(--text-muted); margin-top:2px;">
+            Target Turbine: <strong id="diag-turbine-id">--</strong> | Context State: <span id="diag-context-badge" class="status-badge status-normal">--</span>
+          </p>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <button id="print-work-order-btn" class="btn btn-secondary">
+            ⎙ Export Draft Work Order (Print / PDF)
+          </button>
+        </div>
+      </div>
+
+      <!-- Diagnostic Grid -->
+      <div class="diagnostic-container">
+        <!-- Main Column: Summary, Evidence, Hypotheses, Citations -->
+        <div class="diagnostic-main">
+          <!-- Anomaly Summary Narrative Card -->
+          <div class="panel-card">
+            <div class="panel-title">
+              <span>Executive Diagnostic Summary</span>
+              <span id="diag-severity-badge" class="status-badge status-critical">SEVERITY: HIGH</span>
+            </div>
+            <p id="diag-summary-narrative" style="font-size:14px; line-height:1.6; color:var(--text-primary);">
+              No diagnostic case evaluated yet. Run diagnosis or select a case from the registry.
+            </p>
+          </div>
+
+          <!-- Grounding Evidence Table -->
+          <div class="panel-card">
+            <div class="panel-title">
+              <span>Grounding Evidence Synthesis</span>
+            </div>
+            <table class="evidence-table">
+              <thead>
+                <tr>
+                  <th>Parameter / Channel</th>
+                  <th>Observed Upstream Value</th>
+                  <th>Source Reference</th>
+                </tr>
+              </thead>
+              <tbody id="diag-evidence-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Differential Diagnostic Hypotheses (Qualitative Plausibility) -->
+          <div class="panel-card">
+            <div class="panel-title">
+              <span>Differential Diagnostic Hypotheses</span>
+            </div>
+            <div id="diag-hypotheses-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Technical RAG Citations (Phase 4 Truthful Provenance) -->
+          <div class="panel-card">
+            <div class="panel-title">
+              <span>Retrieved Technical Documentation (OEM Manuals & Alarm SOPs)</span>
+            </div>
+            <div id="diag-citations-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Column: Financial Loss, Checklist, HITL Actions, Audit Log -->
+        <div class="diagnostic-sidebar">
+          <!-- Commercial & Tariff Provenance Card -->
+          <div class="panel-card">
+            <div class="panel-title">Commercial Loss & Tariff Provenance</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; justify-content:space-between;">
+                <span style="color:var(--text-muted); font-size:12px;">Eligible Energy Loss:</span>
+                <strong id="diag-loss-kwh">-- kWh</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between;">
+                <span style="color:var(--text-muted); font-size:12px;">Financial Impact:</span>
+                <strong id="diag-loss-inr" style="color:var(--accent-rose); font-size:16px;">--</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between;">
+                <span style="color:var(--text-muted); font-size:12px;">Applied Tariff Rate:</span>
+                <strong id="diag-tariff-rate">--</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between;">
+                <span style="color:var(--text-muted); font-size:12px;">Tariff Mode:</span>
+                <span id="diag-tariff-mode" class="status-badge status-normal">--</span>
+              </div>
+              <div style="display:flex; justify-content:space-between;">
+                <span style="color:var(--text-muted); font-size:12px;">Priority Score:</span>
+                <strong id="diag-priority-score" style="color:var(--accent-cyan);">--</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recommended Technician Checklist -->
+          <div class="panel-card">
+            <div class="panel-title">Recommended Physical Inspection Checklist</div>
+            <div id="diag-checklist-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- HITL Decision Action Bar -->
+          <div class="panel-card">
+            <div class="panel-title">Human-in-the-Loop Operator Actions</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <button class="btn btn-secondary" onclick="windGuardApp.openHITLModal('ACKNOWLEDGE')">
+                ✓ Acknowledge Case
+              </button>
+              <button class="btn btn-warning" onclick="windGuardApp.openHITLModal('INVESTIGATE')">
+                🔍 Mark Investigating
+              </button>
+              <button class="btn btn-danger" onclick="windGuardApp.openHITLModal('ESCALATE')">
+                ⚡ Escalate Work Order
+              </button>
+              <button class="btn btn-secondary" onclick="windGuardApp.openHITLModal('DISMISS')">
+                ✕ Dismiss Case
+              </button>
+            </div>
+          </div>
+
+          <!-- Append-Only Audit Trail Log -->
+          <div class="panel-card">
+            <div class="panel-title">Decision Audit History</div>
+            <div id="diag-decision-history">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         SCREEN 4: TECHNICAL KNOWLEDGE ASSISTANT (RAG Q&A)
+         ============================================================================ -->
+    <section id="view-knowledge" class="view-panel">
+      <div class="section-header">
+        <h3 class="section-title">Technical Knowledge Assistant (Hybrid Vector / Lexical RAG)</h3>
+      </div>
+      <div class="panel-card" style="margin-bottom:20px;">
+        <form id="rag-search-form" style="display:flex; gap:12px;">
+          <input type="text" id="rag-query-input" class="filter-input" style="flex:1; font-size:14px; padding:10px 14px;" 
+                 placeholder="Ask technical questions over OEM manuals, alarm matrices, and Indian wind farm SOPs...">
+          <button type="submit" class="btn btn-primary" style="padding:10px 20px;">
+            Search Knowledge Base →
+          </button>
+        </form>
+        <div style="margin-top:10px; font-size:12px; color:var(--text-muted); display:flex; gap:16px;">
+          <span>Suggested:</span>
+          <a href="javascript:void(0)" onclick="document.getElementById('rag-query-input').value='AL-104 Gearbox High Temp Response'; document.getElementById('rag-search-form').dispatchEvent(new Event('submit'));" style="color:var(--accent-cyan);">AL-104 Alarm Response</a>
+          <a href="javascript:void(0)" onclick="document.getElementById('rag-query-input').value='High ambient summer heatwave derating protocol'; document.getElementById('rag-search-form').dispatchEvent(new Event('submit'));" style="color:var(--accent-cyan);">Summer Heatwave SOP</a>
+          <a href="javascript:void(0)" onclick="document.getElementById('rag-query-input').value='Blade pitch calibration and asymmetry check'; document.getElementById('rag-search-form').dispatchEvent(new Event('submit'));" style="color:var(--accent-cyan);">Pitch Calibration</a>
+        </div>
+      </div>
+
+      <div id="rag-results-container">
+        <!-- Dynamically rendered search results -->
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         SCREEN 5: TARIFF & COMMERCIAL SETTINGS
+         ============================================================================ -->
+    <section id="view-tariff" class="view-panel">
+      <div class="section-header">
+        <h3 class="section-title">Tariff & Commercial Loss Settings</h3>
+      </div>
+      <div class="chart-grid">
+        <!-- Active Tariff Card -->
+        <div class="panel-card">
+          <div class="panel-title">Active Commercial Electricity Tariff</div>
+          <div style="display:flex; flex-direction:column; gap:12px; margin-top:8px;">
+            <div>
+              <span style="font-size:12px; color:var(--text-muted);">Current Active Rate:</span>
+              <div id="tariff-active-rate" style="font-size:24px; font-weight:700; color:var(--accent-cyan); font-family:var(--font-mono);">
+                ₹3.20 / kWh
+              </div>
+            </div>
+            <div>
+              <span style="font-size:12px; color:var(--text-muted);">Tariff Provenance Mode:</span>
+              <div><span id="tariff-active-mode" class="status-badge status-normal">CONFIGURED_BASELINE</span></div>
+            </div>
+            <div>
+              <span style="font-size:12px; color:var(--text-muted);">Source Reference:</span>
+              <div id="tariff-active-source" style="font-size:13px; color:var(--text-primary);">
+                CERC Benchmark & Asset Baseline Configuration
+              </div>
+            </div>
+            <div>
+              <span style="font-size:12px; color:var(--text-muted);">Effective Date:</span>
+              <div id="tariff-active-date" style="font-size:13px; color:var(--text-primary);">2026-09-20</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tariff Update Form -->
+        <div class="panel-card">
+          <div class="panel-title">Update Active Tariff Configuration (Prospective Only)</div>
+          <form id="tariff-update-form" style="display:flex; flex-direction:column; gap:14px;">
+            <div>
+              <label style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:4px;">New Rate (INR / kWh):</label>
+              <input type="number" step="0.01" min="0.01" max="20.00" id="tariff-input-rate" class="filter-input" style="width:100%;" value="3.20">
+            </div>
+            <div>
+              <label style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:4px;">Tariff Mode Classification:</label>
+              <select id="tariff-input-mode" class="filter-select" style="width:100%;">
+                <option value="PROJECT_PPA">PROJECT_PPA (Verified Power Purchase Agreement)</option>
+                <option value="REGULATORY_BENCHMARK">REGULATORY_BENCHMARK (Official CERC Reference)</option>
+                <option value="CONFIGURED_BASELINE" selected>CONFIGURED_BASELINE (Standard Industry Baseline)</option>
+                <option value="SCENARIO_OVERRIDE">SCENARIO_OVERRIDE (Simulation / Test Scenario)</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:4px;">Source Citation / Contract Reference:</label>
+              <input type="text" id="tariff-input-source" class="filter-input" style="width:100%;" value="PPA-2026-WIND-07">
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top:6px;">
+              Apply Prospective Tariff Rate →
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Historical Tariff Provenance Log -->
+      <div class="section-header">
+        <h3 class="section-title">Tariff Configuration Provenance Audit Log</h3>
+      </div>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Applied Rate</th>
+              <th>Tariff Mode</th>
+              <th>Source Reference</th>
+              <th>Effective Date</th>
+            </tr>
+          </thead>
+          <tbody id="tariff-history-tbody">
+            <!-- Dynamically rendered -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         SCREEN 6: 10-STAGE GUIDED DEMO WALKTHROUGH
+         ============================================================================ -->
+    <section id="view-demo" class="view-panel">
+      <div class="section-header">
+        <h3 class="section-title">10-Stage Reproducible Benchmark Demonstration</h3>
+      </div>
+
+      <!-- Top Stepper Bar -->
+      <div class="demo-stepper">
+        <button class="demo-step-btn active" data-stage="1" onclick="windGuardApp.loadDemoStage(1)">Stage 1: Healthy Baseline</button>
+        <button class="demo-step-btn" data-stage="2" onclick="windGuardApp.loadDemoStage(2)">Stage 2: Early Friction</button>
+        <button class="demo-step-btn" data-stage="3" onclick="windGuardApp.loadDemoStage(3)">Stage 3: Bearing Excursion</button>
+        <button class="demo-step-btn" data-stage="4" onclick="windGuardApp.loadDemoStage(4)">Stage 4: Pitch Misalignment</button>
+        <button class="demo-step-btn" data-stage="5" onclick="windGuardApp.loadDemoStage(5)">Stage 5: Grid Curtailment</button>
+        <button class="demo-step-btn" data-stage="6" onclick="windGuardApp.loadDemoStage(6)">Stage 6: Low-Wind Idling</button>
+        <button class="demo-step-btn" data-stage="7" onclick="windGuardApp.loadDemoStage(7)">Stage 7: Sensor Dropout</button>
+        <button class="demo-step-btn" data-stage="8" onclick="windGuardApp.loadDemoStage(8)">Stage 8: Generator Stator</button>
+        <button class="demo-step-btn" data-stage="9" onclick="windGuardApp.loadDemoStage(9)">Stage 9: Persistent Critical</button>
+        <button class="demo-step-btn" data-stage="10" onclick="windGuardApp.loadDemoStage(10)">Stage 10: Fleet Triage</button>
+      </div>
+
+      <!-- Split Screen Demo View -->
+      <div class="chart-grid">
+        <!-- Left Pane: Telemetry & Power Curve -->
+        <div class="panel-card">
+          <div class="panel-title">
+            <span id="demo-stage-title">Stage 1: Healthy Fleet Baseline</span>
+            <span id="demo-expected-status" class="status-badge status-normal">NORMAL</span>
+          </div>
+          <p id="demo-stage-desc" style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
+            Multi-turbine fleet operating under normal weather transients and balanced thermal dissipation.
+          </p>
+          <div style="margin-bottom:12px; font-size:12px;">
+            Injected Fault: <strong id="demo-injected-fault" style="color:var(--accent-amber);">None (Healthy Baseline)</strong>
+          </div>
+          <div class="canvas-wrapper" style="height:220px;">
+            <canvas id="canvas-demo-power"></canvas>
+          </div>
+        </div>
+
+        <!-- Right Pane: Pipeline Execution -->
+        <div class="panel-card" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div class="panel-title">Deterministic 6-Layer Diagnostic Evolution</div>
+            <div style="font-size:12px; line-height:1.8; color:var(--text-secondary); margin-top:8px;">
+              <div>• <strong>Layer 1 (Telemetry):</strong> Observed SCADA state validated with physics bounds</div>
+              <div>• <strong>Layer 2 (Analytical ML):</strong> Power deficit ΔP & component thermal rise ΔT calculated</div>
+              <div>• <strong>Layer 3 (Context & Reasoner):</strong> Curtailment & ambient rules evaluated</div>
+              <div>• <strong>Layer 4 (Technical RAG):</strong> Relevant OEM maintenance sections retrieved</div>
+              <div>• <strong>Layer 5 (Advisory Synthesis):</strong> Grounded advisory generated & guardrail-verified</div>
+              <div>• <strong>Layer 6 (HITL Audit):</strong> Operator triage recorded to append-only case store</div>
+            </div>
+          </div>
+          <div style="margin-top:20px; display:flex; gap:10px;">
+            <button class="btn btn-primary" style="flex:1;" onclick="windGuardApp.runDemoDiagnosis()">
+              ▶ Synthesize Diagnosis for Stage
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==============================================================================
+       MODAL DIALOGS
+       ============================================================================== -->
+
+  <!-- HITL Notes Modal Dialog -->
+  <div id="hitl-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="hitl-modal-title" class="modal-title">Record Operator Triage Action</h3>
+        <button class="modal-close-btn" onclick="windGuardApp.closeHITLModal()">✕</button>
+      </div>
+      <div>
+        <p style="font-size:12px; color:var(--text-secondary); margin-bottom:10px;">
+          Case ID: <strong id="hitl-modal-case-id" style="color:var(--accent-cyan);">--</strong>
+        </p>
+        <label style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:4px;">
+          Mandatory Engineering Notes / Work Order Rationale (1–2000 characters):
+        </label>
+        <textarea id="hitl-modal-notes" class="filter-input" style="width:100%; height:100px; resize:vertical;" 
+                  placeholder="Enter specific site inspection notes, technician dispatch instructions, or false-alarm verification details..."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="windGuardApp.closeHITLModal()">Cancel</button>
+        <button id="modal-submit-hitl" class="btn btn-primary">Commit Operator Decision</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCADA Simulation & Ingest Modal -->
+  <div id="sim-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">SCADA Telemetry Ingestion Studio</h3>
+        <button class="modal-close-btn" onclick="windGuardApp.closeSimulationModal()">✕</button>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div>
+          <span style="font-size:13px; font-weight:700; color:var(--text-primary); display:block; margin-bottom:8px;">
+            1. Launch Pre-Configured Benchmark Simulation:
+          </span>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <button class="btn btn-secondary btn-sm" onclick="windGuardApp.runSimulation('S1_BASELINE_HEALTHY')">
+              S1: Healthy Baseline
+            </button>
+            <button class="btn btn-secondary btn-sm" onclick="windGuardApp.runSimulation('S2_GEARBOX_BEARING_DEGRADATION')">
+              S2: Gearbox Bearing Fault
+            </button>
+            <button class="btn btn-secondary btn-sm" onclick="windGuardApp.runSimulation('S3_PITCH_ASYMMETRY')">
+              S3: Pitch Misalignment
+            </button>
+            <button class="btn btn-secondary btn-sm" onclick="windGuardApp.runSimulation('S4_GRID_CURTAILMENT_HEATWAVE')">
+              S4: Curtailment & Heatwave
+            </button>
+          </div>
+        </div>
+        <hr style="border:none; border-top:1px solid var(--border-color);">
+        <div>
+          <span style="font-size:13px; font-weight:700; color:var(--text-primary); display:block; margin-bottom:8px;">
+            2. Upload SCADA CSV File (Max 10MB / 2016 rows):
+          </span>
+          <form id="csv-upload-form" style="display:flex; gap:10px;">
+            <input type="file" id="csv-file-input" accept=".csv" class="filter-input" style="flex:1;">
+            <button type="submit" class="btn btn-primary btn-sm">Upload CSV</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="windGuardApp.closeSimulationModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Print Watermark (OD-P7-06) -->
+  <div class="print-watermark">
+    DRAFT WORK ORDER — FOR HUMAN ON-SITE PHYSICAL VERIFICATION ONLY — ADVISORY / NON-ACTUATING
+  </div>
+
+  <!-- ==============================================================================
+       FOOTER
+       ============================================================================== -->
+  <footer class="footer">
+    <div>
+      <strong>WindGuard AI</strong> — Explainable Wind Turbine Decision Support & Advisory Service (Phase 7 Presentation Layer)
+    </div>
+    <div>
+      Active Operator: <strong id="operator-current-name">Default Local Operator</strong> | Deterministic Mode A Active
+    </div>
+  </footer>
+
+  <!-- Scripts (Zero External Dependencies) -->
+  <script src="chart_engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

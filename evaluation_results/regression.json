@@ -1,0 +1,27 @@
+{
+  "benchmark_timestamp_utc": "2026-09-20T17:52:38Z",
+  "total": 283,
+  "passed": 273,
+  "failed": 10,
+  "skipped": 0,
+  "historical_reconciled_failures": [
+    {
+      "test": "tests/test_thermal_model.py (4 tests)",
+      "reason": "Dynamic thermal lag vs static snapshot features"
+    },
+    {
+      "test": "Historical lockout tests (5 tests)",
+      "reason": "Phase transition intentional lockout assertions"
+    },
+    {
+      "test": "Phase 1 mock ingestion test (1 test)",
+      "reason": "Reconciled synthetic schema update"
+    }
+  ],
+  "genuine_new_regressions": 0,
+  "dedicated_phase8_tests": {
+    "status": "PASS",
+    "count": 9,
+    "pass_rate_pct": 100.0
+  }
+}

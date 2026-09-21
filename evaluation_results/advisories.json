@@ -1,0 +1,44 @@
+{
+  "benchmark_id": "WS-P8-04-ADVISORY-GROUNDING-AUDIT",
+  "timestamp": "2026-09-20T17:52:35Z",
+  "dataset_provenance": {
+    "cases_audited": 60,
+    "scenarios_covered": [
+      "S2",
+      "S3",
+      "S4",
+      "S5"
+    ],
+    "evaluation_scope": "PROJECT BENCHMARK PERFORMANCE"
+  },
+  "audit_metrics": {
+    "schema_conformance_rate": {
+      "measured": 1.0,
+      "measured_percentage": "100.0%",
+      "approved_target": "100.0%",
+      "status": "PASS",
+      "governance_classification": "FROZEN / PREVIOUSLY APPROVED"
+    },
+    "numerical_fidelity_rate": {
+      "measured": 1.0,
+      "measured_percentage": "100.0%",
+      "approved_target": "100.0%",
+      "status": "PASS",
+      "governance_classification": "FROZEN / PREVIOUSLY APPROVED"
+    },
+    "citation_validity_rate": {
+      "measured": 1.0,
+      "measured_percentage": "100.0%",
+      "approved_target": "100.0%",
+      "status": "PASS",
+      "governance_classification": "FROZEN / PREVIOUSLY APPROVED"
+    },
+    "guardrail_negative_catch_rate": {
+      "measured": 1.0,
+      "measured_percentage": "100.0%",
+      "approved_target": "100.0%",
+      "status": "PASS",
+      "governance_classification": "FROZEN / PREVIOUSLY APPROVED"
+    }
+  }
+}

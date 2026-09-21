@@ -1,0 +1,68 @@
+# ==============================================================================
+# WindGuard AI — Git Ignore Policy
+# ==============================================================================
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Secrets & Environment Variables (Strict)
+.env
+.env.*
+!.env.example
+
+# IDE & Editor Artifacts
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating System Metadata
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing, Coverage & QA
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Python Linters & Typecheckers
+.mypy_cache/
+.ruff_cache/
+
+# Local Runtime Audit Logs & Transient Buffers
+*.log
+data/storage/audit_log.jsonl
+runtime/
+tmp/
+temp/
+cache/
+
+# Temporary & Lock Files
+~$*
+
+# Build & Distribution Artifacts
+dist/
+build/
+*.egg-info/

@@ -1,0 +1,13 @@
+{
+  "benchmark_id": "WS-P8-04-SAFETY-INVARIANTS",
+  "timestamp": "2026-09-20T17:52:35Z",
+  "safety_invariants": {
+    "actuation_routes_present": 0,
+    "autonomous_trip_commands_present": 0,
+    "autonomous_cmms_dispatch_present": 0,
+    "cloud_llm_calls_present": 0,
+    "disclaimer_presence_rate": "100.0%",
+    "non_actuating_phrase_compliance": "100.0%"
+  },
+  "governance_status": "ALL SAFETY INVARIANTS 100% VERIFIED"
+}

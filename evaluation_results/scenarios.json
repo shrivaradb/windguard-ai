@@ -1,0 +1,95 @@
+{
+  "benchmark_id": "WS-P8-02-SCENARIO-DETECTION",
+  "timestamp": "2026-09-20T17:52:32Z",
+  "dataset_provenance": {
+    "scenarios_evaluated": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5"
+    ],
+    "total_records": 7200,
+    "evaluation_scope": "PROJECT BENCHMARK PERFORMANCE"
+  },
+  "aggregate_confusion_matrix": {
+    "true_positives": 225,
+    "false_positives": 251,
+    "true_negatives": 6637,
+    "false_negatives": 87
+  },
+  "metrics": {
+    "precision": {
+      "measured": 0.4727,
+      "proposed_target": ">= 0.85",
+      "governance_classification": "PROPOSED \u2014 OWNER DECISION REQUIRED"
+    },
+    "recall": {
+      "measured": 0.7212,
+      "proposed_target": ">= 0.90",
+      "governance_classification": "PROPOSED \u2014 OWNER DECISION REQUIRED"
+    },
+    "f1_score": {
+      "measured": 0.5711,
+      "proposed_target": ">= 0.87",
+      "governance_classification": "PROPOSED \u2014 OWNER DECISION REQUIRED"
+    },
+    "false_alarm_rate": {
+      "measured": 0.0364,
+      "proposed_target": "<= 0.05",
+      "governance_classification": "PROPOSED \u2014 OWNER DECISION REQUIRED"
+    }
+  },
+  "per_scenario_breakdown": {
+    "S1_BASELINE_HEALTHY": {
+      "total_records": 1440,
+      "confusion_matrix": {
+        "true_positives": 0,
+        "false_positives": 0,
+        "true_negatives": 1440,
+        "false_negatives": 0
+      }
+    },
+    "S2_GEARBOX_BEARING_DEGRADATION": {
+      "total_records": 1440,
+      "confusion_matrix": {
+        "true_positives": 80,
+        "false_positives": 0,
+        "true_negatives": 1332,
+        "false_negatives": 28
+      }
+    },
+    "S3_PITCH_ASYMMETRY": {
+      "total_records": 1440,
+      "confusion_matrix": {
+        "true_positives": 49,
+        "false_positives": 0,
+        "true_negatives": 1332,
+        "false_negatives": 59
+      }
+    },
+    "S4_GRID_CURTAILMENT_HEATWAVE": {
+      "total_records": 1440,
+      "confusion_matrix": {
+        "true_positives": 0,
+        "false_positives": 251,
+        "true_negatives": 1189,
+        "false_negatives": 0
+      }
+    },
+    "S5_SENSOR_DROPOUT": {
+      "total_records": 1440,
+      "confusion_matrix": {
+        "true_positives": 96,
+        "false_positives": 0,
+        "true_negatives": 1344,
+        "false_negatives": 0
+      }
+    }
+  },
+  "acceptance_gate": {
+    "gate_id": "GATE-P8-04",
+    "requirement": "Scenario benchmark executes and produces valid confusion matrices and empirical metrics",
+    "status": "PASS"
+  }
+}

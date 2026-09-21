@@ -1,0 +1,57 @@
+{
+  "benchmark_id": "WS-P8-05-TARIFF-LOSS-VERIFICATION",
+  "timestamp": "2026-09-20T17:52:35Z",
+  "tariff_hierarchy_verification": {
+    "tiers_tested": [
+      {
+        "tier": "Tier 3: Configured Default Baseline",
+        "expected_rate": 3.2,
+        "resolved_rate": 3.2,
+        "is_match": true
+      },
+      {
+        "tier": "Tier 1: Project-Specific Verified PPA",
+        "expected_rate": 3.45,
+        "resolved_rate": 3.45,
+        "is_match": true
+      },
+      {
+        "tier": "Tier 2: Regulatory Reference Benchmark",
+        "expected_rate": 2.9,
+        "resolved_rate": 2.9,
+        "is_match": true
+      },
+      {
+        "tier": "Tier 4: Scenario Override",
+        "expected_rate": 4.1,
+        "resolved_rate": 4.1,
+        "is_match": true
+      }
+    ],
+    "all_tiers_resolved_correctly": true,
+    "governance_classification": "FROZEN / PREVIOUSLY APPROVED"
+  },
+  "mathematical_accuracy": {
+    "theoretical_expected_kwh_per_interval": 50.0,
+    "measured_energy_loss_kwh": 50.0,
+    "energy_loss_error_kwh": 0.0,
+    "theoretical_expected_financial_loss_inr": 160.0,
+    "measured_financial_loss_inr": 160.0,
+    "financial_loss_error_inr": 0.0,
+    "float_tolerance_threshold": 0.0001,
+    "curtailment_zero_loss_verified": true,
+    "status": "PASS",
+    "governance_classification": "FROZEN / PREVIOUSLY APPROVED"
+  },
+  "provenance_metadata": {
+    "tariff_mode": "CONFIGURED_BASELINE",
+    "applied_rate_inr": 3.2,
+    "source_reference": "Configured Baseline Assumption (docs/10_data_architecture.md \u00a74.2)",
+    "currency": "INR"
+  },
+  "acceptance_gate": {
+    "gate_id": "GATE-P8-08",
+    "requirement": "Tariff provenance and financial loss calculation verified with floating error < 10^-4 INR",
+    "status": "PASS"
+  }
+}
