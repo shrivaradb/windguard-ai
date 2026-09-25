@@ -1,8 +1,8 @@
 {
-  "CASE-WTG-07-20260925-B81696BF": {
-    "case_id": "CASE-WTG-07-20260925-B81696BF",
+  "CASE-WTG-07-20260925-25E69538": {
+    "case_id": "CASE-WTG-07-20260925-25E69538",
     "turbine_id": "WTG-07",
-    "created_at": "2026-09-25T18:32:51.598791Z",
+    "created_at": "2026-09-25T19:22:58.794626Z",
     "status": "INVESTIGATING",
     "severity": "HIGH",
     "priority_score": 67.13,
@@ -37,13 +37,13 @@
       "energy_loss_kwh": 0.0,
       "financial_loss_inr": 0.0,
       "tariff_provenance": {
-        "applied_rate_inr_per_kwh": 5.0,
-        "mode": "PROJECT_PPA",
-        "source_reference": "Updated PPA Rate",
-        "effective_date": "2026-09-25T18:32:28.031484Z",
+        "applied_rate_inr_per_kwh": 3.2,
+        "mode": "CONFIGURED_BASELINE",
+        "source_reference": "Configured Baseline Assumption (docs/10_data_architecture.md §4.2)",
+        "effective_date": "2026-09-20T00:00:00Z",
         "currency": "INR",
-        "is_baseline_assumption": false,
-        "notes": null
+        "is_baseline_assumption": true,
+        "notes": "Initial default demonstration tariff registry configuration."
       },
       "priority_score": 67.13,
       "severity": "HIGH",
@@ -280,7 +280,7 @@
       }
     ],
     "advisory": {
-      "case_id": "CASE-WTG-07-20260925-B81696BF",
+      "case_id": "CASE-WTG-07-20260925-25E69538",
       "timestamp": "2026-09-20T23:50:00Z",
       "turbine_id": "WTG-07",
       "status": "NORMAL_ADVISORY",
@@ -561,19 +561,19 @@
     "review_status": "MANDATORY_HUMAN_REVIEW_REQUIRED",
     "operator_decisions": [
       {
-        "decision_id": "DEC-CASE-WTG-07-20260925-B81696BF-20260925-8F363C",
+        "decision_id": "DEC-CASE-WTG-07-20260925-25E69538-20260925-AE1FE3",
         "action": "INVESTIGATE",
         "operator_id": "OPERATOR_RAJESH",
-        "timestamp": "2026-09-25T18:32:51.616728Z",
+        "timestamp": "2026-09-25T19:22:58.826904Z",
         "notes": "Verified bearing lubrication via site inspection crew."
       }
     ],
     "schema_version": "1.0.0"
   },
-  "CASE-WTG-07-20260925-34277C28": {
-    "case_id": "CASE-WTG-07-20260925-34277C28",
+  "CASE-WTG-07-20260925-8B90910F": {
+    "case_id": "CASE-WTG-07-20260925-8B90910F",
     "turbine_id": "WTG-07",
-    "created_at": "2026-09-25T18:32:51.664372Z",
+    "created_at": "2026-09-25T19:22:58.903079Z",
     "status": "OPEN",
     "severity": "HIGH",
     "priority_score": 67.13,
@@ -608,13 +608,13 @@
       "energy_loss_kwh": 0.0,
       "financial_loss_inr": 0.0,
       "tariff_provenance": {
-        "applied_rate_inr_per_kwh": 5.0,
-        "mode": "PROJECT_PPA",
-        "source_reference": "Updated PPA Rate",
-        "effective_date": "2026-09-25T18:32:28.031484Z",
+        "applied_rate_inr_per_kwh": 3.2,
+        "mode": "CONFIGURED_BASELINE",
+        "source_reference": "Configured Baseline Assumption (docs/10_data_architecture.md §4.2)",
+        "effective_date": "2026-09-20T00:00:00Z",
         "currency": "INR",
-        "is_baseline_assumption": false,
-        "notes": null
+        "is_baseline_assumption": true,
+        "notes": "Initial default demonstration tariff registry configuration."
       },
       "priority_score": 67.13,
       "severity": "HIGH",
@@ -851,7 +851,7 @@
       }
     ],
     "advisory": {
-      "case_id": "CASE-WTG-07-20260925-34277C28",
+      "case_id": "CASE-WTG-07-20260925-8B90910F",
       "timestamp": "2026-09-20T23:50:00Z",
       "turbine_id": "WTG-07",
       "status": "NORMAL_ADVISORY",
@@ -1133,10 +1133,10 @@
     "operator_decisions": [],
     "schema_version": "1.0.0"
   },
-  "CASE-WTG-07-20260925-A3FA4512": {
-    "case_id": "CASE-WTG-07-20260925-A3FA4512",
+  "CASE-WTG-07-20260925-C717A2C1": {
+    "case_id": "CASE-WTG-07-20260925-C717A2C1",
     "turbine_id": "WTG-07",
-    "created_at": "2026-09-25T18:32:51.699534Z",
+    "created_at": "2026-09-25T19:22:58.953574Z",
     "status": "DISMISSED",
     "severity": "HIGH",
     "priority_score": 67.13,
@@ -1171,13 +1171,13 @@
       "energy_loss_kwh": 0.0,
       "financial_loss_inr": 0.0,
       "tariff_provenance": {
-        "applied_rate_inr_per_kwh": 5.0,
-        "mode": "PROJECT_PPA",
-        "source_reference": "Updated PPA Rate",
-        "effective_date": "2026-09-25T18:32:28.031484Z",
+        "applied_rate_inr_per_kwh": 3.2,
+        "mode": "CONFIGURED_BASELINE",
+        "source_reference": "Configured Baseline Assumption (docs/10_data_architecture.md §4.2)",
+        "effective_date": "2026-09-20T00:00:00Z",
         "currency": "INR",
-        "is_baseline_assumption": false,
-        "notes": null
+        "is_baseline_assumption": true,
+        "notes": "Initial default demonstration tariff registry configuration."
       },
       "priority_score": 67.13,
       "severity": "HIGH",
@@ -1414,7 +1414,7 @@
       }
     ],
     "advisory": {
-      "case_id": "CASE-WTG-07-20260925-A3FA4512",
+      "case_id": "CASE-WTG-07-20260925-C717A2C1",
       "timestamp": "2026-09-20T23:50:00Z",
       "turbine_id": "WTG-07",
       "status": "NORMAL_ADVISORY",
@@ -1695,40 +1695,40 @@
     "review_status": "MANDATORY_HUMAN_REVIEW_REQUIRED",
     "operator_decisions": [
       {
-        "decision_id": "DEC-CASE-WTG-07-20260925-A3FA4512-20260925-77D2B0",
+        "decision_id": "DEC-CASE-WTG-07-20260925-C717A2C1-20260925-5ED0B3",
         "action": "ACKNOWLEDGE",
         "operator_id": "OPERATOR_LOCAL",
-        "timestamp": "2026-09-25T18:32:51.722269Z",
+        "timestamp": "2026-09-25T19:22:58.979612Z",
         "notes": "Testing action ACKNOWLEDGE with compliant operator notes."
       },
       {
-        "decision_id": "DEC-CASE-WTG-07-20260925-A3FA4512-20260925-E2A8C8",
+        "decision_id": "DEC-CASE-WTG-07-20260925-C717A2C1-20260925-7AC74F",
         "action": "INVESTIGATE",
         "operator_id": "OPERATOR_LOCAL",
-        "timestamp": "2026-09-25T18:32:51.736622Z",
+        "timestamp": "2026-09-25T19:22:59.005085Z",
         "notes": "Testing action INVESTIGATE with compliant operator notes."
       },
       {
-        "decision_id": "DEC-CASE-WTG-07-20260925-A3FA4512-20260925-DD1E97",
+        "decision_id": "DEC-CASE-WTG-07-20260925-C717A2C1-20260925-302AFA",
         "action": "ESCALATE",
         "operator_id": "OPERATOR_LOCAL",
-        "timestamp": "2026-09-25T18:32:51.752961Z",
+        "timestamp": "2026-09-25T19:22:59.026228Z",
         "notes": "Testing action ESCALATE with compliant operator notes."
       },
       {
-        "decision_id": "DEC-CASE-WTG-07-20260925-A3FA4512-20260925-96899F",
+        "decision_id": "DEC-CASE-WTG-07-20260925-C717A2C1-20260925-1AC765",
         "action": "DISMISS",
         "operator_id": "OPERATOR_LOCAL",
-        "timestamp": "2026-09-25T18:32:51.772063Z",
+        "timestamp": "2026-09-25T19:22:59.047752Z",
         "notes": "Testing action DISMISS with compliant operator notes."
       }
     ],
     "schema_version": "1.0.0"
   },
-  "CASE-WTG-07-20260925-F8174105": {
-    "case_id": "CASE-WTG-07-20260925-F8174105",
+  "CASE-WTG-07-20260925-7D934C08": {
+    "case_id": "CASE-WTG-07-20260925-7D934C08",
     "turbine_id": "WTG-07",
-    "created_at": "2026-09-25T18:32:51.865451Z",
+    "created_at": "2026-09-25T19:22:59.189755Z",
     "status": "OPEN",
     "severity": "HIGH",
     "priority_score": 67.13,
@@ -1766,7 +1766,7 @@
         "applied_rate_inr_per_kwh": 3.45,
         "mode": "PROJECT_PPA",
         "source_reference": "TEST-PPA-2026",
-        "effective_date": "2026-09-25T18:32:51.802481Z",
+        "effective_date": "2026-09-25T19:22:59.106630Z",
         "currency": "INR",
         "is_baseline_assumption": false,
         "notes": "Automated Phase 7 test update"
@@ -2006,7 +2006,7 @@
       }
     ],
     "advisory": {
-      "case_id": "CASE-WTG-07-20260925-F8174105",
+      "case_id": "CASE-WTG-07-20260925-7D934C08",
       "timestamp": "2026-09-20T23:50:00Z",
       "turbine_id": "WTG-07",
       "status": "NORMAL_ADVISORY",
@@ -2285,546 +2285,6 @@
       "violations": []
     },
     "review_status": "MANDATORY_HUMAN_REVIEW_REQUIRED",
-    "operator_decisions": [],
-    "schema_version": "1.0.0"
-  },
-  "CASE-WTG-01-20260925-8448F4AE": {
-    "case_id": "CASE-WTG-01-20260925-8448F4AE",
-    "turbine_id": "WTG-01",
-    "created_at": "2026-09-25T18:35:38.683865Z",
-    "status": "OPEN",
-    "severity": "MEDIUM",
-    "priority_score": 58.27,
-    "source_telemetry": {
-      "timestamp": "2024-03-16T23:50:00Z",
-      "turbine_id": "WTG-01",
-      "wind_speed": 4.71,
-      "active_power": 19.7,
-      "ambient_temp": 7.1,
-      "gearbox_bearing_temp": 39.5,
-      "generator_stator_temp": 28.4,
-      "pitch_angle": 0.56,
-      "rotor_speed": 9.93,
-      "is_curtailed": false,
-      "operating_status": "Running",
-      "source_provenance": "SOURCE_AUTHENTIC"
-    },
-    "derived_analytics": {
-      "expected_power_kw": 240.92,
-      "residual_power_kw": -221.22,
-      "z_power": -144.16,
-      "expected_gb_temp_c": 37.07,
-      "residual_gb_temp_c": 2.43,
-      "z_gb": 0.97,
-      "expected_gen_temp_c": 41.36,
-      "residual_gen_temp_c": -12.96,
-      "z_gen": -3.08,
-      "context_state": "NORMAL",
-      "is_context_suppressed": false,
-      "subsystem_attribution": "AERODYNAMIC_PITCH",
-      "attribution_confidence": 0.88,
-      "energy_loss_kwh": 0.0,
-      "financial_loss_inr": 0.0,
-      "tariff_provenance": {
-        "applied_rate_inr_per_kwh": 3.45,
-        "mode": "PROJECT_PPA",
-        "source_reference": "TEST-PPA-2026",
-        "effective_date": "2026-09-25T18:32:51.802481Z",
-        "currency": "INR",
-        "is_baseline_assumption": false,
-        "notes": "Automated Phase 7 test update"
-      },
-      "priority_score": 58.27,
-      "severity": "MEDIUM",
-      "priority_breakdown": {
-        "s_sev": 1.0,
-        "s_pers": 0.3333,
-        "s_conf": 0.88,
-        "s_crit": 0.6,
-        "s_loss": 0.0,
-        "w_sev": 0.25,
-        "w_pers": 0.2,
-        "w_conf": 0.2,
-        "w_crit": 0.15,
-        "w_loss": 0.2,
-        "priority_score": 58.27,
-        "severity": "MEDIUM"
-      }
-    },
-    "evidence_table": [
-      {
-        "evidence_id": "EVD-TEL-WIND_SPEED",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "wind_speed",
-        "value": 4.71,
-        "unit": "m/s",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-ACTIVE_POWER",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "active_power",
-        "value": 19.7,
-        "unit": "kW",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-AMBIENT_TEMP",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "ambient_temp",
-        "value": 7.1,
-        "unit": "°C",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-GEARBOX_BEARING_TEMP",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "gearbox_bearing_temp",
-        "value": 39.5,
-        "unit": "°C",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-GENERATOR_STATOR_TEMP",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "generator_stator_temp",
-        "value": 28.4,
-        "unit": "°C",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-PITCH_ANGLE",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "pitch_angle",
-        "value": 0.56,
-        "unit": "deg",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-ROTOR_SPEED",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "rotor_speed",
-        "value": 9.93,
-        "unit": "RPM",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-GENERATOR_SPEED",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "generator_speed",
-        "value": 1016.8,
-        "unit": "RPM",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-RESIDUAL_POWER_KW",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "residual_power_kw",
-        "value": -221.22,
-        "unit": "kW",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-Z_POWER",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "z_power",
-        "value": -144.16,
-        "unit": "sigma",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-RESIDUAL_GEARBOX_TEMP_C",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "residual_gb_temp_c",
-        "value": 2.43,
-        "unit": "°C",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-Z_GEARBOX_TEMP",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "z_gb",
-        "value": 0.97,
-        "unit": "sigma",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-RESIDUAL_GENERATOR_TEMP_C",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "residual_gen_temp_c",
-        "value": -12.96,
-        "unit": "°C",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-Z_GENERATOR_TEMP",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "z_gen",
-        "value": -3.08,
-        "unit": "sigma",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-CTX-STATE",
-        "evidence_type": "CONTEXT_CLASSIFICATION",
-        "field_name": "operational_context_state",
-        "value": "NORMAL",
-        "unit": null,
-        "source_reference": "PHASE3_CONTEXT_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-ATTR-SUBSYSTEM",
-        "evidence_type": "CONTEXT_CLASSIFICATION",
-        "field_name": "subsystem_attribution",
-        "value": "AERODYNAMIC_PITCH",
-        "unit": null,
-        "source_reference": "PHASE3_REASONER",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-ATTR-CONFIDENCE",
-        "evidence_type": "CONTEXT_CLASSIFICATION",
-        "field_name": "rule_evidence_confidence",
-        "value": 0.88,
-        "unit": "ratio",
-        "source_reference": "PHASE3_REASONER",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-LOSS-INR",
-        "evidence_type": "FINANCIAL_LOSS",
-        "field_name": "financial_loss_inr",
-        "value": 0.0,
-        "unit": "INR",
-        "source_reference": "PHASE3_LOSS_CALCULATOR",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-LOSS-ENERGY-KWH",
-        "evidence_type": "FINANCIAL_LOSS",
-        "field_name": "eligible_degradation_energy_kwh",
-        "value": 0.0,
-        "unit": "kWh",
-        "source_reference": "PHASE3_LOSS_CALCULATOR",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-PRIO-SCORE",
-        "evidence_type": "PRIORITY_SCORE",
-        "field_name": "priority_score",
-        "value": 58.27,
-        "unit": "score_0_100",
-        "source_reference": "PHASE3_PRIORITIZATION_ENGINE",
-        "content_hash": null
-      }
-    ],
-    "citations": [
-      {
-        "source_id": "SRC-DERIVED-PIT-2024",
-        "source_type": "SOURCE_DERIVED",
-        "title": "WindGuard Aerodynamic Blade & Pitch System Maintenance Guide",
-        "chapter": "Chapter 1: Pitch Angle Alignment and Encoder Calibration",
-        "section": "Section 1.1: Pitch Asymmetry Detection and Encoder Drift",
-        "source_locator": "Chapter 1: Pitch Angle Alignment and Encoder Calibration > Section 1.1: Pitch Asymmetry Detection and Encoder Drift",
-        "source_page": null,
-        "content_hash": "131dcb53af3e39485b3d8c52446bab5811e9fa75d7404b17ca24221bf45dd8e1",
-        "relevance_score": 0.4098
-      },
-      {
-        "source_id": "SRC-SYNTHETIC-PLAYBOOK-2026",
-        "source_type": "PROJECT_SYNTHETIC",
-        "title": "WindGuard Synthetic Operational Diagnostic Playbooks & Grid Curtailment Guides",
-        "chapter": "Chapter 2: High Wind Aerodynamic Power Shedding",
-        "section": "Section 2.1: Feathered Pitch Operations in High Wind Conditions",
-        "source_locator": "Chapter 2: High Wind Aerodynamic Power Shedding > Section 2.1: Feathered Pitch Operations in High Wind Conditions",
-        "source_page": null,
-        "content_hash": "4af98b3ba63428b2b927c7ebda5fbe20a937b0797ef0b51f5e4e5a70e70bb448",
-        "relevance_score": 0.2815
-      }
-    ],
-    "advisory": {
-      "case_id": "CASE-WTG-01-20260925-8448F4AE",
-      "timestamp": "2024-03-16T23:50:00Z",
-      "turbine_id": "WTG-01",
-      "status": "NORMAL_ADVISORY",
-      "primary_attribution": "AERODYNAMIC_PITCH",
-      "context_classification": "NORMAL",
-      "summary": "Aerodynamic power deficit / pitch asymmetry anomaly detected on WTG-01. Estimated financial loss: INR 0.00 with Priority Score 58.3.",
-      "evidence_synthesis": [
-        {
-          "evidence_id": "EVD-TEL-WIND_SPEED",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "wind_speed",
-          "value": 4.71,
-          "unit": "m/s",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-ACTIVE_POWER",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "active_power",
-          "value": 19.7,
-          "unit": "kW",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-AMBIENT_TEMP",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "ambient_temp",
-          "value": 7.1,
-          "unit": "°C",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-GEARBOX_BEARING_TEMP",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "gearbox_bearing_temp",
-          "value": 39.5,
-          "unit": "°C",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-GENERATOR_STATOR_TEMP",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "generator_stator_temp",
-          "value": 28.4,
-          "unit": "°C",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-PITCH_ANGLE",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "pitch_angle",
-          "value": 0.56,
-          "unit": "deg",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-ROTOR_SPEED",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "rotor_speed",
-          "value": 9.93,
-          "unit": "RPM",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-GENERATOR_SPEED",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "generator_speed",
-          "value": 1016.8,
-          "unit": "RPM",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-RESIDUAL_POWER_KW",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "residual_power_kw",
-          "value": -221.22,
-          "unit": "kW",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-Z_POWER",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "z_power",
-          "value": -144.16,
-          "unit": "sigma",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-RESIDUAL_GEARBOX_TEMP_C",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "residual_gb_temp_c",
-          "value": 2.43,
-          "unit": "°C",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-Z_GEARBOX_TEMP",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "z_gb",
-          "value": 0.97,
-          "unit": "sigma",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-RESIDUAL_GENERATOR_TEMP_C",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "residual_gen_temp_c",
-          "value": -12.96,
-          "unit": "°C",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-Z_GENERATOR_TEMP",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "z_gen",
-          "value": -3.08,
-          "unit": "sigma",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-CTX-STATE",
-          "evidence_type": "CONTEXT_CLASSIFICATION",
-          "field_name": "operational_context_state",
-          "value": "NORMAL",
-          "unit": null,
-          "source_reference": "PHASE3_CONTEXT_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-ATTR-SUBSYSTEM",
-          "evidence_type": "CONTEXT_CLASSIFICATION",
-          "field_name": "subsystem_attribution",
-          "value": "AERODYNAMIC_PITCH",
-          "unit": null,
-          "source_reference": "PHASE3_REASONER",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-ATTR-CONFIDENCE",
-          "evidence_type": "CONTEXT_CLASSIFICATION",
-          "field_name": "rule_evidence_confidence",
-          "value": 0.88,
-          "unit": "ratio",
-          "source_reference": "PHASE3_REASONER",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-LOSS-INR",
-          "evidence_type": "FINANCIAL_LOSS",
-          "field_name": "financial_loss_inr",
-          "value": 0.0,
-          "unit": "INR",
-          "source_reference": "PHASE3_LOSS_CALCULATOR",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-LOSS-ENERGY-KWH",
-          "evidence_type": "FINANCIAL_LOSS",
-          "field_name": "eligible_degradation_energy_kwh",
-          "value": 0.0,
-          "unit": "kWh",
-          "source_reference": "PHASE3_LOSS_CALCULATOR",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-PRIO-SCORE",
-          "evidence_type": "PRIORITY_SCORE",
-          "field_name": "priority_score",
-          "value": 58.27,
-          "unit": "score_0_100",
-          "source_reference": "PHASE3_PRIORITIZATION_ENGINE",
-          "content_hash": null
-        }
-      ],
-      "hypotheses": [
-        {
-          "hypothesis": "Evidence-grounded candidate explanation: Blade pitch offset error or aerodynamic degradation resulting in under-generation.",
-          "plausibility": "HIGH",
-          "grounding_evidence": [
-            "SRC-DERIVED-PIT-2024",
-            "SRC-SYNTHETIC-PLAYBOOK-2026"
-          ],
-          "missing_evidence": []
-        }
-      ],
-      "recommended_actions": [
-        {
-          "action_id": "ACT-PITCH-INSPECT-01",
-          "action_text": "Perform physical 0-degree pitch calibration check and inspect blade surface leading edges for fouling/erosion.",
-          "urgency": "SCHEDULED",
-          "target_subsystem": "AERODYNAMIC_PITCH",
-          "requires_human_approval": true,
-          "is_non_actuating": true
-        }
-      ],
-      "citations": [
-        {
-          "source_id": "SRC-DERIVED-PIT-2024",
-          "source_type": "SOURCE_DERIVED",
-          "title": "WindGuard Aerodynamic Blade & Pitch System Maintenance Guide",
-          "chapter": "Chapter 1: Pitch Angle Alignment and Encoder Calibration",
-          "section": "Section 1.1: Pitch Asymmetry Detection and Encoder Drift",
-          "source_locator": "Chapter 1: Pitch Angle Alignment and Encoder Calibration > Section 1.1: Pitch Asymmetry Detection and Encoder Drift",
-          "source_page": null,
-          "content_hash": "131dcb53af3e39485b3d8c52446bab5811e9fa75d7404b17ca24221bf45dd8e1",
-          "relevance_score": 0.4098
-        },
-        {
-          "source_id": "SRC-SYNTHETIC-PLAYBOOK-2026",
-          "source_type": "PROJECT_SYNTHETIC",
-          "title": "WindGuard Synthetic Operational Diagnostic Playbooks & Grid Curtailment Guides",
-          "chapter": "Chapter 2: High Wind Aerodynamic Power Shedding",
-          "section": "Section 2.1: Feathered Pitch Operations in High Wind Conditions",
-          "source_locator": "Chapter 2: High Wind Aerodynamic Power Shedding > Section 2.1: Feathered Pitch Operations in High Wind Conditions",
-          "source_page": null,
-          "content_hash": "4af98b3ba63428b2b927c7ebda5fbe20a937b0797ef0b51f5e4e5a70e70bb448",
-          "relevance_score": 0.2815
-        }
-      ],
-      "loss_summary_inr": 0.0,
-      "energy_loss_kwh": 0.0,
-      "priority_score": 58.27,
-      "review_status": "AUTOMATIC",
-      "guardrail_status": {
-        "verdict": "PASS",
-        "schema_valid": true,
-        "numerical_consistency_valid": true,
-        "citation_whitelist_valid": true,
-        "lexicon_scan_passed": true,
-        "context_consistency_valid": true,
-        "attribution_consistency_valid": true,
-        "safety_disclaimer_present": true,
-        "violations": []
-      },
-      "safety_disclaimer": "ADVISORY ONLY — WindGuard AI does not issue automated control commands to turbine actuators. Human engineer verification and physical inspection are strictly required prior to any operational intervention.",
-      "missing_evidence_summary": null,
-      "abstention_reason": null,
-      "fallback_reason": null,
-      "blocked_reason": null
-    },
-    "guardrails": {
-      "verdict": "PASS",
-      "schema_valid": true,
-      "numerical_consistency_valid": true,
-      "citation_whitelist_valid": true,
-      "lexicon_scan_passed": true,
-      "context_consistency_valid": true,
-      "attribution_consistency_valid": true,
-      "safety_disclaimer_present": true,
-      "violations": []
-    },
-    "review_status": "AUTOMATIC",
     "operator_decisions": [],
     "schema_version": "1.0.0"
   }
