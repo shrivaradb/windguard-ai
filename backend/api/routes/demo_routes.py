@@ -260,6 +260,7 @@ _DEMO_STAGES = {
 
 
 @router.get("/stage/{stage_id}", response_model=DemoStageResponse)
+@router.get("/stages/{stage_id}", response_model=DemoStageResponse)
 def get_demo_stage(stage_id: int) -> DemoStageResponse:
     """Returns deterministic pre-configured telemetry state for the requested demo stage (1 to 10)."""
     if stage_id not in _DEMO_STAGES:

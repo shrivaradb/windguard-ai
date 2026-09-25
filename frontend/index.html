@@ -22,7 +22,10 @@
 
     <!-- Navigation Tabs -->
     <nav class="nav-tabs" role="tablist">
-      <button class="nav-tab-btn active" data-tab="fleet" role="tab">
+      <button class="nav-tab-btn active" data-tab="dataset-studio" role="tab">
+        <span>[0] 📁 Real Data Studio</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="fleet" role="tab">
         <span>[1] Fleet Overview</span>
       </button>
       <button class="nav-tab-btn" data-tab="turbine" role="tab">
@@ -91,9 +94,222 @@
   <main class="main-container">
 
     <!-- ============================================================================
+         SCREEN 0: UNIVERSAL REAL-WORLD SCADA INGESTION & DATASET STUDIO
+         ============================================================================ -->
+    <section id="view-dataset-studio" class="view-panel active">
+      <div class="section-header">
+        <div>
+          <h2 class="view-title">📁 Universal Real-World SCADA Ingestion & Dataset Studio</h2>
+          <p class="view-subtitle">Ingest open-access / utility-scale wind turbine SCADA CSV files, auto-match OEM columns, and load curated benchmark datasets.</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-secondary btn-sm" onclick="windGuardApp.switchTab('fleet')">Go to Fleet Overview →</button>
+        </div>
+      </div>
+
+      <!-- Top Grid: Drag-and-Drop Dropzone & Real Dataset Gallery -->
+      <div class="dataset-studio-grid">
+        
+        <!-- Dropzone Card -->
+        <div class="panel-card studio-upload-card">
+          <div class="panel-title">
+            <span>Upload Real SCADA Telemetry (CSV)</span>
+            <span class="badge badge-accent">Max 50MB / 50k rows</span>
+          </div>
+          
+          <div id="csv-dropzone" class="dropzone-area">
+            <input type="file" id="studio-csv-input" accept=".csv" style="display:none;">
+            <div class="dropzone-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+              </svg>
+            </div>
+            <h4 class="dropzone-title">Drag & Drop SCADA CSV Here</h4>
+            <p class="dropzone-hint">or <button type="button" class="btn-link" id="btn-browse-csv">Browse from Computer</button></p>
+            <div class="dropzone-specs">
+              <span>• Auto-detects Vestas, GE, Gamesa, Goldwind, Engie, Kelmarsh columns</span>
+              <span>• Auto-converts MW / kW, timestamp formats, and estimates missing sensors</span>
+            </div>
+          </div>
+
+          <div id="file-info-pill" class="file-info-bar" style="display:none;">
+            <div class="file-info-left">
+              <span class="file-icon">📄</span>
+              <div>
+                <strong id="info-file-name">filename.csv</strong>
+                <span id="info-file-meta" class="file-meta-text">0 KB | 0 rows</span>
+              </div>
+            </div>
+            <button id="btn-clear-file" class="btn-clear" title="Clear file">✕</button>
+          </div>
+        </div>
+
+        <!-- 1-Click Real-World Benchmark Datasets Gallery -->
+        <div class="panel-card studio-samples-card">
+          <div class="panel-title">
+            <span>Curated Real-World Benchmark Datasets (1-Click Load)</span>
+            <span class="badge badge-success">3 Ready</span>
+          </div>
+
+          <div class="sample-cards-container">
+            <!-- Sample 1: Engie La Haute Borne -->
+            <div class="sample-dataset-item" onclick="windGuardApp.loadSampleDataset('engie_lahauteborne')">
+              <div class="sample-item-header">
+                <span class="sample-badge badge-blue">🇫🇷 France (Engie Open SCADA)</span>
+                <span class="sample-power">Senvion MM82 2.05MW</span>
+              </div>
+              <h4 class="sample-title">Engie La Haute Borne (48h SCADA)</h4>
+              <p class="sample-desc">Turbulent spring wind conditions with early high-speed shaft bearing friction degradation onset.</p>
+              <div class="sample-tags">
+                <span class="tag">Bearing Friction Onset</span>
+                <span class="tag">Non-linear Power Curve</span>
+                <span class="tag">288 Timesteps</span>
+              </div>
+              <button class="btn btn-sm btn-primary sample-load-btn">⚡ 1-Click Load & Ingest</button>
+            </div>
+
+            <!-- Sample 2: Kelmarsh Wind Farm -->
+            <div class="sample-dataset-item" onclick="windGuardApp.loadSampleDataset('kelmarsh_uk')">
+              <div class="sample-item-header">
+                <span class="sample-badge badge-amber">🇬🇧 UK (Open Data)</span>
+                <span class="sample-power">Senvion MM92 2.05MW</span>
+              </div>
+              <h4 class="sample-title">Kelmarsh Wind Farm (Grid Curtailment)</h4>
+              <p class="sample-desc">National Grid active power capping (derated to 800 kW) via pitch angle regulation challenge.</p>
+              <div class="sample-tags">
+                <span class="tag">Grid Curtailment</span>
+                <span class="tag">Pitch Shedding</span>
+                <span class="tag">False Alarm Suppression</span>
+              </div>
+              <button class="btn btn-sm btn-primary sample-load-btn">⚡ 1-Click Load & Ingest</button>
+            </div>
+
+            <!-- Sample 3: Tamil Nadu Indian Corridor -->
+            <div class="sample-dataset-item" onclick="windGuardApp.loadSampleDataset('tamilnadu_corridor')">
+              <div class="sample-item-header">
+                <span class="sample-badge badge-purple">🇮🇳 India (Muppandal Corridor)</span>
+                <span class="sample-power">Suzlon / Gamesa 2.1MW</span>
+              </div>
+              <h4 class="sample-title">Tamil Nadu Summer Heatwave (42°C)</h4>
+              <p class="sample-desc">Severe ambient thermal saturation with Indian PPA tariff tracking and thermal compensation.</p>
+              <div class="sample-tags">
+                <span class="tag">High Ambient (42°C)</span>
+                <span class="tag">Thermal Compensation</span>
+                <span class="tag">INR Tariff Engine</span>
+              </div>
+              <button class="btn btn-sm btn-primary sample-load-btn">⚡ 1-Click Load & Ingest</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Column Mapping & Inspection Panel (Appears after file selection) -->
+      <div id="column-mapping-panel" class="panel-card" style="display:none; margin-top:20px;">
+        <div class="panel-title">
+          <span>Smart Column Auto-Mapper & Inspection</span>
+          <div class="rating-selector-wrapper">
+            <label for="studio-rated-power-select">Turbine Rated Power:</label>
+            <select id="studio-rated-power-select" class="filter-input-sm">
+              <option value="AUTO" selected>Auto-Detect from Data (~2.0MW)</option>
+              <option value="1500">1.5 MW (1500 kW - GE 1.5sle / Goldwind)</option>
+              <option value="2000">2.0 MW (2000 kW - Vestas V90 / Gamesa G90)</option>
+              <option value="2050">2.05 MW (2050 kW - Senvion MM82/92)</option>
+              <option value="2100">2.1 MW (2100 kW - Suzlon S111 / Gamesa G97)</option>
+              <option value="3000">3.0 MW (3000 kW - Vestas V112 / Siemens)</option>
+              <option value="3450">3.45 MW (3450 kW - Vestas V126)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mapper-summary-row">
+          <div class="mapper-stat"><span class="lbl">Detected Rows:</span> <strong id="map-rows-count">--</strong></div>
+          <div class="mapper-stat"><span class="lbl">Columns in CSV:</span> <strong id="map-cols-count">--</strong></div>
+          <div class="mapper-stat"><span class="lbl">Turbine IDs:</span> <strong id="map-turbines-detected">--</strong></div>
+          <div class="mapper-stat"><span class="lbl">Date Range:</span> <strong id="map-date-range">--</strong></div>
+        </div>
+
+        <div class="table-container" style="margin-top:15px; max-height:400px; overflow-y:auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width:22%;">WindGuard Canonical Channel</th>
+                <th style="width:12%;">Requirement</th>
+                <th style="width:30%;">Matched CSV Column Header</th>
+                <th style="width:16%;">Match Status</th>
+                <th style="width:20%;">Channel Description</th>
+              </tr>
+            </thead>
+            <tbody id="column-mapping-tbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mapper-actions-row">
+          <button id="btn-confirm-ingest-custom" class="btn btn-primary">
+            🚀 Ingest Dataset into Active Fleet Telemetry
+          </button>
+          <button id="btn-reset-studio-file" class="btn btn-secondary">
+            ✕ Clear Selection
+          </button>
+        </div>
+      </div>
+
+      <!-- Real Data Health & Validation Summary (Populated after ingestion) -->
+      <div id="data-health-scorecard" class="panel-card" style="display:none; margin-top:20px;">
+        <div class="panel-title">
+          <span>Dataset Health & Quality Scorecard</span>
+          <span id="scorecard-status-badge" class="badge badge-success">Ingestion Complete</span>
+        </div>
+
+        <div class="scorecard-grid">
+          <div class="score-card">
+            <span class="score-label">Accepted Telemetry Records</span>
+            <span class="score-val" id="score-accepted-count">--</span>
+            <span class="score-sub">Cached in TelemetryStore</span>
+          </div>
+          <div class="score-card">
+            <span class="score-label">Imputed Sensor Gaps</span>
+            <span class="score-val" id="score-interpolated-count">0</span>
+            <span class="score-sub">Linear physical interpolation</span>
+          </div>
+          <div class="score-card">
+            <span class="score-label">Sensor Dropouts Isolated</span>
+            <span class="score-val" id="score-dropout-count">0</span>
+            <span class="score-sub">Plausibility flag applied</span>
+          </div>
+          <div class="score-card highlight">
+            <span class="score-label">Active Turbines in Fleet</span>
+            <span class="score-val" id="score-fleet-count">--</span>
+            <span class="score-sub">Ready for 6-Layer Diagnosis</span>
+          </div>
+        </div>
+
+        <div class="scorecard-actions">
+          <button class="btn btn-primary" onclick="windGuardApp.switchTab('fleet')">
+            View Ingested Fleet Telemetry →
+          </button>
+          <button class="btn btn-secondary" onclick="windGuardApp.switchTab('turbine')">
+            Open Power Curve & Turbine Deep Dive →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================
          SCREEN 1: FLEET HEALTH OVERVIEW & CASES
          ============================================================================ -->
-    <section id="view-fleet" class="view-panel active">
+    <section id="view-fleet" class="view-panel">
+      <!-- Quick Filter Bar -->
+      <div class="fleet-filter-bar">
+        <span class="filter-label">Filter Turbines:</span>
+        <button class="filter-pill active" data-fleet-filter="all">All Turbines (<span id="filter-all-count">10</span>)</button>
+        <button class="filter-pill" data-fleet-filter="healthy">● Healthy</button>
+        <button class="filter-pill filter-pill-danger" data-fleet-filter="anomaly">● Active Anomalies</button>
+        <button class="filter-pill filter-pill-warning" data-fleet-filter="curtailed">● Curtailed</button>
+      </div>
+
       <!-- KPI Cards -->
       <div class="kpi-grid">
         <div class="kpi-card highlight">
@@ -231,10 +447,20 @@
       <div class="chart-grid">
         <div class="chart-card">
           <div class="chart-header">
-            <span class="chart-title">Interactive Power Curve Diagnostics (OEM vs. ML Expected vs. Live Point)</span>
+            <span class="chart-title">Interactive Real SCADA Power Curve (OEM vs. ML Expected vs. Real Points)</span>
+            <div class="scatter-filter-group">
+              <button class="scatter-pill active" data-scatter-filter="all">● All Points</button>
+              <button class="scatter-pill pill-cyan" data-scatter-filter="normal">● Normal</button>
+              <button class="scatter-pill pill-amber" data-scatter-filter="curtailed">● Curtailed</button>
+              <button class="scatter-pill pill-coral" data-scatter-filter="anomaly">● Anomaly</button>
+              <button class="scatter-pill pill-purple" data-scatter-filter="dropout">● Dropout</button>
+            </div>
           </div>
           <div class="canvas-wrapper">
             <canvas id="canvas-power-curve"></canvas>
+          </div>
+          <div id="power-curve-hover-readout" class="chart-hover-readout">
+            <span>Hover over any point to inspect timestamp, wind speed, actual vs expected power, and residual.</span>
           </div>
         </div>
         <div class="chart-card">
@@ -418,18 +644,23 @@
         <h3 class="section-title">Technical Knowledge Assistant (Hybrid Vector / Lexical RAG)</h3>
       </div>
       <div class="panel-card" style="margin-bottom:20px;">
-        <form id="rag-search-form" style="display:flex; gap:12px;">
+        <form id="rag-search-form" style="display:flex; gap:12px; align-items:center;">
           <input type="text" id="rag-query-input" class="filter-input" style="flex:1; font-size:14px; padding:10px 14px;" 
                  placeholder="Ask technical questions over OEM manuals, alarm matrices, and Indian wind farm SOPs...">
+          <select id="rag-mode-select" class="filter-select" style="min-width:180px; padding:10px 12px; font-size:13px;">
+            <option value="HYBRID_LOCAL" selected>⚡ Hybrid (Dense + BM25)</option>
+            <option value="BM25_LOCAL">📖 BM25 (Lexical Only)</option>
+            <option value="TFIDF_LOCAL">🔍 TF-IDF (Fallback)</option>
+          </select>
           <button type="submit" class="btn btn-primary" style="padding:10px 20px;">
             Search Knowledge Base →
           </button>
         </form>
-        <div style="margin-top:10px; font-size:12px; color:var(--text-muted); display:flex; gap:16px;">
-          <span>Suggested:</span>
-          <a href="javascript:void(0)" onclick="document.getElementById('rag-query-input').value='AL-104 Gearbox High Temp Response'; document.getElementById('rag-search-form').dispatchEvent(new Event('submit'));" style="color:var(--accent-cyan);">AL-104 Alarm Response</a>
-          <a href="javascript:void(0)" onclick="document.getElementById('rag-query-input').value='High ambient summer heatwave derating protocol'; document.getElementById('rag-search-form').dispatchEvent(new Event('submit'));" style="color:var(--accent-cyan);">Summer Heatwave SOP</a>
-          <a href="javascript:void(0)" onclick="document.getElementById('rag-query-input').value='Blade pitch calibration and asymmetry check'; document.getElementById('rag-search-form').dispatchEvent(new Event('submit'));" style="color:var(--accent-cyan);">Pitch Calibration</a>
+        <div style="margin-top:12px; font-size:12px; color:var(--text-muted); display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+          <span>Suggested Queries:</span>
+          <button type="button" class="tag" style="cursor:pointer; color:var(--accent-cyan);" onclick="windGuardApp.triggerRAGSuggestion('AL-104 Gearbox High Temp Response')">AL-104 Alarm Response</button>
+          <button type="button" class="tag" style="cursor:pointer; color:var(--accent-cyan);" onclick="windGuardApp.triggerRAGSuggestion('High ambient summer heatwave derating protocol')">Summer Heatwave SOP</button>
+          <button type="button" class="tag" style="cursor:pointer; color:var(--accent-cyan);" onclick="windGuardApp.triggerRAGSuggestion('Blade pitch calibration and asymmetry check')">Pitch Calibration</button>
         </div>
       </div>
 

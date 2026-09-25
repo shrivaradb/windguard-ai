@@ -1,7 +1,8 @@
 """SCADA Dataset Loader and Ingestion Pipeline.
 
 Supports ingestion from CSV, JSON, and in-memory tabular structures.
-Enforces canonical schema standardization with backward-compatible alias parsing.
+Enforces canonical schema standardization with backward-compatible alias parsing
+and universal real-world dataset fuzzy matching.
 
 Source:
 - docs/07_srs.md §3.1 (SRS-DATA-01)
@@ -15,16 +16,28 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 import pandas as pd
 
 from backend.data.preprocessor import SCADAPreprocessor
+from backend.data.real_data_pipeline import UniversalSCADAPipeline
 from backend.data.schema import TelemetryRecord, ValidationSummary
 
 
 class SCADADataLoader:
     """Ingests, standardizes, and validates SCADA telemetry streams."""
 
-    def __init__(self, preprocessor: Optional[SCADAPreprocessor] = None):
+    def __init__(
+        self,
+        preprocessor: Optional[SCADAPreprocessor] = None,
+        universal_pipeline: Optional[UniversalSCADAPipeline] = None
+    ):
         self.preprocessor = preprocessor or SCADAPreprocessor()
+        self.universal_pipeline = universal_pipeline or UniversalSCADAPipeline()
 
-    def load_from_csv(self, file_path: Union[str, Path]) -> Tuple[List[TelemetryRecord], ValidationSummary]:
+    def load_from_csv(
+        self,
+        file_path: Union[str, Path],
+        use_universal: bool = False,
+        custom_mapping: Optional[Dict[str, str]] = None,
+        rated_power_kw_override: Optional[float] = None
+    ) -> Tuple[List[TelemetryRecord], ValidationSummary]:
         """Loads and processes SCADA telemetry from a CSV file."""
         path = Path(file_path)
         if not path.exists():
@@ -34,6 +47,14 @@ class SCADADataLoader:
             df = pd.read_csv(path)
         except Exception as err:
             raise ValueError(f"Failed to parse CSV file at {path}: {err}")
+
+        if use_universal:
+            records, summary, _ = self.universal_pipeline.process_dataframe(
+                df,
+                custom_mapping=custom_mapping,
+                rated_power_kw_override=rated_power_kw_override
+            )
+            return records, summary
 
         return self.process_dataframe(df)
 
@@ -72,7 +93,7 @@ class SCADADataLoader:
         return self.process_dataframe(df)
 
     def process_dataframe(self, df: pd.DataFrame) -> Tuple[List[TelemetryRecord], ValidationSummary]:
-        """Standardizes column headers and delegates to SCADAPreprocessor."""
+        """Standardizes column headers and delegates to SCADAPreprocessor with universal fallback."""
         # 1. Normalize column headers: lowercase, trim, replace spaces with underscores
         df = df.copy()
         df.columns = [str(c).strip().lower().replace(" ", "_").replace("-", "_") for c in df.columns]
@@ -98,7 +119,32 @@ class SCADADataLoader:
             if old_col in df.columns and new_col not in df.columns:
                 df.rename(columns={old_col: new_col}, inplace=True)
 
-        return self.preprocessor.process_dataframe(df)
+        # Check if canonical features exist; if not, use universal pipeline
+        has_canonical = ("wind_speed" in df.columns and "active_power" in df.columns)
+        if not has_canonical:
+            records, summary, _ = self.universal_pipeline.process_dataframe(df)
+            return records, summary
+
+        # Try standard preprocessor
+        records, summary = self.preprocessor.process_dataframe(df)
+        if summary.accepted_records == 0 and len(df) > 0:
+            # Fallback to universal pipeline for real datasets with missing non-critical channels
+            records, summary, _ = self.universal_pipeline.process_dataframe(df)
+
+        return records, summary
+
+    def process_dataframe_universal(
+        self,
+        df: pd.DataFrame,
+        custom_mapping: Optional[Dict[str, str]] = None,
+        rated_power_kw_override: Optional[float] = None
+    ) -> Tuple[List[TelemetryRecord], ValidationSummary, Dict[str, Any]]:
+        """Directly invokes universal pipeline with custom mappings and turbine rating."""
+        return self.universal_pipeline.process_dataframe(
+            df,
+            custom_mapping=custom_mapping,
+            rated_power_kw_override=rated_power_kw_override
+        )
 
     def export_to_csv(self, records: List[TelemetryRecord], output_path: Union[str, Path]) -> Path:
         """Exports validated telemetry records to a CSV file."""

@@ -75,8 +75,24 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
         raise RuntimeError(f"Fail-closed: Missing RAG corpus: {err}")
 
     # Initialize case store and telemetry store
-    _ = get_telemetry_store()
-    _ = get_case_store()
+    tel_store = get_telemetry_store()
+    case_st = get_case_store()
+    if len(tel_store.get_turbine_ids()) == 0:
+        try:
+            from backend.data.scada_generator import SCADASimulator
+            from backend.data.schema import SimulationConfig, BenchmarkScenarioType
+            sim = SCADASimulator()
+            sim_res = sim.simulate(SimulationConfig(
+                scenario=BenchmarkScenarioType.S2_GEARBOX_BEARING_DEGRADATION,
+                num_turbines=10,
+                num_timesteps=72,
+                random_seed=42,
+            ))
+            tel_store.add_records(sim_res.records)
+            logger.info(f"Telemetry cache auto-seeded with 10-turbine benchmark fleet ({len(sim_res.records)} records).")
+        except Exception as seed_err:
+            logger.warning(f"Could not auto-seed telemetry cache on startup: {seed_err}")
+
     logger.info("Layer 6 Storage and Telemetry Cache initialized.")
 
     logger.info("WindGuard AI REST Service ready.")

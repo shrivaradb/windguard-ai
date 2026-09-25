@@ -1,9 +1,9 @@
 /**
  * WindGuard AI — Lightweight Canvas Charting Engine
- * Phase 7 Presentation Layer (Layer 6 UI)
+ * Phase 7 Presentation Layer (Layer 6 UI) & Real-World SCADA Inspector
  * 
  * Provides high-performance 2D Canvas rendering for:
- * 1. Power Curves (OEM Baseline, ML Expected, Live Operational Point, Residual Error Bar)
+ * 1. Power Curves (OEM Baseline, ML Expected, Real SCADA Scatter Points with status coloring)
  * 2. Synchronized Multi-Sensor SCADA Time Series
  * 3. Statistical Residual & Z-Score Deviation Gauges
  * 
@@ -12,11 +12,17 @@
 
 class WindGuardCharts {
   /**
+   * Internal cache of plotted scatter points for mouse hover lookups.
+   */
+  static _lastPlottedPoints = [];
+  static _activeHoverRecord = null;
+
+  /**
    * Renders an interactive Wind Turbine Power Curve.
    * @param {HTMLCanvasElement} canvas
-   * @param {Object} data { telemetryRecords, livePoint, ratedPowerKw, cutInSpeed, ratedSpeed }
+   * @param {Object} data { telemetryRecords, livePoint, ratedPowerKw, cutInSpeed, ratedSpeed, scatterFilter }
    */
-  static renderPowerCurve(canvas, data) {
+  static renderPowerCurve(canvas, data = {}) {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const width = canvas.width = canvas.parentElement.clientWidth || 500;
@@ -27,12 +33,12 @@ class WindGuardCharts {
     const chartW = width - m.left - m.right;
     const chartH = height - m.top - m.bottom;
 
-    // Clear canvas
     ctx.clearRect(0, 0, width, height);
 
-    // Axes scales: Wind Speed (0 - 25 m/s), Power (0 - 2200 kW)
+    // Dynamic rating scale
+    const ratedKw = Number(data.ratedPowerKw) || 2000.0;
     const xMax = 25.0;
-    const yMax = 2200.0;
+    const yMax = Math.max(2200.0, Math.ceil(ratedKw * 1.15 / 100) * 100);
 
     const scaleX = (v) => m.left + (Math.max(0, Math.min(xMax, v)) / xMax) * chartW;
     const scaleY = (p) => m.top + chartH - (Math.max(0, Math.min(yMax, p)) / yMax) * chartH;
@@ -45,7 +51,8 @@ class WindGuardCharts {
     ctx.textAlign = 'right';
 
     // Horizontal grid (Power kW)
-    for (let p = 0; p <= yMax; p += 500) {
+    const yStep = yMax > 3000 ? 1000 : 500;
+    for (let p = 0; p <= yMax; p += yStep) {
       const y = scaleY(p);
       ctx.beginPath();
       ctx.moveTo(m.left, y);
@@ -73,9 +80,9 @@ class WindGuardCharts {
     for (let v = 0; v <= xMax; v += 0.2) {
       let theoP = 0;
       if (v >= 3.0 && v < 12.0) {
-        theoP = 2000.0 * Math.pow((v - 3.0) / (12.0 - 3.0), 3);
+        theoP = ratedKw * Math.pow((v - 3.0) / (12.0 - 3.0), 3);
       } else if (v >= 12.0 && v <= 25.0) {
-        theoP = 2000.0;
+        theoP = ratedKw;
       }
       const x = scaleX(v);
       const y = scaleY(theoP);
@@ -92,9 +99,9 @@ class WindGuardCharts {
     for (let v = 0; v <= xMax; v += 0.2) {
       let mlP = 0;
       if (v >= 3.0 && v < 12.0) {
-        mlP = 2000.0 / (1 + Math.exp(-0.85 * (v - 7.2)));
+        mlP = ratedKw / (1 + Math.exp(-0.85 * (v - 7.2)));
       } else if (v >= 12.0 && v <= 25.0) {
-        mlP = 2000.0;
+        mlP = ratedKw;
       }
       const x = scaleX(v);
       const y = scaleY(mlP);
@@ -103,21 +110,59 @@ class WindGuardCharts {
     }
     ctx.stroke();
 
-    // 4. Draw Historical Telemetry Scatter Points if provided
+    // 4. Draw Real SCADA Telemetry Scatter Points with Status Color-Coding
+    this._lastPlottedPoints = [];
+    const filter = data.scatterFilter || 'all';
+
     if (data.telemetryRecords && Array.isArray(data.telemetryRecords)) {
-      ctx.fillStyle = 'rgba(148, 163, 184, 0.4)';
       for (const rec of data.telemetryRecords) {
-        if (rec.wind_speed !== undefined && rec.active_power !== undefined) {
-          const px = scaleX(rec.wind_speed);
-          const py = scaleY(rec.active_power);
-          ctx.beginPath();
-          ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-          ctx.fill();
+        if (rec.wind_speed === undefined || rec.active_power === undefined) continue;
+
+        const status = (rec.operating_status || 'Running').toLowerCase();
+        const isCurtailed = Boolean(rec.is_curtailed) || status.includes('curtail');
+        const isDropout = status.includes('dropout');
+        const isFault = status.includes('fault');
+        const isNormal = !isCurtailed && !isDropout && !isFault;
+
+        // Apply filter
+        if (filter === 'normal' && !isNormal) continue;
+        if (filter === 'curtailed' && !isCurtailed) continue;
+        if (filter === 'anomaly' && !isFault) continue;
+        if (filter === 'dropout' && !isDropout) continue;
+
+        let dotColor = '#00f0ff'; // Cyan default (Normal)
+        let dotRadius = 3;
+
+        if (isCurtailed) {
+          dotColor = '#f59e0b'; // Amber
+          dotRadius = 3.5;
+        } else if (isFault) {
+          dotColor = '#ef4444'; // Coral Red
+          dotRadius = 4;
+        } else if (isDropout) {
+          dotColor = '#a855f7'; // Purple
+          dotRadius = 4;
         }
+
+        const px = scaleX(rec.wind_speed);
+        const py = scaleY(rec.active_power);
+
+        ctx.fillStyle = dotColor;
+        ctx.beginPath();
+        ctx.arc(px, py, dotRadius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Save point for mouse interaction
+        this._lastPlottedPoints.push({
+          x: px,
+          y: py,
+          record: rec,
+          color: dotColor,
+        });
       }
     }
 
-    // 5. Draw Live Operational Point & Residual Delta Bar
+    // 5. Draw Live Operational Point & Residual Delta Bar if provided
     if (data.livePoint) {
       const liveV = data.livePoint.wind_speed || 8.5;
       const liveP = data.livePoint.active_power || 1620.0;
@@ -127,7 +172,7 @@ class WindGuardCharts {
       const liveY = scaleY(liveP);
       const expY = scaleY(expP);
 
-      // Draw Residual Delta Line (Error vector)
+      // Residual Delta Line
       ctx.strokeStyle = '#ef4444';
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -142,7 +187,7 @@ class WindGuardCharts {
       ctx.arc(liveX, expY, 5, 0, Math.PI * 2);
       ctx.stroke();
 
-      // Live Point (Red filled circle with pulse)
+      // Live Point (Red filled circle)
       ctx.fillStyle = '#ef4444';
       ctx.beginPath();
       ctx.arc(liveX, liveY, 6, 0, Math.PI * 2);
@@ -178,6 +223,49 @@ class WindGuardCharts {
     ctx.setLineDash([]);
     ctx.fillStyle = '#94a3b8';
     ctx.fillText('OEM Theoretical', m.left + 158, m.top + 9);
+
+    // Setup interactive hover listener once
+    if (!canvas._hasHoverListener) {
+      canvas._hasHoverListener = true;
+      canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+
+        // Find closest point within 12px
+        let closest = null;
+        let minDist = 144; // 12^2
+
+        for (const pt of WindGuardCharts._lastPlottedPoints) {
+          const dx = pt.x - mx;
+          const dy = pt.y - my;
+          const distSq = dx * dx + dy * dy;
+          if (distSq < minDist) {
+            minDist = distSq;
+            closest = pt;
+          }
+        }
+
+        const readout = document.getElementById('power-curve-hover-readout');
+        if (readout) {
+          if (closest && closest.record) {
+            const r = closest.record;
+            const dtStr = r.timestamp ? r.timestamp.replace('T', ' ').replace('Z', '') : '--';
+            const status = r.operating_status || (r.is_curtailed ? 'Curtailed' : 'Running');
+            readout.innerHTML = `
+              <strong style="color:${closest.color}">● ${status}</strong> | 
+              <span>Time: <strong>${dtStr}</strong></span> | 
+              <span>Wind: <strong>${r.wind_speed} m/s</strong></span> | 
+              <span>Power: <strong>${r.active_power} kW</strong></span> | 
+              <span>GB Temp: <strong>${r.gearbox_bearing_temp ?? '--'}°C</strong></span> | 
+              <span>Pitch: <strong>${r.pitch_angle ?? '--'}°</strong></span>
+            `;
+          } else {
+            readout.innerHTML = `<span>Hover over any scatter point to inspect exact SCADA timestamp, power output, temperatures, and operational status.</span>`;
+          }
+        }
+      });
+    }
   }
 
   /**

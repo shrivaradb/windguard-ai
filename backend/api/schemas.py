@@ -413,6 +413,7 @@ class DemoStageResponse(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
 
+
 # ==============================================================================
 # 9. Standardized Error Envelopes
 # ==============================================================================
@@ -427,3 +428,41 @@ class StandardErrorEnvelope(BaseModel):
     details: Optional[Dict[str, Any]] = Field(default=None, description="Structured contextual error details")
 
     model_config = ConfigDict(extra="forbid", frozen=True)
+
+
+# ==============================================================================
+# 10. Real-World SCADA Ingestion & Dataset Studio Schemas
+# ==============================================================================
+
+class CSVInspectResponse(BaseModel):
+    """Inspection and auto-match response for uploaded real-world SCADA CSV."""
+
+    total_rows: int = Field(..., ge=0, description="Total rows detected in CSV")
+    total_columns: int = Field(..., ge=0, description="Total column count")
+    raw_columns: List[str] = Field(..., description="Original raw column headers")
+    column_mappings: Dict[str, Any] = Field(..., description="Auto-matched channel mappings and confidence scores")
+    detected_turbine_rating_kw: float = Field(..., ge=0.0, description="Estimated turbine rated capacity in kW")
+    detected_turbines: List[str] = Field(..., description="Detected turbine identifier tags")
+    turbine_count: int = Field(..., ge=1, description="Number of unique turbines in dataset")
+    date_range: Dict[str, Optional[str]] = Field(..., description="Timestamp start and end preview")
+    missing_stats: Dict[str, Any] = Field(..., description="Missingness percentage per raw column")
+    sample_preview: List[Dict[str, Any]] = Field(..., description="First 5 rows of raw CSV data")
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class SampleDatasetItem(BaseModel):
+    """Metadata item for pre-packaged real-world wind farm benchmark datasets."""
+
+    dataset_id: str = Field(..., description="Unique dataset identifier")
+    name: str = Field(..., description="Human-readable wind farm name")
+    origin: str = Field(..., description="Geographic location & operator")
+    turbine_model: str = Field(..., description="Turbine OEM model")
+    rated_power_kw: float = Field(..., description="Nominal rated power capacity (kW)")
+    row_count: int = Field(..., description="Total rows in dataset")
+    description: str = Field(..., description="Operational context description")
+    key_features: List[str] = Field(..., description="Key diagnostic phenomena in dataset")
+    scenario_type: str = Field(..., description="Primary benchmark category")
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+

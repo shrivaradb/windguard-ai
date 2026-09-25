@@ -1,612 +1,41 @@
 {
-  "CASE-WTG-07-20260921-A0C088AD": {
-    "case_id": "CASE-WTG-07-20260921-A0C088AD",
-    "turbine_id": "WTG-07",
-    "created_at": "2026-09-21T18:22:23.709594Z",
-    "status": "INVESTIGATING",
-    "severity": "HIGH",
-    "priority_score": 67.13,
-    "source_telemetry": {
-      "timestamp": "2026-09-20T23:50:00Z",
-      "turbine_id": "WTG-07",
-      "wind_speed": 13.53,
-      "active_power": 2000.0,
-      "ambient_temp": 21.99,
-      "gearbox_bearing_temp": 57.1,
-      "generator_stator_temp": 48.64,
-      "pitch_angle": 3.26,
-      "rotor_speed": 14.51,
-      "is_curtailed": false,
-      "operating_status": "Running",
-      "source_provenance": "SOURCE_AUTHENTIC"
-    },
-    "derived_analytics": {
-      "expected_power_kw": 1999.97,
-      "residual_power_kw": 0.03,
-      "z_power": -0.03,
-      "expected_gb_temp_c": 41.08,
-      "residual_gb_temp_c": 16.02,
-      "z_gb": 5.65,
-      "expected_gen_temp_c": 49.22,
-      "residual_gen_temp_c": -0.58,
-      "z_gen": 0.05,
-      "context_state": "NORMAL",
-      "is_context_suppressed": false,
-      "subsystem_attribution": "DRIVETRAIN_GEARBOX",
-      "attribution_confidence": 0.9,
-      "energy_loss_kwh": 0.0,
-      "financial_loss_inr": 0.0,
-      "tariff_provenance": {
-        "applied_rate_inr_per_kwh": 3.2,
-        "mode": "CONFIGURED_BASELINE",
-        "source_reference": "Configured Baseline Assumption (docs/10_data_architecture.md §4.2)",
-        "effective_date": "2026-09-20T00:00:00Z",
-        "currency": "INR",
-        "is_baseline_assumption": true,
-        "notes": "Initial default demonstration tariff registry configuration."
-      },
-      "priority_score": 67.13,
-      "severity": "HIGH",
-      "priority_breakdown": {
-        "s_sev": 0.565,
-        "s_pers": 1.0,
-        "s_conf": 0.9,
-        "s_crit": 1.0,
-        "s_loss": 0.0,
-        "w_sev": 0.25,
-        "w_pers": 0.2,
-        "w_conf": 0.2,
-        "w_crit": 0.15,
-        "w_loss": 0.2,
-        "priority_score": 67.13,
-        "severity": "HIGH"
-      }
-    },
-    "evidence_table": [
-      {
-        "evidence_id": "EVD-TEL-WIND_SPEED",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "wind_speed",
-        "value": 13.53,
-        "unit": "m/s",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-ACTIVE_POWER",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "active_power",
-        "value": 2000.0,
-        "unit": "kW",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-AMBIENT_TEMP",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "ambient_temp",
-        "value": 21.99,
-        "unit": "°C",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-GEARBOX_BEARING_TEMP",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "gearbox_bearing_temp",
-        "value": 57.1,
-        "unit": "°C",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-GENERATOR_STATOR_TEMP",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "generator_stator_temp",
-        "value": 48.64,
-        "unit": "°C",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-PITCH_ANGLE",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "pitch_angle",
-        "value": 3.26,
-        "unit": "deg",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-ROTOR_SPEED",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "rotor_speed",
-        "value": 14.51,
-        "unit": "RPM",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-GENERATOR_SPEED",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "generator_speed",
-        "value": 1486.19,
-        "unit": "RPM",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-RESIDUAL_POWER_KW",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "residual_power_kw",
-        "value": 0.03,
-        "unit": "kW",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-Z_POWER",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "z_power",
-        "value": -0.03,
-        "unit": "sigma",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-RESIDUAL_GEARBOX_TEMP_C",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "residual_gb_temp_c",
-        "value": 16.02,
-        "unit": "°C",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-Z_GEARBOX_TEMP",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "z_gb",
-        "value": 5.65,
-        "unit": "sigma",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-RESIDUAL_GENERATOR_TEMP_C",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "residual_gen_temp_c",
-        "value": -0.58,
-        "unit": "°C",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-Z_GENERATOR_TEMP",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "z_gen",
-        "value": 0.05,
-        "unit": "sigma",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-CTX-STATE",
-        "evidence_type": "CONTEXT_CLASSIFICATION",
-        "field_name": "operational_context_state",
-        "value": "NORMAL",
-        "unit": null,
-        "source_reference": "PHASE3_CONTEXT_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-ATTR-SUBSYSTEM",
-        "evidence_type": "CONTEXT_CLASSIFICATION",
-        "field_name": "subsystem_attribution",
-        "value": "DRIVETRAIN_GEARBOX",
-        "unit": null,
-        "source_reference": "PHASE3_REASONER",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-ATTR-CONFIDENCE",
-        "evidence_type": "CONTEXT_CLASSIFICATION",
-        "field_name": "rule_evidence_confidence",
-        "value": 0.9,
-        "unit": "ratio",
-        "source_reference": "PHASE3_REASONER",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-LOSS-INR",
-        "evidence_type": "FINANCIAL_LOSS",
-        "field_name": "financial_loss_inr",
-        "value": 0.0,
-        "unit": "INR",
-        "source_reference": "PHASE3_LOSS_CALCULATOR",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-LOSS-ENERGY-KWH",
-        "evidence_type": "FINANCIAL_LOSS",
-        "field_name": "eligible_degradation_energy_kwh",
-        "value": 0.0,
-        "unit": "kWh",
-        "source_reference": "PHASE3_LOSS_CALCULATOR",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-PRIO-SCORE",
-        "evidence_type": "PRIORITY_SCORE",
-        "field_name": "priority_score",
-        "value": 67.13,
-        "unit": "score_0_100",
-        "source_reference": "PHASE3_PRIORITIZATION_ENGINE",
-        "content_hash": null
-      }
-    ],
-    "citations": [
-      {
-        "source_id": "SRC-DERIVED-GB-2024",
-        "source_type": "SOURCE_DERIVED",
-        "title": "WindGuard Drivetrain & Gearbox Maintenance Engineering Guide",
-        "chapter": "Chapter 1: Thermal Monitoring and Bearing Diagnostics",
-        "section": "Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-        "source_locator": "Chapter 1: Thermal Monitoring and Bearing Diagnostics > Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-        "source_page": null,
-        "content_hash": "1676434a634edb8c7df5c3d8dffb8f7d22ad50ee2bf5f606adabd82edf4c68cb",
-        "relevance_score": 0.3464
-      },
-      {
-        "source_id": "SRC-DERIVED-GEN-2024",
-        "source_type": "SOURCE_DERIVED",
-        "title": "WindGuard Generator & Cooling System Maintenance Guide",
-        "chapter": "Chapter 1: Stator Thermal Management and Insulation Standards",
-        "section": "Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-        "source_locator": "Chapter 1: Stator Thermal Management and Insulation Standards > Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-        "source_page": null,
-        "content_hash": "d6588db68495e8d60b6563be66893feeeb3bb49d3b4de8a911dadb111243af83",
-        "relevance_score": 0.2374
-      },
-      {
-        "source_id": "SRC-DERIVED-SOP-2024",
-        "source_type": "SOURCE_DERIVED",
-        "title": "Indian Wind Corridor Operational & Maintenance Standard Operating Procedures",
-        "chapter": "Chapter 2: High Ambient Heatwave Protocols",
-        "section": "Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-        "source_locator": "Chapter 2: High Ambient Heatwave Protocols > Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-        "source_page": null,
-        "content_hash": "b96b36567de76b08a24b7447ebc80c73a9c94400e704720d10ccd9a34717869e",
-        "relevance_score": 0.2226
-      }
-    ],
-    "advisory": {
-      "case_id": "CASE-WTG-07-20260921-A0C088AD",
-      "timestamp": "2026-09-20T23:50:00Z",
-      "turbine_id": "WTG-07",
-      "status": "NORMAL_ADVISORY",
-      "primary_attribution": "DRIVETRAIN_GEARBOX",
-      "context_classification": "NORMAL",
-      "summary": "Persistent Gearbox Bearing thermal anomaly detected on WTG-07. Estimated financial loss: INR 0.00 with Priority Score 67.1.",
-      "evidence_synthesis": [
-        {
-          "evidence_id": "EVD-TEL-WIND_SPEED",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "wind_speed",
-          "value": 13.53,
-          "unit": "m/s",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-ACTIVE_POWER",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "active_power",
-          "value": 2000.0,
-          "unit": "kW",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-AMBIENT_TEMP",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "ambient_temp",
-          "value": 21.99,
-          "unit": "°C",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-GEARBOX_BEARING_TEMP",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "gearbox_bearing_temp",
-          "value": 57.1,
-          "unit": "°C",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-GENERATOR_STATOR_TEMP",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "generator_stator_temp",
-          "value": 48.64,
-          "unit": "°C",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-PITCH_ANGLE",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "pitch_angle",
-          "value": 3.26,
-          "unit": "deg",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-ROTOR_SPEED",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "rotor_speed",
-          "value": 14.51,
-          "unit": "RPM",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-GENERATOR_SPEED",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "generator_speed",
-          "value": 1486.19,
-          "unit": "RPM",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-RESIDUAL_POWER_KW",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "residual_power_kw",
-          "value": 0.03,
-          "unit": "kW",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-Z_POWER",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "z_power",
-          "value": -0.03,
-          "unit": "sigma",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-RESIDUAL_GEARBOX_TEMP_C",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "residual_gb_temp_c",
-          "value": 16.02,
-          "unit": "°C",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-Z_GEARBOX_TEMP",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "z_gb",
-          "value": 5.65,
-          "unit": "sigma",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-RESIDUAL_GENERATOR_TEMP_C",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "residual_gen_temp_c",
-          "value": -0.58,
-          "unit": "°C",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-Z_GENERATOR_TEMP",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "z_gen",
-          "value": 0.05,
-          "unit": "sigma",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-CTX-STATE",
-          "evidence_type": "CONTEXT_CLASSIFICATION",
-          "field_name": "operational_context_state",
-          "value": "NORMAL",
-          "unit": null,
-          "source_reference": "PHASE3_CONTEXT_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-ATTR-SUBSYSTEM",
-          "evidence_type": "CONTEXT_CLASSIFICATION",
-          "field_name": "subsystem_attribution",
-          "value": "DRIVETRAIN_GEARBOX",
-          "unit": null,
-          "source_reference": "PHASE3_REASONER",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-ATTR-CONFIDENCE",
-          "evidence_type": "CONTEXT_CLASSIFICATION",
-          "field_name": "rule_evidence_confidence",
-          "value": 0.9,
-          "unit": "ratio",
-          "source_reference": "PHASE3_REASONER",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-LOSS-INR",
-          "evidence_type": "FINANCIAL_LOSS",
-          "field_name": "financial_loss_inr",
-          "value": 0.0,
-          "unit": "INR",
-          "source_reference": "PHASE3_LOSS_CALCULATOR",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-LOSS-ENERGY-KWH",
-          "evidence_type": "FINANCIAL_LOSS",
-          "field_name": "eligible_degradation_energy_kwh",
-          "value": 0.0,
-          "unit": "kWh",
-          "source_reference": "PHASE3_LOSS_CALCULATOR",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-PRIO-SCORE",
-          "evidence_type": "PRIORITY_SCORE",
-          "field_name": "priority_score",
-          "value": 67.13,
-          "unit": "score_0_100",
-          "source_reference": "PHASE3_PRIORITIZATION_ENGINE",
-          "content_hash": null
-        }
-      ],
-      "hypotheses": [
-        {
-          "hypothesis": "Evidence-grounded candidate explanation: High-speed shaft bearing mechanical wear or lubrication degradation causing thermal rise.",
-          "plausibility": "HIGH",
-          "grounding_evidence": [
-            "SRC-DERIVED-GB-2024",
-            "SRC-DERIVED-GEN-2024",
-            "SRC-DERIVED-SOP-2024"
-          ],
-          "missing_evidence": []
-        }
-      ],
-      "recommended_actions": [
-        {
-          "action_id": "ACT-GB-INSPECT-01",
-          "action_text": "Inspect gearbox high-speed shaft bearing lubrication levels, filter differential pressure, and oil particulate debris.",
-          "urgency": "IMMEDIATE",
-          "target_subsystem": "DRIVETRAIN_GEARBOX",
-          "requires_human_approval": true,
-          "is_non_actuating": true
-        }
-      ],
-      "citations": [
-        {
-          "source_id": "SRC-DERIVED-GB-2024",
-          "source_type": "SOURCE_DERIVED",
-          "title": "WindGuard Drivetrain & Gearbox Maintenance Engineering Guide",
-          "chapter": "Chapter 1: Thermal Monitoring and Bearing Diagnostics",
-          "section": "Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-          "source_locator": "Chapter 1: Thermal Monitoring and Bearing Diagnostics > Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-          "source_page": null,
-          "content_hash": "1676434a634edb8c7df5c3d8dffb8f7d22ad50ee2bf5f606adabd82edf4c68cb",
-          "relevance_score": 0.3464
-        },
-        {
-          "source_id": "SRC-DERIVED-GEN-2024",
-          "source_type": "SOURCE_DERIVED",
-          "title": "WindGuard Generator & Cooling System Maintenance Guide",
-          "chapter": "Chapter 1: Stator Thermal Management and Insulation Standards",
-          "section": "Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-          "source_locator": "Chapter 1: Stator Thermal Management and Insulation Standards > Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-          "source_page": null,
-          "content_hash": "d6588db68495e8d60b6563be66893feeeb3bb49d3b4de8a911dadb111243af83",
-          "relevance_score": 0.2374
-        },
-        {
-          "source_id": "SRC-DERIVED-SOP-2024",
-          "source_type": "SOURCE_DERIVED",
-          "title": "Indian Wind Corridor Operational & Maintenance Standard Operating Procedures",
-          "chapter": "Chapter 2: High Ambient Heatwave Protocols",
-          "section": "Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-          "source_locator": "Chapter 2: High Ambient Heatwave Protocols > Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-          "source_page": null,
-          "content_hash": "b96b36567de76b08a24b7447ebc80c73a9c94400e704720d10ccd9a34717869e",
-          "relevance_score": 0.2226
-        }
-      ],
-      "loss_summary_inr": 0.0,
-      "energy_loss_kwh": 0.0,
-      "priority_score": 67.13,
-      "review_status": "MANDATORY_HUMAN_REVIEW_REQUIRED",
-      "guardrail_status": {
-        "verdict": "PASS",
-        "schema_valid": true,
-        "numerical_consistency_valid": true,
-        "citation_whitelist_valid": true,
-        "lexicon_scan_passed": true,
-        "context_consistency_valid": true,
-        "attribution_consistency_valid": true,
-        "safety_disclaimer_present": true,
-        "violations": []
-      },
-      "safety_disclaimer": "ADVISORY ONLY — WindGuard AI does not issue automated control commands to turbine actuators. Human engineer verification and physical inspection are strictly required prior to any operational intervention.",
-      "missing_evidence_summary": null,
-      "abstention_reason": null,
-      "fallback_reason": null,
-      "blocked_reason": null
-    },
-    "guardrails": {
-      "verdict": "PASS",
-      "schema_valid": true,
-      "numerical_consistency_valid": true,
-      "citation_whitelist_valid": true,
-      "lexicon_scan_passed": true,
-      "context_consistency_valid": true,
-      "attribution_consistency_valid": true,
-      "safety_disclaimer_present": true,
-      "violations": []
-    },
-    "review_status": "MANDATORY_HUMAN_REVIEW_REQUIRED",
-    "operator_decisions": [
-      {
-        "decision_id": "DEC-CASE-WTG-07-20260921-A0C088AD-20260921-B9CCFF",
-        "action": "INVESTIGATE",
-        "operator_id": "OPERATOR_RAJESH",
-        "timestamp": "2026-09-21T18:22:23.722391Z",
-        "notes": "Verified bearing lubrication via site inspection crew."
-      }
-    ],
-    "schema_version": "1.0.0"
-  },
-  "CASE-WTG-07-20260921-DE7E5811": {
-    "case_id": "CASE-WTG-07-20260921-DE7E5811",
-    "turbine_id": "WTG-07",
-    "created_at": "2026-09-21T18:22:23.762256Z",
+  "CASE-WTG-03-20260925-C895B661": {
+    "case_id": "CASE-WTG-03-20260925-C895B661",
+    "turbine_id": "WTG-03",
+    "created_at": "2026-09-25T17:49:15.982343Z",
     "status": "OPEN",
     "severity": "HIGH",
-    "priority_score": 67.13,
+    "priority_score": 71.68,
     "source_telemetry": {
       "timestamp": "2026-09-20T23:50:00Z",
-      "turbine_id": "WTG-07",
-      "wind_speed": 13.53,
-      "active_power": 2000.0,
-      "ambient_temp": 21.99,
-      "gearbox_bearing_temp": 57.1,
-      "generator_stator_temp": 48.64,
-      "pitch_angle": 3.26,
-      "rotor_speed": 14.51,
+      "turbine_id": "WTG-03",
+      "wind_speed": 13.76,
+      "active_power": 1640.0,
+      "ambient_temp": 22.03,
+      "gearbox_bearing_temp": 37.96,
+      "generator_stator_temp": 44.76,
+      "pitch_angle": 3.62,
+      "rotor_speed": 13.07,
       "is_curtailed": false,
       "operating_status": "Running",
       "source_provenance": "SOURCE_AUTHENTIC"
     },
     "derived_analytics": {
       "expected_power_kw": 1999.97,
-      "residual_power_kw": 0.03,
-      "z_power": -0.03,
-      "expected_gb_temp_c": 41.08,
-      "residual_gb_temp_c": 16.02,
-      "z_gb": 5.65,
-      "expected_gen_temp_c": 49.22,
-      "residual_gen_temp_c": -0.58,
-      "z_gen": 0.05,
+      "residual_power_kw": -359.97,
+      "z_power": -234.55,
+      "expected_gb_temp_c": 42.67,
+      "residual_gb_temp_c": -4.71,
+      "z_gb": -1.5,
+      "expected_gen_temp_c": 51.6,
+      "residual_gen_temp_c": -6.84,
+      "z_gen": -1.53,
       "context_state": "NORMAL",
       "is_context_suppressed": false,
-      "subsystem_attribution": "DRIVETRAIN_GEARBOX",
-      "attribution_confidence": 0.9,
-      "energy_loss_kwh": 0.0,
-      "financial_loss_inr": 0.0,
+      "subsystem_attribution": "AERODYNAMIC_PITCH",
+      "attribution_confidence": 0.88,
+      "energy_loss_kwh": 59.995,
+      "financial_loss_inr": 191.98,
       "tariff_provenance": {
         "applied_rate_inr_per_kwh": 3.2,
         "mode": "CONFIGURED_BASELINE",
@@ -614,22 +43,22 @@
         "effective_date": "2026-09-20T00:00:00Z",
         "currency": "INR",
         "is_baseline_assumption": true,
-        "notes": "Initial default demonstration tariff registry configuration."
+        "notes": "Reset to configured demonstration baseline assumption."
       },
-      "priority_score": 67.13,
+      "priority_score": 71.68,
       "severity": "HIGH",
       "priority_breakdown": {
-        "s_sev": 0.565,
+        "s_sev": 1.0,
         "s_pers": 1.0,
-        "s_conf": 0.9,
-        "s_crit": 1.0,
-        "s_loss": 0.0,
+        "s_conf": 0.88,
+        "s_crit": 0.6,
+        "s_loss": 0.0038,
         "w_sev": 0.25,
         "w_pers": 0.2,
         "w_conf": 0.2,
         "w_crit": 0.15,
         "w_loss": 0.2,
-        "priority_score": 67.13,
+        "priority_score": 71.68,
         "severity": "HIGH"
       }
     },
@@ -638,7 +67,7 @@
         "evidence_id": "EVD-TEL-WIND_SPEED",
         "evidence_type": "SCADA_TELEMETRY",
         "field_name": "wind_speed",
-        "value": 13.53,
+        "value": 13.76,
         "unit": "m/s",
         "source_reference": "SCADA_TELEMETRY_INGESTION",
         "content_hash": null
@@ -647,7 +76,7 @@
         "evidence_id": "EVD-TEL-ACTIVE_POWER",
         "evidence_type": "SCADA_TELEMETRY",
         "field_name": "active_power",
-        "value": 2000.0,
+        "value": 1640.0,
         "unit": "kW",
         "source_reference": "SCADA_TELEMETRY_INGESTION",
         "content_hash": null
@@ -656,7 +85,7 @@
         "evidence_id": "EVD-TEL-AMBIENT_TEMP",
         "evidence_type": "SCADA_TELEMETRY",
         "field_name": "ambient_temp",
-        "value": 21.99,
+        "value": 22.03,
         "unit": "°C",
         "source_reference": "SCADA_TELEMETRY_INGESTION",
         "content_hash": null
@@ -665,7 +94,7 @@
         "evidence_id": "EVD-TEL-GEARBOX_BEARING_TEMP",
         "evidence_type": "SCADA_TELEMETRY",
         "field_name": "gearbox_bearing_temp",
-        "value": 57.1,
+        "value": 37.96,
         "unit": "°C",
         "source_reference": "SCADA_TELEMETRY_INGESTION",
         "content_hash": null
@@ -674,7 +103,7 @@
         "evidence_id": "EVD-TEL-GENERATOR_STATOR_TEMP",
         "evidence_type": "SCADA_TELEMETRY",
         "field_name": "generator_stator_temp",
-        "value": 48.64,
+        "value": 44.76,
         "unit": "°C",
         "source_reference": "SCADA_TELEMETRY_INGESTION",
         "content_hash": null
@@ -683,7 +112,7 @@
         "evidence_id": "EVD-TEL-PITCH_ANGLE",
         "evidence_type": "SCADA_TELEMETRY",
         "field_name": "pitch_angle",
-        "value": 3.26,
+        "value": 3.62,
         "unit": "deg",
         "source_reference": "SCADA_TELEMETRY_INGESTION",
         "content_hash": null
@@ -692,7 +121,7 @@
         "evidence_id": "EVD-TEL-ROTOR_SPEED",
         "evidence_type": "SCADA_TELEMETRY",
         "field_name": "rotor_speed",
-        "value": 14.51,
+        "value": 13.07,
         "unit": "RPM",
         "source_reference": "SCADA_TELEMETRY_INGESTION",
         "content_hash": null
@@ -701,7 +130,7 @@
         "evidence_id": "EVD-TEL-GENERATOR_SPEED",
         "evidence_type": "SCADA_TELEMETRY",
         "field_name": "generator_speed",
-        "value": 1486.19,
+        "value": 1337.19,
         "unit": "RPM",
         "source_reference": "SCADA_TELEMETRY_INGESTION",
         "content_hash": null
@@ -710,7 +139,7 @@
         "evidence_id": "EVD-RES-RESIDUAL_POWER_KW",
         "evidence_type": "ML_RESIDUAL",
         "field_name": "residual_power_kw",
-        "value": 0.03,
+        "value": -359.97,
         "unit": "kW",
         "source_reference": "PHASE2_RESIDUAL_ENGINE",
         "content_hash": null
@@ -719,7 +148,7 @@
         "evidence_id": "EVD-RES-Z_POWER",
         "evidence_type": "ML_RESIDUAL",
         "field_name": "z_power",
-        "value": -0.03,
+        "value": -234.55,
         "unit": "sigma",
         "source_reference": "PHASE2_RESIDUAL_ENGINE",
         "content_hash": null
@@ -728,7 +157,7 @@
         "evidence_id": "EVD-RES-RESIDUAL_GEARBOX_TEMP_C",
         "evidence_type": "ML_RESIDUAL",
         "field_name": "residual_gb_temp_c",
-        "value": 16.02,
+        "value": -4.71,
         "unit": "°C",
         "source_reference": "PHASE2_RESIDUAL_ENGINE",
         "content_hash": null
@@ -737,7 +166,7 @@
         "evidence_id": "EVD-RES-Z_GEARBOX_TEMP",
         "evidence_type": "ML_RESIDUAL",
         "field_name": "z_gb",
-        "value": 5.65,
+        "value": -1.5,
         "unit": "sigma",
         "source_reference": "PHASE2_RESIDUAL_ENGINE",
         "content_hash": null
@@ -746,7 +175,7 @@
         "evidence_id": "EVD-RES-RESIDUAL_GENERATOR_TEMP_C",
         "evidence_type": "ML_RESIDUAL",
         "field_name": "residual_gen_temp_c",
-        "value": -0.58,
+        "value": -6.84,
         "unit": "°C",
         "source_reference": "PHASE2_RESIDUAL_ENGINE",
         "content_hash": null
@@ -755,7 +184,7 @@
         "evidence_id": "EVD-RES-Z_GENERATOR_TEMP",
         "evidence_type": "ML_RESIDUAL",
         "field_name": "z_gen",
-        "value": 0.05,
+        "value": -1.53,
         "unit": "sigma",
         "source_reference": "PHASE2_RESIDUAL_ENGINE",
         "content_hash": null
@@ -773,7 +202,7 @@
         "evidence_id": "EVD-ATTR-SUBSYSTEM",
         "evidence_type": "CONTEXT_CLASSIFICATION",
         "field_name": "subsystem_attribution",
-        "value": "DRIVETRAIN_GEARBOX",
+        "value": "AERODYNAMIC_PITCH",
         "unit": null,
         "source_reference": "PHASE3_REASONER",
         "content_hash": null
@@ -782,7 +211,7 @@
         "evidence_id": "EVD-ATTR-CONFIDENCE",
         "evidence_type": "CONTEXT_CLASSIFICATION",
         "field_name": "rule_evidence_confidence",
-        "value": 0.9,
+        "value": 0.88,
         "unit": "ratio",
         "source_reference": "PHASE3_REASONER",
         "content_hash": null
@@ -791,7 +220,7 @@
         "evidence_id": "EVD-LOSS-INR",
         "evidence_type": "FINANCIAL_LOSS",
         "field_name": "financial_loss_inr",
-        "value": 0.0,
+        "value": 191.98,
         "unit": "INR",
         "source_reference": "PHASE3_LOSS_CALCULATOR",
         "content_hash": null
@@ -800,7 +229,7 @@
         "evidence_id": "EVD-LOSS-ENERGY-KWH",
         "evidence_type": "FINANCIAL_LOSS",
         "field_name": "eligible_degradation_energy_kwh",
-        "value": 0.0,
+        "value": 59.995,
         "unit": "kWh",
         "source_reference": "PHASE3_LOSS_CALCULATOR",
         "content_hash": null
@@ -809,7 +238,7 @@
         "evidence_id": "EVD-PRIO-SCORE",
         "evidence_type": "PRIORITY_SCORE",
         "field_name": "priority_score",
-        "value": 67.13,
+        "value": 71.68,
         "unit": "score_0_100",
         "source_reference": "PHASE3_PRIORITIZATION_ENGINE",
         "content_hash": null
@@ -817,53 +246,42 @@
     ],
     "citations": [
       {
-        "source_id": "SRC-DERIVED-GB-2024",
+        "source_id": "SRC-DERIVED-PIT-2024",
         "source_type": "SOURCE_DERIVED",
-        "title": "WindGuard Drivetrain & Gearbox Maintenance Engineering Guide",
-        "chapter": "Chapter 1: Thermal Monitoring and Bearing Diagnostics",
-        "section": "Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-        "source_locator": "Chapter 1: Thermal Monitoring and Bearing Diagnostics > Section 1.1: Thermal Thresholds and Overheating Diagnostics",
+        "title": "WindGuard Aerodynamic Blade & Pitch System Maintenance Guide",
+        "chapter": "Chapter 1: Pitch Angle Alignment and Encoder Calibration",
+        "section": "Section 1.1: Pitch Asymmetry Detection and Encoder Drift",
+        "source_locator": "Chapter 1: Pitch Angle Alignment and Encoder Calibration > Section 1.1: Pitch Asymmetry Detection and Encoder Drift",
         "source_page": null,
-        "content_hash": "1676434a634edb8c7df5c3d8dffb8f7d22ad50ee2bf5f606adabd82edf4c68cb",
-        "relevance_score": 0.3464
+        "content_hash": "131dcb53af3e39485b3d8c52446bab5811e9fa75d7404b17ca24221bf45dd8e1",
+        "relevance_score": 0.4228
       },
       {
-        "source_id": "SRC-DERIVED-GEN-2024",
-        "source_type": "SOURCE_DERIVED",
-        "title": "WindGuard Generator & Cooling System Maintenance Guide",
-        "chapter": "Chapter 1: Stator Thermal Management and Insulation Standards",
-        "section": "Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-        "source_locator": "Chapter 1: Stator Thermal Management and Insulation Standards > Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
+        "source_id": "SRC-SYNTHETIC-PLAYBOOK-2026",
+        "source_type": "PROJECT_SYNTHETIC",
+        "title": "WindGuard Synthetic Operational Diagnostic Playbooks & Grid Curtailment Guides",
+        "chapter": "Chapter 2: High Wind Aerodynamic Power Shedding",
+        "section": "Section 2.1: Feathered Pitch Operations in High Wind Conditions",
+        "source_locator": "Chapter 2: High Wind Aerodynamic Power Shedding > Section 2.1: Feathered Pitch Operations in High Wind Conditions",
         "source_page": null,
-        "content_hash": "d6588db68495e8d60b6563be66893feeeb3bb49d3b4de8a911dadb111243af83",
-        "relevance_score": 0.2374
-      },
-      {
-        "source_id": "SRC-DERIVED-SOP-2024",
-        "source_type": "SOURCE_DERIVED",
-        "title": "Indian Wind Corridor Operational & Maintenance Standard Operating Procedures",
-        "chapter": "Chapter 2: High Ambient Heatwave Protocols",
-        "section": "Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-        "source_locator": "Chapter 2: High Ambient Heatwave Protocols > Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-        "source_page": null,
-        "content_hash": "b96b36567de76b08a24b7447ebc80c73a9c94400e704720d10ccd9a34717869e",
-        "relevance_score": 0.2226
+        "content_hash": "4af98b3ba63428b2b927c7ebda5fbe20a937b0797ef0b51f5e4e5a70e70bb448",
+        "relevance_score": 0.2943
       }
     ],
     "advisory": {
-      "case_id": "CASE-WTG-07-20260921-DE7E5811",
+      "case_id": "CASE-WTG-03-20260925-C895B661",
       "timestamp": "2026-09-20T23:50:00Z",
-      "turbine_id": "WTG-07",
+      "turbine_id": "WTG-03",
       "status": "NORMAL_ADVISORY",
-      "primary_attribution": "DRIVETRAIN_GEARBOX",
+      "primary_attribution": "AERODYNAMIC_PITCH",
       "context_classification": "NORMAL",
-      "summary": "Persistent Gearbox Bearing thermal anomaly detected on WTG-07. Estimated financial loss: INR 0.00 with Priority Score 67.1.",
+      "summary": "Aerodynamic power deficit / pitch asymmetry anomaly detected on WTG-03. Estimated financial loss: INR 191.98 with Priority Score 71.7.",
       "evidence_synthesis": [
         {
           "evidence_id": "EVD-TEL-WIND_SPEED",
           "evidence_type": "SCADA_TELEMETRY",
           "field_name": "wind_speed",
-          "value": 13.53,
+          "value": 13.76,
           "unit": "m/s",
           "source_reference": "SCADA_TELEMETRY_INGESTION",
           "content_hash": null
@@ -872,7 +290,7 @@
           "evidence_id": "EVD-TEL-ACTIVE_POWER",
           "evidence_type": "SCADA_TELEMETRY",
           "field_name": "active_power",
-          "value": 2000.0,
+          "value": 1640.0,
           "unit": "kW",
           "source_reference": "SCADA_TELEMETRY_INGESTION",
           "content_hash": null
@@ -881,7 +299,7 @@
           "evidence_id": "EVD-TEL-AMBIENT_TEMP",
           "evidence_type": "SCADA_TELEMETRY",
           "field_name": "ambient_temp",
-          "value": 21.99,
+          "value": 22.03,
           "unit": "°C",
           "source_reference": "SCADA_TELEMETRY_INGESTION",
           "content_hash": null
@@ -890,7 +308,7 @@
           "evidence_id": "EVD-TEL-GEARBOX_BEARING_TEMP",
           "evidence_type": "SCADA_TELEMETRY",
           "field_name": "gearbox_bearing_temp",
-          "value": 57.1,
+          "value": 37.96,
           "unit": "°C",
           "source_reference": "SCADA_TELEMETRY_INGESTION",
           "content_hash": null
@@ -899,7 +317,7 @@
           "evidence_id": "EVD-TEL-GENERATOR_STATOR_TEMP",
           "evidence_type": "SCADA_TELEMETRY",
           "field_name": "generator_stator_temp",
-          "value": 48.64,
+          "value": 44.76,
           "unit": "°C",
           "source_reference": "SCADA_TELEMETRY_INGESTION",
           "content_hash": null
@@ -908,7 +326,7 @@
           "evidence_id": "EVD-TEL-PITCH_ANGLE",
           "evidence_type": "SCADA_TELEMETRY",
           "field_name": "pitch_angle",
-          "value": 3.26,
+          "value": 3.62,
           "unit": "deg",
           "source_reference": "SCADA_TELEMETRY_INGESTION",
           "content_hash": null
@@ -917,7 +335,7 @@
           "evidence_id": "EVD-TEL-ROTOR_SPEED",
           "evidence_type": "SCADA_TELEMETRY",
           "field_name": "rotor_speed",
-          "value": 14.51,
+          "value": 13.07,
           "unit": "RPM",
           "source_reference": "SCADA_TELEMETRY_INGESTION",
           "content_hash": null
@@ -926,7 +344,7 @@
           "evidence_id": "EVD-TEL-GENERATOR_SPEED",
           "evidence_type": "SCADA_TELEMETRY",
           "field_name": "generator_speed",
-          "value": 1486.19,
+          "value": 1337.19,
           "unit": "RPM",
           "source_reference": "SCADA_TELEMETRY_INGESTION",
           "content_hash": null
@@ -935,7 +353,7 @@
           "evidence_id": "EVD-RES-RESIDUAL_POWER_KW",
           "evidence_type": "ML_RESIDUAL",
           "field_name": "residual_power_kw",
-          "value": 0.03,
+          "value": -359.97,
           "unit": "kW",
           "source_reference": "PHASE2_RESIDUAL_ENGINE",
           "content_hash": null
@@ -944,7 +362,7 @@
           "evidence_id": "EVD-RES-Z_POWER",
           "evidence_type": "ML_RESIDUAL",
           "field_name": "z_power",
-          "value": -0.03,
+          "value": -234.55,
           "unit": "sigma",
           "source_reference": "PHASE2_RESIDUAL_ENGINE",
           "content_hash": null
@@ -953,7 +371,7 @@
           "evidence_id": "EVD-RES-RESIDUAL_GEARBOX_TEMP_C",
           "evidence_type": "ML_RESIDUAL",
           "field_name": "residual_gb_temp_c",
-          "value": 16.02,
+          "value": -4.71,
           "unit": "°C",
           "source_reference": "PHASE2_RESIDUAL_ENGINE",
           "content_hash": null
@@ -962,7 +380,7 @@
           "evidence_id": "EVD-RES-Z_GEARBOX_TEMP",
           "evidence_type": "ML_RESIDUAL",
           "field_name": "z_gb",
-          "value": 5.65,
+          "value": -1.5,
           "unit": "sigma",
           "source_reference": "PHASE2_RESIDUAL_ENGINE",
           "content_hash": null
@@ -971,7 +389,7 @@
           "evidence_id": "EVD-RES-RESIDUAL_GENERATOR_TEMP_C",
           "evidence_type": "ML_RESIDUAL",
           "field_name": "residual_gen_temp_c",
-          "value": -0.58,
+          "value": -6.84,
           "unit": "°C",
           "source_reference": "PHASE2_RESIDUAL_ENGINE",
           "content_hash": null
@@ -980,7 +398,7 @@
           "evidence_id": "EVD-RES-Z_GENERATOR_TEMP",
           "evidence_type": "ML_RESIDUAL",
           "field_name": "z_gen",
-          "value": 0.05,
+          "value": -1.53,
           "unit": "sigma",
           "source_reference": "PHASE2_RESIDUAL_ENGINE",
           "content_hash": null
@@ -998,7 +416,7 @@
           "evidence_id": "EVD-ATTR-SUBSYSTEM",
           "evidence_type": "CONTEXT_CLASSIFICATION",
           "field_name": "subsystem_attribution",
-          "value": "DRIVETRAIN_GEARBOX",
+          "value": "AERODYNAMIC_PITCH",
           "unit": null,
           "source_reference": "PHASE3_REASONER",
           "content_hash": null
@@ -1007,7 +425,7 @@
           "evidence_id": "EVD-ATTR-CONFIDENCE",
           "evidence_type": "CONTEXT_CLASSIFICATION",
           "field_name": "rule_evidence_confidence",
-          "value": 0.9,
+          "value": 0.88,
           "unit": "ratio",
           "source_reference": "PHASE3_REASONER",
           "content_hash": null
@@ -1016,7 +434,7 @@
           "evidence_id": "EVD-LOSS-INR",
           "evidence_type": "FINANCIAL_LOSS",
           "field_name": "financial_loss_inr",
-          "value": 0.0,
+          "value": 191.98,
           "unit": "INR",
           "source_reference": "PHASE3_LOSS_CALCULATOR",
           "content_hash": null
@@ -1025,7 +443,7 @@
           "evidence_id": "EVD-LOSS-ENERGY-KWH",
           "evidence_type": "FINANCIAL_LOSS",
           "field_name": "eligible_degradation_energy_kwh",
-          "value": 0.0,
+          "value": 59.995,
           "unit": "kWh",
           "source_reference": "PHASE3_LOSS_CALCULATOR",
           "content_hash": null
@@ -1034,7 +452,7 @@
           "evidence_id": "EVD-PRIO-SCORE",
           "evidence_type": "PRIORITY_SCORE",
           "field_name": "priority_score",
-          "value": 67.13,
+          "value": 71.68,
           "unit": "score_0_100",
           "source_reference": "PHASE3_PRIORITIZATION_ENGINE",
           "content_hash": null
@@ -1042,65 +460,53 @@
       ],
       "hypotheses": [
         {
-          "hypothesis": "Evidence-grounded candidate explanation: High-speed shaft bearing mechanical wear or lubrication degradation causing thermal rise.",
+          "hypothesis": "Evidence-grounded candidate explanation: Blade pitch offset error or aerodynamic degradation resulting in under-generation.",
           "plausibility": "HIGH",
           "grounding_evidence": [
-            "SRC-DERIVED-GB-2024",
-            "SRC-DERIVED-GEN-2024",
-            "SRC-DERIVED-SOP-2024"
+            "SRC-DERIVED-PIT-2024",
+            "SRC-SYNTHETIC-PLAYBOOK-2026"
           ],
           "missing_evidence": []
         }
       ],
       "recommended_actions": [
         {
-          "action_id": "ACT-GB-INSPECT-01",
-          "action_text": "Inspect gearbox high-speed shaft bearing lubrication levels, filter differential pressure, and oil particulate debris.",
-          "urgency": "IMMEDIATE",
-          "target_subsystem": "DRIVETRAIN_GEARBOX",
+          "action_id": "ACT-PITCH-INSPECT-01",
+          "action_text": "Perform physical 0-degree pitch calibration check and inspect blade surface leading edges for fouling/erosion.",
+          "urgency": "SCHEDULED",
+          "target_subsystem": "AERODYNAMIC_PITCH",
           "requires_human_approval": true,
           "is_non_actuating": true
         }
       ],
       "citations": [
         {
-          "source_id": "SRC-DERIVED-GB-2024",
+          "source_id": "SRC-DERIVED-PIT-2024",
           "source_type": "SOURCE_DERIVED",
-          "title": "WindGuard Drivetrain & Gearbox Maintenance Engineering Guide",
-          "chapter": "Chapter 1: Thermal Monitoring and Bearing Diagnostics",
-          "section": "Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-          "source_locator": "Chapter 1: Thermal Monitoring and Bearing Diagnostics > Section 1.1: Thermal Thresholds and Overheating Diagnostics",
+          "title": "WindGuard Aerodynamic Blade & Pitch System Maintenance Guide",
+          "chapter": "Chapter 1: Pitch Angle Alignment and Encoder Calibration",
+          "section": "Section 1.1: Pitch Asymmetry Detection and Encoder Drift",
+          "source_locator": "Chapter 1: Pitch Angle Alignment and Encoder Calibration > Section 1.1: Pitch Asymmetry Detection and Encoder Drift",
           "source_page": null,
-          "content_hash": "1676434a634edb8c7df5c3d8dffb8f7d22ad50ee2bf5f606adabd82edf4c68cb",
-          "relevance_score": 0.3464
+          "content_hash": "131dcb53af3e39485b3d8c52446bab5811e9fa75d7404b17ca24221bf45dd8e1",
+          "relevance_score": 0.4228
         },
         {
-          "source_id": "SRC-DERIVED-GEN-2024",
-          "source_type": "SOURCE_DERIVED",
-          "title": "WindGuard Generator & Cooling System Maintenance Guide",
-          "chapter": "Chapter 1: Stator Thermal Management and Insulation Standards",
-          "section": "Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-          "source_locator": "Chapter 1: Stator Thermal Management and Insulation Standards > Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
+          "source_id": "SRC-SYNTHETIC-PLAYBOOK-2026",
+          "source_type": "PROJECT_SYNTHETIC",
+          "title": "WindGuard Synthetic Operational Diagnostic Playbooks & Grid Curtailment Guides",
+          "chapter": "Chapter 2: High Wind Aerodynamic Power Shedding",
+          "section": "Section 2.1: Feathered Pitch Operations in High Wind Conditions",
+          "source_locator": "Chapter 2: High Wind Aerodynamic Power Shedding > Section 2.1: Feathered Pitch Operations in High Wind Conditions",
           "source_page": null,
-          "content_hash": "d6588db68495e8d60b6563be66893feeeb3bb49d3b4de8a911dadb111243af83",
-          "relevance_score": 0.2374
-        },
-        {
-          "source_id": "SRC-DERIVED-SOP-2024",
-          "source_type": "SOURCE_DERIVED",
-          "title": "Indian Wind Corridor Operational & Maintenance Standard Operating Procedures",
-          "chapter": "Chapter 2: High Ambient Heatwave Protocols",
-          "section": "Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-          "source_locator": "Chapter 2: High Ambient Heatwave Protocols > Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-          "source_page": null,
-          "content_hash": "b96b36567de76b08a24b7447ebc80c73a9c94400e704720d10ccd9a34717869e",
-          "relevance_score": 0.2226
+          "content_hash": "4af98b3ba63428b2b927c7ebda5fbe20a937b0797ef0b51f5e4e5a70e70bb448",
+          "relevance_score": 0.2943
         }
       ],
-      "loss_summary_inr": 0.0,
-      "energy_loss_kwh": 0.0,
-      "priority_score": 67.13,
-      "review_status": "MANDATORY_HUMAN_REVIEW_REQUIRED",
+      "loss_summary_inr": 191.98,
+      "energy_loss_kwh": 59.995,
+      "priority_score": 71.68,
+      "review_status": "AUTOMATIC",
       "guardrail_status": {
         "verdict": "PASS",
         "schema_valid": true,
@@ -1129,1162 +535,7 @@
       "safety_disclaimer_present": true,
       "violations": []
     },
-    "review_status": "MANDATORY_HUMAN_REVIEW_REQUIRED",
-    "operator_decisions": [],
-    "schema_version": "1.0.0"
-  },
-  "CASE-WTG-07-20260921-1AD2A2B1": {
-    "case_id": "CASE-WTG-07-20260921-1AD2A2B1",
-    "turbine_id": "WTG-07",
-    "created_at": "2026-09-21T18:22:23.790711Z",
-    "status": "DISMISSED",
-    "severity": "HIGH",
-    "priority_score": 67.13,
-    "source_telemetry": {
-      "timestamp": "2026-09-20T23:50:00Z",
-      "turbine_id": "WTG-07",
-      "wind_speed": 13.53,
-      "active_power": 2000.0,
-      "ambient_temp": 21.99,
-      "gearbox_bearing_temp": 57.1,
-      "generator_stator_temp": 48.64,
-      "pitch_angle": 3.26,
-      "rotor_speed": 14.51,
-      "is_curtailed": false,
-      "operating_status": "Running",
-      "source_provenance": "SOURCE_AUTHENTIC"
-    },
-    "derived_analytics": {
-      "expected_power_kw": 1999.97,
-      "residual_power_kw": 0.03,
-      "z_power": -0.03,
-      "expected_gb_temp_c": 41.08,
-      "residual_gb_temp_c": 16.02,
-      "z_gb": 5.65,
-      "expected_gen_temp_c": 49.22,
-      "residual_gen_temp_c": -0.58,
-      "z_gen": 0.05,
-      "context_state": "NORMAL",
-      "is_context_suppressed": false,
-      "subsystem_attribution": "DRIVETRAIN_GEARBOX",
-      "attribution_confidence": 0.9,
-      "energy_loss_kwh": 0.0,
-      "financial_loss_inr": 0.0,
-      "tariff_provenance": {
-        "applied_rate_inr_per_kwh": 3.2,
-        "mode": "CONFIGURED_BASELINE",
-        "source_reference": "Configured Baseline Assumption (docs/10_data_architecture.md §4.2)",
-        "effective_date": "2026-09-20T00:00:00Z",
-        "currency": "INR",
-        "is_baseline_assumption": true,
-        "notes": "Initial default demonstration tariff registry configuration."
-      },
-      "priority_score": 67.13,
-      "severity": "HIGH",
-      "priority_breakdown": {
-        "s_sev": 0.565,
-        "s_pers": 1.0,
-        "s_conf": 0.9,
-        "s_crit": 1.0,
-        "s_loss": 0.0,
-        "w_sev": 0.25,
-        "w_pers": 0.2,
-        "w_conf": 0.2,
-        "w_crit": 0.15,
-        "w_loss": 0.2,
-        "priority_score": 67.13,
-        "severity": "HIGH"
-      }
-    },
-    "evidence_table": [
-      {
-        "evidence_id": "EVD-TEL-WIND_SPEED",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "wind_speed",
-        "value": 13.53,
-        "unit": "m/s",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-ACTIVE_POWER",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "active_power",
-        "value": 2000.0,
-        "unit": "kW",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-AMBIENT_TEMP",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "ambient_temp",
-        "value": 21.99,
-        "unit": "°C",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-GEARBOX_BEARING_TEMP",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "gearbox_bearing_temp",
-        "value": 57.1,
-        "unit": "°C",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-GENERATOR_STATOR_TEMP",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "generator_stator_temp",
-        "value": 48.64,
-        "unit": "°C",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-PITCH_ANGLE",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "pitch_angle",
-        "value": 3.26,
-        "unit": "deg",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-ROTOR_SPEED",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "rotor_speed",
-        "value": 14.51,
-        "unit": "RPM",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-GENERATOR_SPEED",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "generator_speed",
-        "value": 1486.19,
-        "unit": "RPM",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-RESIDUAL_POWER_KW",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "residual_power_kw",
-        "value": 0.03,
-        "unit": "kW",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-Z_POWER",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "z_power",
-        "value": -0.03,
-        "unit": "sigma",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-RESIDUAL_GEARBOX_TEMP_C",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "residual_gb_temp_c",
-        "value": 16.02,
-        "unit": "°C",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-Z_GEARBOX_TEMP",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "z_gb",
-        "value": 5.65,
-        "unit": "sigma",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-RESIDUAL_GENERATOR_TEMP_C",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "residual_gen_temp_c",
-        "value": -0.58,
-        "unit": "°C",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-Z_GENERATOR_TEMP",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "z_gen",
-        "value": 0.05,
-        "unit": "sigma",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-CTX-STATE",
-        "evidence_type": "CONTEXT_CLASSIFICATION",
-        "field_name": "operational_context_state",
-        "value": "NORMAL",
-        "unit": null,
-        "source_reference": "PHASE3_CONTEXT_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-ATTR-SUBSYSTEM",
-        "evidence_type": "CONTEXT_CLASSIFICATION",
-        "field_name": "subsystem_attribution",
-        "value": "DRIVETRAIN_GEARBOX",
-        "unit": null,
-        "source_reference": "PHASE3_REASONER",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-ATTR-CONFIDENCE",
-        "evidence_type": "CONTEXT_CLASSIFICATION",
-        "field_name": "rule_evidence_confidence",
-        "value": 0.9,
-        "unit": "ratio",
-        "source_reference": "PHASE3_REASONER",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-LOSS-INR",
-        "evidence_type": "FINANCIAL_LOSS",
-        "field_name": "financial_loss_inr",
-        "value": 0.0,
-        "unit": "INR",
-        "source_reference": "PHASE3_LOSS_CALCULATOR",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-LOSS-ENERGY-KWH",
-        "evidence_type": "FINANCIAL_LOSS",
-        "field_name": "eligible_degradation_energy_kwh",
-        "value": 0.0,
-        "unit": "kWh",
-        "source_reference": "PHASE3_LOSS_CALCULATOR",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-PRIO-SCORE",
-        "evidence_type": "PRIORITY_SCORE",
-        "field_name": "priority_score",
-        "value": 67.13,
-        "unit": "score_0_100",
-        "source_reference": "PHASE3_PRIORITIZATION_ENGINE",
-        "content_hash": null
-      }
-    ],
-    "citations": [
-      {
-        "source_id": "SRC-DERIVED-GB-2024",
-        "source_type": "SOURCE_DERIVED",
-        "title": "WindGuard Drivetrain & Gearbox Maintenance Engineering Guide",
-        "chapter": "Chapter 1: Thermal Monitoring and Bearing Diagnostics",
-        "section": "Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-        "source_locator": "Chapter 1: Thermal Monitoring and Bearing Diagnostics > Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-        "source_page": null,
-        "content_hash": "1676434a634edb8c7df5c3d8dffb8f7d22ad50ee2bf5f606adabd82edf4c68cb",
-        "relevance_score": 0.3464
-      },
-      {
-        "source_id": "SRC-DERIVED-GEN-2024",
-        "source_type": "SOURCE_DERIVED",
-        "title": "WindGuard Generator & Cooling System Maintenance Guide",
-        "chapter": "Chapter 1: Stator Thermal Management and Insulation Standards",
-        "section": "Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-        "source_locator": "Chapter 1: Stator Thermal Management and Insulation Standards > Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-        "source_page": null,
-        "content_hash": "d6588db68495e8d60b6563be66893feeeb3bb49d3b4de8a911dadb111243af83",
-        "relevance_score": 0.2374
-      },
-      {
-        "source_id": "SRC-DERIVED-SOP-2024",
-        "source_type": "SOURCE_DERIVED",
-        "title": "Indian Wind Corridor Operational & Maintenance Standard Operating Procedures",
-        "chapter": "Chapter 2: High Ambient Heatwave Protocols",
-        "section": "Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-        "source_locator": "Chapter 2: High Ambient Heatwave Protocols > Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-        "source_page": null,
-        "content_hash": "b96b36567de76b08a24b7447ebc80c73a9c94400e704720d10ccd9a34717869e",
-        "relevance_score": 0.2226
-      }
-    ],
-    "advisory": {
-      "case_id": "CASE-WTG-07-20260921-1AD2A2B1",
-      "timestamp": "2026-09-20T23:50:00Z",
-      "turbine_id": "WTG-07",
-      "status": "NORMAL_ADVISORY",
-      "primary_attribution": "DRIVETRAIN_GEARBOX",
-      "context_classification": "NORMAL",
-      "summary": "Persistent Gearbox Bearing thermal anomaly detected on WTG-07. Estimated financial loss: INR 0.00 with Priority Score 67.1.",
-      "evidence_synthesis": [
-        {
-          "evidence_id": "EVD-TEL-WIND_SPEED",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "wind_speed",
-          "value": 13.53,
-          "unit": "m/s",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-ACTIVE_POWER",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "active_power",
-          "value": 2000.0,
-          "unit": "kW",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-AMBIENT_TEMP",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "ambient_temp",
-          "value": 21.99,
-          "unit": "°C",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-GEARBOX_BEARING_TEMP",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "gearbox_bearing_temp",
-          "value": 57.1,
-          "unit": "°C",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-GENERATOR_STATOR_TEMP",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "generator_stator_temp",
-          "value": 48.64,
-          "unit": "°C",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-PITCH_ANGLE",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "pitch_angle",
-          "value": 3.26,
-          "unit": "deg",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-ROTOR_SPEED",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "rotor_speed",
-          "value": 14.51,
-          "unit": "RPM",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-GENERATOR_SPEED",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "generator_speed",
-          "value": 1486.19,
-          "unit": "RPM",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-RESIDUAL_POWER_KW",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "residual_power_kw",
-          "value": 0.03,
-          "unit": "kW",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-Z_POWER",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "z_power",
-          "value": -0.03,
-          "unit": "sigma",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-RESIDUAL_GEARBOX_TEMP_C",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "residual_gb_temp_c",
-          "value": 16.02,
-          "unit": "°C",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-Z_GEARBOX_TEMP",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "z_gb",
-          "value": 5.65,
-          "unit": "sigma",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-RESIDUAL_GENERATOR_TEMP_C",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "residual_gen_temp_c",
-          "value": -0.58,
-          "unit": "°C",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-Z_GENERATOR_TEMP",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "z_gen",
-          "value": 0.05,
-          "unit": "sigma",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-CTX-STATE",
-          "evidence_type": "CONTEXT_CLASSIFICATION",
-          "field_name": "operational_context_state",
-          "value": "NORMAL",
-          "unit": null,
-          "source_reference": "PHASE3_CONTEXT_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-ATTR-SUBSYSTEM",
-          "evidence_type": "CONTEXT_CLASSIFICATION",
-          "field_name": "subsystem_attribution",
-          "value": "DRIVETRAIN_GEARBOX",
-          "unit": null,
-          "source_reference": "PHASE3_REASONER",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-ATTR-CONFIDENCE",
-          "evidence_type": "CONTEXT_CLASSIFICATION",
-          "field_name": "rule_evidence_confidence",
-          "value": 0.9,
-          "unit": "ratio",
-          "source_reference": "PHASE3_REASONER",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-LOSS-INR",
-          "evidence_type": "FINANCIAL_LOSS",
-          "field_name": "financial_loss_inr",
-          "value": 0.0,
-          "unit": "INR",
-          "source_reference": "PHASE3_LOSS_CALCULATOR",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-LOSS-ENERGY-KWH",
-          "evidence_type": "FINANCIAL_LOSS",
-          "field_name": "eligible_degradation_energy_kwh",
-          "value": 0.0,
-          "unit": "kWh",
-          "source_reference": "PHASE3_LOSS_CALCULATOR",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-PRIO-SCORE",
-          "evidence_type": "PRIORITY_SCORE",
-          "field_name": "priority_score",
-          "value": 67.13,
-          "unit": "score_0_100",
-          "source_reference": "PHASE3_PRIORITIZATION_ENGINE",
-          "content_hash": null
-        }
-      ],
-      "hypotheses": [
-        {
-          "hypothesis": "Evidence-grounded candidate explanation: High-speed shaft bearing mechanical wear or lubrication degradation causing thermal rise.",
-          "plausibility": "HIGH",
-          "grounding_evidence": [
-            "SRC-DERIVED-GB-2024",
-            "SRC-DERIVED-GEN-2024",
-            "SRC-DERIVED-SOP-2024"
-          ],
-          "missing_evidence": []
-        }
-      ],
-      "recommended_actions": [
-        {
-          "action_id": "ACT-GB-INSPECT-01",
-          "action_text": "Inspect gearbox high-speed shaft bearing lubrication levels, filter differential pressure, and oil particulate debris.",
-          "urgency": "IMMEDIATE",
-          "target_subsystem": "DRIVETRAIN_GEARBOX",
-          "requires_human_approval": true,
-          "is_non_actuating": true
-        }
-      ],
-      "citations": [
-        {
-          "source_id": "SRC-DERIVED-GB-2024",
-          "source_type": "SOURCE_DERIVED",
-          "title": "WindGuard Drivetrain & Gearbox Maintenance Engineering Guide",
-          "chapter": "Chapter 1: Thermal Monitoring and Bearing Diagnostics",
-          "section": "Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-          "source_locator": "Chapter 1: Thermal Monitoring and Bearing Diagnostics > Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-          "source_page": null,
-          "content_hash": "1676434a634edb8c7df5c3d8dffb8f7d22ad50ee2bf5f606adabd82edf4c68cb",
-          "relevance_score": 0.3464
-        },
-        {
-          "source_id": "SRC-DERIVED-GEN-2024",
-          "source_type": "SOURCE_DERIVED",
-          "title": "WindGuard Generator & Cooling System Maintenance Guide",
-          "chapter": "Chapter 1: Stator Thermal Management and Insulation Standards",
-          "section": "Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-          "source_locator": "Chapter 1: Stator Thermal Management and Insulation Standards > Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-          "source_page": null,
-          "content_hash": "d6588db68495e8d60b6563be66893feeeb3bb49d3b4de8a911dadb111243af83",
-          "relevance_score": 0.2374
-        },
-        {
-          "source_id": "SRC-DERIVED-SOP-2024",
-          "source_type": "SOURCE_DERIVED",
-          "title": "Indian Wind Corridor Operational & Maintenance Standard Operating Procedures",
-          "chapter": "Chapter 2: High Ambient Heatwave Protocols",
-          "section": "Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-          "source_locator": "Chapter 2: High Ambient Heatwave Protocols > Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-          "source_page": null,
-          "content_hash": "b96b36567de76b08a24b7447ebc80c73a9c94400e704720d10ccd9a34717869e",
-          "relevance_score": 0.2226
-        }
-      ],
-      "loss_summary_inr": 0.0,
-      "energy_loss_kwh": 0.0,
-      "priority_score": 67.13,
-      "review_status": "MANDATORY_HUMAN_REVIEW_REQUIRED",
-      "guardrail_status": {
-        "verdict": "PASS",
-        "schema_valid": true,
-        "numerical_consistency_valid": true,
-        "citation_whitelist_valid": true,
-        "lexicon_scan_passed": true,
-        "context_consistency_valid": true,
-        "attribution_consistency_valid": true,
-        "safety_disclaimer_present": true,
-        "violations": []
-      },
-      "safety_disclaimer": "ADVISORY ONLY — WindGuard AI does not issue automated control commands to turbine actuators. Human engineer verification and physical inspection are strictly required prior to any operational intervention.",
-      "missing_evidence_summary": null,
-      "abstention_reason": null,
-      "fallback_reason": null,
-      "blocked_reason": null
-    },
-    "guardrails": {
-      "verdict": "PASS",
-      "schema_valid": true,
-      "numerical_consistency_valid": true,
-      "citation_whitelist_valid": true,
-      "lexicon_scan_passed": true,
-      "context_consistency_valid": true,
-      "attribution_consistency_valid": true,
-      "safety_disclaimer_present": true,
-      "violations": []
-    },
-    "review_status": "MANDATORY_HUMAN_REVIEW_REQUIRED",
-    "operator_decisions": [
-      {
-        "decision_id": "DEC-CASE-WTG-07-20260921-1AD2A2B1-20260921-98B9FC",
-        "action": "ACKNOWLEDGE",
-        "operator_id": "OPERATOR_LOCAL",
-        "timestamp": "2026-09-21T18:22:23.805168Z",
-        "notes": "Testing action ACKNOWLEDGE with compliant operator notes."
-      },
-      {
-        "decision_id": "DEC-CASE-WTG-07-20260921-1AD2A2B1-20260921-BAF5FD",
-        "action": "INVESTIGATE",
-        "operator_id": "OPERATOR_LOCAL",
-        "timestamp": "2026-09-21T18:22:23.816452Z",
-        "notes": "Testing action INVESTIGATE with compliant operator notes."
-      },
-      {
-        "decision_id": "DEC-CASE-WTG-07-20260921-1AD2A2B1-20260921-E4FB32",
-        "action": "ESCALATE",
-        "operator_id": "OPERATOR_LOCAL",
-        "timestamp": "2026-09-21T18:22:23.830604Z",
-        "notes": "Testing action ESCALATE with compliant operator notes."
-      },
-      {
-        "decision_id": "DEC-CASE-WTG-07-20260921-1AD2A2B1-20260921-FF2351",
-        "action": "DISMISS",
-        "operator_id": "OPERATOR_LOCAL",
-        "timestamp": "2026-09-21T18:22:23.842355Z",
-        "notes": "Testing action DISMISS with compliant operator notes."
-      }
-    ],
-    "schema_version": "1.0.0"
-  },
-  "CASE-WTG-07-20260921-F527274B": {
-    "case_id": "CASE-WTG-07-20260921-F527274B",
-    "turbine_id": "WTG-07",
-    "created_at": "2026-09-21T18:22:23.911208Z",
-    "status": "OPEN",
-    "severity": "HIGH",
-    "priority_score": 67.13,
-    "source_telemetry": {
-      "timestamp": "2026-09-20T23:50:00Z",
-      "turbine_id": "WTG-07",
-      "wind_speed": 13.53,
-      "active_power": 2000.0,
-      "ambient_temp": 21.99,
-      "gearbox_bearing_temp": 57.1,
-      "generator_stator_temp": 48.64,
-      "pitch_angle": 3.26,
-      "rotor_speed": 14.51,
-      "is_curtailed": false,
-      "operating_status": "Running",
-      "source_provenance": "SOURCE_AUTHENTIC"
-    },
-    "derived_analytics": {
-      "expected_power_kw": 1999.97,
-      "residual_power_kw": 0.03,
-      "z_power": -0.03,
-      "expected_gb_temp_c": 41.08,
-      "residual_gb_temp_c": 16.02,
-      "z_gb": 5.65,
-      "expected_gen_temp_c": 49.22,
-      "residual_gen_temp_c": -0.58,
-      "z_gen": 0.05,
-      "context_state": "NORMAL",
-      "is_context_suppressed": false,
-      "subsystem_attribution": "DRIVETRAIN_GEARBOX",
-      "attribution_confidence": 0.9,
-      "energy_loss_kwh": 0.0,
-      "financial_loss_inr": 0.0,
-      "tariff_provenance": {
-        "applied_rate_inr_per_kwh": 3.45,
-        "mode": "PROJECT_PPA",
-        "source_reference": "TEST-PPA-2026",
-        "effective_date": "2026-09-21T18:22:23.866200Z",
-        "currency": "INR",
-        "is_baseline_assumption": false,
-        "notes": "Automated Phase 7 test update"
-      },
-      "priority_score": 67.13,
-      "severity": "HIGH",
-      "priority_breakdown": {
-        "s_sev": 0.565,
-        "s_pers": 1.0,
-        "s_conf": 0.9,
-        "s_crit": 1.0,
-        "s_loss": 0.0,
-        "w_sev": 0.25,
-        "w_pers": 0.2,
-        "w_conf": 0.2,
-        "w_crit": 0.15,
-        "w_loss": 0.2,
-        "priority_score": 67.13,
-        "severity": "HIGH"
-      }
-    },
-    "evidence_table": [
-      {
-        "evidence_id": "EVD-TEL-WIND_SPEED",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "wind_speed",
-        "value": 13.53,
-        "unit": "m/s",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-ACTIVE_POWER",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "active_power",
-        "value": 2000.0,
-        "unit": "kW",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-AMBIENT_TEMP",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "ambient_temp",
-        "value": 21.99,
-        "unit": "°C",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-GEARBOX_BEARING_TEMP",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "gearbox_bearing_temp",
-        "value": 57.1,
-        "unit": "°C",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-GENERATOR_STATOR_TEMP",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "generator_stator_temp",
-        "value": 48.64,
-        "unit": "°C",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-PITCH_ANGLE",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "pitch_angle",
-        "value": 3.26,
-        "unit": "deg",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-ROTOR_SPEED",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "rotor_speed",
-        "value": 14.51,
-        "unit": "RPM",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-TEL-GENERATOR_SPEED",
-        "evidence_type": "SCADA_TELEMETRY",
-        "field_name": "generator_speed",
-        "value": 1486.19,
-        "unit": "RPM",
-        "source_reference": "SCADA_TELEMETRY_INGESTION",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-RESIDUAL_POWER_KW",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "residual_power_kw",
-        "value": 0.03,
-        "unit": "kW",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-Z_POWER",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "z_power",
-        "value": -0.03,
-        "unit": "sigma",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-RESIDUAL_GEARBOX_TEMP_C",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "residual_gb_temp_c",
-        "value": 16.02,
-        "unit": "°C",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-Z_GEARBOX_TEMP",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "z_gb",
-        "value": 5.65,
-        "unit": "sigma",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-RESIDUAL_GENERATOR_TEMP_C",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "residual_gen_temp_c",
-        "value": -0.58,
-        "unit": "°C",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-RES-Z_GENERATOR_TEMP",
-        "evidence_type": "ML_RESIDUAL",
-        "field_name": "z_gen",
-        "value": 0.05,
-        "unit": "sigma",
-        "source_reference": "PHASE2_RESIDUAL_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-CTX-STATE",
-        "evidence_type": "CONTEXT_CLASSIFICATION",
-        "field_name": "operational_context_state",
-        "value": "NORMAL",
-        "unit": null,
-        "source_reference": "PHASE3_CONTEXT_ENGINE",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-ATTR-SUBSYSTEM",
-        "evidence_type": "CONTEXT_CLASSIFICATION",
-        "field_name": "subsystem_attribution",
-        "value": "DRIVETRAIN_GEARBOX",
-        "unit": null,
-        "source_reference": "PHASE3_REASONER",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-ATTR-CONFIDENCE",
-        "evidence_type": "CONTEXT_CLASSIFICATION",
-        "field_name": "rule_evidence_confidence",
-        "value": 0.9,
-        "unit": "ratio",
-        "source_reference": "PHASE3_REASONER",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-LOSS-INR",
-        "evidence_type": "FINANCIAL_LOSS",
-        "field_name": "financial_loss_inr",
-        "value": 0.0,
-        "unit": "INR",
-        "source_reference": "PHASE3_LOSS_CALCULATOR",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-LOSS-ENERGY-KWH",
-        "evidence_type": "FINANCIAL_LOSS",
-        "field_name": "eligible_degradation_energy_kwh",
-        "value": 0.0,
-        "unit": "kWh",
-        "source_reference": "PHASE3_LOSS_CALCULATOR",
-        "content_hash": null
-      },
-      {
-        "evidence_id": "EVD-PRIO-SCORE",
-        "evidence_type": "PRIORITY_SCORE",
-        "field_name": "priority_score",
-        "value": 67.13,
-        "unit": "score_0_100",
-        "source_reference": "PHASE3_PRIORITIZATION_ENGINE",
-        "content_hash": null
-      }
-    ],
-    "citations": [
-      {
-        "source_id": "SRC-DERIVED-GB-2024",
-        "source_type": "SOURCE_DERIVED",
-        "title": "WindGuard Drivetrain & Gearbox Maintenance Engineering Guide",
-        "chapter": "Chapter 1: Thermal Monitoring and Bearing Diagnostics",
-        "section": "Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-        "source_locator": "Chapter 1: Thermal Monitoring and Bearing Diagnostics > Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-        "source_page": null,
-        "content_hash": "1676434a634edb8c7df5c3d8dffb8f7d22ad50ee2bf5f606adabd82edf4c68cb",
-        "relevance_score": 0.3464
-      },
-      {
-        "source_id": "SRC-DERIVED-GEN-2024",
-        "source_type": "SOURCE_DERIVED",
-        "title": "WindGuard Generator & Cooling System Maintenance Guide",
-        "chapter": "Chapter 1: Stator Thermal Management and Insulation Standards",
-        "section": "Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-        "source_locator": "Chapter 1: Stator Thermal Management and Insulation Standards > Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-        "source_page": null,
-        "content_hash": "d6588db68495e8d60b6563be66893feeeb3bb49d3b4de8a911dadb111243af83",
-        "relevance_score": 0.2374
-      },
-      {
-        "source_id": "SRC-DERIVED-SOP-2024",
-        "source_type": "SOURCE_DERIVED",
-        "title": "Indian Wind Corridor Operational & Maintenance Standard Operating Procedures",
-        "chapter": "Chapter 2: High Ambient Heatwave Protocols",
-        "section": "Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-        "source_locator": "Chapter 2: High Ambient Heatwave Protocols > Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-        "source_page": null,
-        "content_hash": "b96b36567de76b08a24b7447ebc80c73a9c94400e704720d10ccd9a34717869e",
-        "relevance_score": 0.2226
-      }
-    ],
-    "advisory": {
-      "case_id": "CASE-WTG-07-20260921-F527274B",
-      "timestamp": "2026-09-20T23:50:00Z",
-      "turbine_id": "WTG-07",
-      "status": "NORMAL_ADVISORY",
-      "primary_attribution": "DRIVETRAIN_GEARBOX",
-      "context_classification": "NORMAL",
-      "summary": "Persistent Gearbox Bearing thermal anomaly detected on WTG-07. Estimated financial loss: INR 0.00 with Priority Score 67.1.",
-      "evidence_synthesis": [
-        {
-          "evidence_id": "EVD-TEL-WIND_SPEED",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "wind_speed",
-          "value": 13.53,
-          "unit": "m/s",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-ACTIVE_POWER",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "active_power",
-          "value": 2000.0,
-          "unit": "kW",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-AMBIENT_TEMP",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "ambient_temp",
-          "value": 21.99,
-          "unit": "°C",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-GEARBOX_BEARING_TEMP",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "gearbox_bearing_temp",
-          "value": 57.1,
-          "unit": "°C",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-GENERATOR_STATOR_TEMP",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "generator_stator_temp",
-          "value": 48.64,
-          "unit": "°C",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-PITCH_ANGLE",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "pitch_angle",
-          "value": 3.26,
-          "unit": "deg",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-ROTOR_SPEED",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "rotor_speed",
-          "value": 14.51,
-          "unit": "RPM",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-TEL-GENERATOR_SPEED",
-          "evidence_type": "SCADA_TELEMETRY",
-          "field_name": "generator_speed",
-          "value": 1486.19,
-          "unit": "RPM",
-          "source_reference": "SCADA_TELEMETRY_INGESTION",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-RESIDUAL_POWER_KW",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "residual_power_kw",
-          "value": 0.03,
-          "unit": "kW",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-Z_POWER",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "z_power",
-          "value": -0.03,
-          "unit": "sigma",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-RESIDUAL_GEARBOX_TEMP_C",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "residual_gb_temp_c",
-          "value": 16.02,
-          "unit": "°C",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-Z_GEARBOX_TEMP",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "z_gb",
-          "value": 5.65,
-          "unit": "sigma",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-RESIDUAL_GENERATOR_TEMP_C",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "residual_gen_temp_c",
-          "value": -0.58,
-          "unit": "°C",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-RES-Z_GENERATOR_TEMP",
-          "evidence_type": "ML_RESIDUAL",
-          "field_name": "z_gen",
-          "value": 0.05,
-          "unit": "sigma",
-          "source_reference": "PHASE2_RESIDUAL_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-CTX-STATE",
-          "evidence_type": "CONTEXT_CLASSIFICATION",
-          "field_name": "operational_context_state",
-          "value": "NORMAL",
-          "unit": null,
-          "source_reference": "PHASE3_CONTEXT_ENGINE",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-ATTR-SUBSYSTEM",
-          "evidence_type": "CONTEXT_CLASSIFICATION",
-          "field_name": "subsystem_attribution",
-          "value": "DRIVETRAIN_GEARBOX",
-          "unit": null,
-          "source_reference": "PHASE3_REASONER",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-ATTR-CONFIDENCE",
-          "evidence_type": "CONTEXT_CLASSIFICATION",
-          "field_name": "rule_evidence_confidence",
-          "value": 0.9,
-          "unit": "ratio",
-          "source_reference": "PHASE3_REASONER",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-LOSS-INR",
-          "evidence_type": "FINANCIAL_LOSS",
-          "field_name": "financial_loss_inr",
-          "value": 0.0,
-          "unit": "INR",
-          "source_reference": "PHASE3_LOSS_CALCULATOR",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-LOSS-ENERGY-KWH",
-          "evidence_type": "FINANCIAL_LOSS",
-          "field_name": "eligible_degradation_energy_kwh",
-          "value": 0.0,
-          "unit": "kWh",
-          "source_reference": "PHASE3_LOSS_CALCULATOR",
-          "content_hash": null
-        },
-        {
-          "evidence_id": "EVD-PRIO-SCORE",
-          "evidence_type": "PRIORITY_SCORE",
-          "field_name": "priority_score",
-          "value": 67.13,
-          "unit": "score_0_100",
-          "source_reference": "PHASE3_PRIORITIZATION_ENGINE",
-          "content_hash": null
-        }
-      ],
-      "hypotheses": [
-        {
-          "hypothesis": "Evidence-grounded candidate explanation: High-speed shaft bearing mechanical wear or lubrication degradation causing thermal rise.",
-          "plausibility": "HIGH",
-          "grounding_evidence": [
-            "SRC-DERIVED-GB-2024",
-            "SRC-DERIVED-GEN-2024",
-            "SRC-DERIVED-SOP-2024"
-          ],
-          "missing_evidence": []
-        }
-      ],
-      "recommended_actions": [
-        {
-          "action_id": "ACT-GB-INSPECT-01",
-          "action_text": "Inspect gearbox high-speed shaft bearing lubrication levels, filter differential pressure, and oil particulate debris.",
-          "urgency": "IMMEDIATE",
-          "target_subsystem": "DRIVETRAIN_GEARBOX",
-          "requires_human_approval": true,
-          "is_non_actuating": true
-        }
-      ],
-      "citations": [
-        {
-          "source_id": "SRC-DERIVED-GB-2024",
-          "source_type": "SOURCE_DERIVED",
-          "title": "WindGuard Drivetrain & Gearbox Maintenance Engineering Guide",
-          "chapter": "Chapter 1: Thermal Monitoring and Bearing Diagnostics",
-          "section": "Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-          "source_locator": "Chapter 1: Thermal Monitoring and Bearing Diagnostics > Section 1.1: Thermal Thresholds and Overheating Diagnostics",
-          "source_page": null,
-          "content_hash": "1676434a634edb8c7df5c3d8dffb8f7d22ad50ee2bf5f606adabd82edf4c68cb",
-          "relevance_score": 0.3464
-        },
-        {
-          "source_id": "SRC-DERIVED-GEN-2024",
-          "source_type": "SOURCE_DERIVED",
-          "title": "WindGuard Generator & Cooling System Maintenance Guide",
-          "chapter": "Chapter 1: Stator Thermal Management and Insulation Standards",
-          "section": "Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-          "source_locator": "Chapter 1: Stator Thermal Management and Insulation Standards > Section 1.1: Stator Temperature Limits and Class F Insulation Rating",
-          "source_page": null,
-          "content_hash": "d6588db68495e8d60b6563be66893feeeb3bb49d3b4de8a911dadb111243af83",
-          "relevance_score": 0.2374
-        },
-        {
-          "source_id": "SRC-DERIVED-SOP-2024",
-          "source_type": "SOURCE_DERIVED",
-          "title": "Indian Wind Corridor Operational & Maintenance Standard Operating Procedures",
-          "chapter": "Chapter 2: High Ambient Heatwave Protocols",
-          "section": "Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-          "source_locator": "Chapter 2: High Ambient Heatwave Protocols > Section 2.1: Extreme Ambient Heatwave Operating Guidelines (Above 38°C)",
-          "source_page": null,
-          "content_hash": "b96b36567de76b08a24b7447ebc80c73a9c94400e704720d10ccd9a34717869e",
-          "relevance_score": 0.2226
-        }
-      ],
-      "loss_summary_inr": 0.0,
-      "energy_loss_kwh": 0.0,
-      "priority_score": 67.13,
-      "review_status": "MANDATORY_HUMAN_REVIEW_REQUIRED",
-      "guardrail_status": {
-        "verdict": "PASS",
-        "schema_valid": true,
-        "numerical_consistency_valid": true,
-        "citation_whitelist_valid": true,
-        "lexicon_scan_passed": true,
-        "context_consistency_valid": true,
-        "attribution_consistency_valid": true,
-        "safety_disclaimer_present": true,
-        "violations": []
-      },
-      "safety_disclaimer": "ADVISORY ONLY — WindGuard AI does not issue automated control commands to turbine actuators. Human engineer verification and physical inspection are strictly required prior to any operational intervention.",
-      "missing_evidence_summary": null,
-      "abstention_reason": null,
-      "fallback_reason": null,
-      "blocked_reason": null
-    },
-    "guardrails": {
-      "verdict": "PASS",
-      "schema_valid": true,
-      "numerical_consistency_valid": true,
-      "citation_whitelist_valid": true,
-      "lexicon_scan_passed": true,
-      "context_consistency_valid": true,
-      "attribution_consistency_valid": true,
-      "safety_disclaimer_present": true,
-      "violations": []
-    },
-    "review_status": "MANDATORY_HUMAN_REVIEW_REQUIRED",
+    "review_status": "AUTOMATIC",
     "operator_decisions": [],
     "schema_version": "1.0.0"
   }
