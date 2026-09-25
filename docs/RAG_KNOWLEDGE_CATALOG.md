@@ -7,8 +7,6 @@ author: WindGuard AI Knowledge Engineering Group
 governance: Technical Knowledge Corpus Provenance & RAG Subsystem Catalog (Phase 9)
 depends_on:
   - docs/11_ai_ml_design.md
-  - docs/PHASE_4_FINAL_OWNER_REVIEW.md
-  - docs/PHASE_4_VERIFICATION.md
   - docs/EVALUATION_REPORT.md
   - docs/MASTER_TECHNICAL_REPORT.md
 ---

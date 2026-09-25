@@ -22,7 +22,6 @@ depends_on:
   - docs/13_technology_stack.md
   - docs/14_implementation_plan.md
   - docs/EVALUATION_REPORT.md
-  - docs/PHASE_8_FINAL_SIGNOFF.md
 ---
 
 # WindGuard AI: Master Technical Architecture Report

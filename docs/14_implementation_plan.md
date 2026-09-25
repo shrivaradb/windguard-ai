@@ -159,11 +159,17 @@ This document establishes the authoritative, phased engineering implementation r
 - **Deliverables**: Generated evaluation report with empirical tables and confusion matrices.
 
 ### Phase 9: Final Documentation Deliverables & Presentation Deck
-- **Objective**: Produce internship deliverables, technical reports, and presentation slides.
+- **Objective**: Produce comprehensive project deliverables, technical reports, and presentation slides.
 - **Deliverables**:
   1. Comprehensive `README.md`.
-  2. `docs/TECHNICAL_ARCHITECTURE.md`.
-  3. `docs/RESEARCH_PAPER_ANALYSIS.md`.
+  2. `docs/MASTER_TECHNICAL_REPORT.md`.
+  3. `docs/WINDGUARD_AI_FINAL_PROJECT_DOCUMENTATION.md`.
   4. `docs/EVALUATION_REPORT.md`.
   5. `docs/RESPONSIBLE_AI_AND_SDG.md`.
-  6. `docs/PRESENTATION_DECK_18_SLIDES.md` (Complete 18-slide slide deck content).
+  6. `docs/MODEL_CARDS.md`.
+  7. `docs/RAG_KNOWLEDGE_CATALOG.md`.
+  8. `docs/PRESENTATION_DECK_18_SLIDES.md`.
+  9. `docs/PRESENTATION_12_SLIDES.md`.
+  10. `docs/PRESENTATION_SPEAKER_NOTES.md`.
+  11. `docs/DEMO_WALKTHROUGH_GUIDE.md`.
+  12. `docs/VIVA_DEFENSE_PREPARATION.md`.

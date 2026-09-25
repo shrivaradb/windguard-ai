@@ -6,14 +6,13 @@ last_updated: 2026-09-20
 author: WindGuard AI Research & Architecture Team
 depends_on:
   - docs/01_problem_statement.md
-  - extracted_paper_1.md
 ---
 
 # 02. Literature Review — WindGuard AI
 
 ## 1. Executive Summary
 
-This document presents an exhaustive, academically rigorous literature review evaluating the state-of-the-art in wind turbine condition monitoring, machine learning-based anomaly detection, physics-informed modeling, digital twins, and Generative AI/LLM integration. The review is anchored primarily in the foundational paper by **Academic Research Survey (2026) (2026)**, titled *"Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems"* [SOURCE-DERIVED CLAIM], supplemented by established academic and institutional literature (e.g., NREL, IEEE, Elsevier WES literature).
+This document presents an exhaustive, academically rigorous literature review evaluating the state-of-the-art in wind turbine condition monitoring, machine learning-based anomaly detection, physics-informed modeling, digital twins, and Generative AI/LLM integration. The review is anchored primarily in the foundational paper by **Academic Research Survey (2026)**, titled *"Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems"*, supplemented by established academic and institutional literature (e.g., NREL, IEEE, Elsevier WES literature).
 
 The literature establishes a clear technological trajectory: from reactive, static SCADA threshold alarms to data-driven predictive maintenance, and toward hybrid, physics-informed, uncertainty-aware, and human-supervised decision-support systems.
 
@@ -24,7 +23,7 @@ The literature establishes a clear technological trajectory: from reactive, stat
 ### Primary Paper: Academic Literature (2026)
 
 - **Citation**: 
-  > Academic Research Survey (2026). *Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems*. Research Monograph / Survey Paper [Paper 1].
+  > Academic Research Survey (2026). *Artificial Intelligence in Wind Turbines: Current Trends, Emerging Architectures and Future Developments Toward Autonomous Wind Energy Systems*. Research Monograph / Survey Paper.
 - **Core Problem Addressed**: 
   Modern wind turbines are complex cyber-physical systems operating under non-stationary atmospheric conditions. While data generation has surged (SCADA, CMS, IoT, LiDAR, drone vision), data availability alone does not yield reliable maintenance intelligence. The paper addresses how AI can transition from narrow prediction to integrated, physics-informed, and autonomous wind energy systems.
 - **Scope & Methodology**: 

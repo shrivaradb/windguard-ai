@@ -8,7 +8,6 @@ governance: Standardized Machine Learning Model Cards (IEEE / ACM / Responsible 
 depends_on:
   - docs/11_ai_ml_design.md
   - docs/10_data_architecture.md
-  - docs/PHASE_2_OWNER_RESOLUTION.md
   - docs/EVALUATION_REPORT.md
   - docs/MASTER_TECHNICAL_REPORT.md
 ---

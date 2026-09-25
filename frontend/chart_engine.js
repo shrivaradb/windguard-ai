@@ -1,8 +1,8 @@
 /**
- * WindGuard AI — Lightweight Canvas Charting Engine
+ * WindGuard AI — High-Definition Canvas Charting Engine
  * Phase 7 Presentation Layer (Layer 6 UI) & Real-World SCADA Inspector
  * 
- * Provides high-performance 2D Canvas rendering for:
+ * Provides ultra-crisp 2D Canvas rendering with Retina/HiDPI support:
  * 1. Power Curves (OEM Baseline, ML Expected, Real SCADA Scatter Points with status coloring)
  * 2. Synchronized Multi-Sensor SCADA Time Series
  * 3. Statistical Residual & Z-Score Deviation Gauges
@@ -18,18 +18,35 @@ class WindGuardCharts {
   static _activeHoverRecord = null;
 
   /**
+   * Configures canvas for crisp Retina / HiDPI rendering.
+   */
+  static setupHiDPICanvas(canvas) {
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.parentElement.getBoundingClientRect();
+    const width = rect.width || 500;
+    const height = rect.height || 280;
+
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+    return { ctx, width, height };
+  }
+
+  /**
    * Renders an interactive Wind Turbine Power Curve.
    * @param {HTMLCanvasElement} canvas
    * @param {Object} data { telemetryRecords, livePoint, ratedPowerKw, cutInSpeed, ratedSpeed, scatterFilter }
    */
   static renderPowerCurve(canvas, data = {}) {
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const width = canvas.width = canvas.parentElement.clientWidth || 500;
-    const height = canvas.height = canvas.parentElement.clientHeight || 280;
+    if (!canvas || !canvas.parentElement) return;
+    const { ctx, width, height } = this.setupHiDPICanvas(canvas);
 
     // Margins
-    const m = { top: 20, right: 30, bottom: 40, left: 60 };
+    const m = { top: 22, right: 30, bottom: 42, left: 65 };
     const chartW = width - m.left - m.right;
     const chartH = height - m.top - m.bottom;
 
@@ -43,11 +60,11 @@ class WindGuardCharts {
     const scaleX = (v) => m.left + (Math.max(0, Math.min(xMax, v)) / xMax) * chartW;
     const scaleY = (p) => m.top + chartH - (Math.max(0, Math.min(yMax, p)) / yMax) * chartH;
 
-    // 1. Draw Grid Lines
-    ctx.strokeStyle = 'rgba(35, 56, 99, 0.6)';
+    // 1. Draw Grid Lines & Background Accents
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
     ctx.lineWidth = 1;
     ctx.fillStyle = '#64748b';
-    ctx.font = '10px monospace';
+    ctx.font = '10px "JetBrains Mono", ui-monospace, monospace';
     ctx.textAlign = 'right';
 
     // Horizontal grid (Power kW)
@@ -58,7 +75,7 @@ class WindGuardCharts {
       ctx.moveTo(m.left, y);
       ctx.lineTo(m.left + chartW, y);
       ctx.stroke();
-      ctx.fillText(`${p} kW`, m.left - 8, y + 3);
+      ctx.fillText(`${p} kW`, m.left - 10, y + 3.5);
     }
 
     // Vertical grid (Wind m/s)
@@ -69,10 +86,10 @@ class WindGuardCharts {
       ctx.moveTo(x, m.top);
       ctx.lineTo(x, m.top + chartH);
       ctx.stroke();
-      ctx.fillText(`${v} m/s`, x, m.top + chartH + 18);
+      ctx.fillText(`${v} m/s`, x, m.top + chartH + 20);
     }
 
-    // 2. Draw Theoretical OEM Baseline Curve (Cubic Power equation)
+    // 2. Draw Theoretical OEM Baseline Curve (Dashed Blue line)
     ctx.strokeStyle = '#3b82f6';
     ctx.lineWidth = 2;
     ctx.setLineDash([4, 4]);
@@ -92,9 +109,11 @@ class WindGuardCharts {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    // 3. Draw ML Expected Power Curve (Smooth Gradient Boosting Approximation)
-    ctx.strokeStyle = '#06b6d4';
+    // 3. Draw ML Expected Power Curve (Smooth Gradient Boosting Curve in Neon Cyan)
+    ctx.strokeStyle = '#00d2ff';
     ctx.lineWidth = 2.5;
+    ctx.shadowColor = 'rgba(0, 210, 255, 0.4)';
+    ctx.shadowBlur = 8;
     ctx.beginPath();
     for (let v = 0; v <= xMax; v += 0.2) {
       let mlP = 0;
@@ -109,6 +128,7 @@ class WindGuardCharts {
       else ctx.lineTo(x, y);
     }
     ctx.stroke();
+    ctx.shadowBlur = 0;
 
     // 4. Draw Real SCADA Telemetry Scatter Points with Status Color-Coding
     this._lastPlottedPoints = [];
@@ -130,14 +150,14 @@ class WindGuardCharts {
         if (filter === 'anomaly' && !isFault) continue;
         if (filter === 'dropout' && !isDropout) continue;
 
-        let dotColor = '#00f0ff'; // Cyan default (Normal)
+        let dotColor = '#00d2ff'; // Cyan default (Normal)
         let dotRadius = 3;
 
         if (isCurtailed) {
           dotColor = '#f59e0b'; // Amber
           dotRadius = 3.5;
         } else if (isFault) {
-          dotColor = '#ef4444'; // Coral Red
+          dotColor = '#f43f5e'; // Coral Rose
           dotRadius = 4;
         } else if (isDropout) {
           dotColor = '#a855f7'; // Purple
@@ -173,7 +193,7 @@ class WindGuardCharts {
       const expY = scaleY(expP);
 
       // Residual Delta Line
-      ctx.strokeStyle = '#ef4444';
+      ctx.strokeStyle = '#f43f5e';
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(liveX, liveY);
@@ -181,48 +201,51 @@ class WindGuardCharts {
       ctx.stroke();
 
       // Expected Point (Cyan ring)
-      ctx.strokeStyle = '#06b6d4';
+      ctx.strokeStyle = '#00d2ff';
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.arc(liveX, expY, 5, 0, Math.PI * 2);
       ctx.stroke();
 
-      // Live Point (Red filled circle)
-      ctx.fillStyle = '#ef4444';
+      // Live Point (Red filled circle with glow)
+      ctx.fillStyle = '#f43f5e';
+      ctx.shadowColor = 'rgba(244, 63, 94, 0.8)';
+      ctx.shadowBlur = 10;
       ctx.beginPath();
       ctx.arc(liveX, liveY, 6, 0, Math.PI * 2);
       ctx.fill();
+      ctx.shadowBlur = 0;
       ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 1.5;
       ctx.stroke();
 
       // Label Live Point
       ctx.fillStyle = '#f8fafc';
-      ctx.font = 'bold 11px sans-serif';
+      ctx.font = '700 11px "Plus Jakarta Sans", sans-serif';
       ctx.textAlign = 'left';
       ctx.fillText(`Live: ${liveP.toFixed(0)} kW (ΔP: ${(liveP - expP).toFixed(0)} kW)`, liveX + 10, liveY - 4);
     }
 
-    // 6. Draw Legend
-    ctx.font = '10px sans-serif';
+    // 6. Draw Modern Legend
+    ctx.font = '600 10.5px "Plus Jakarta Sans", sans-serif';
     ctx.textAlign = 'left';
 
     // ML Curve
-    ctx.fillStyle = '#06b6d4';
-    ctx.fillRect(m.left + 10, m.top + 5, 12, 3);
+    ctx.fillStyle = '#00d2ff';
+    ctx.fillRect(m.left + 10, m.top + 6, 12, 3);
     ctx.fillStyle = '#94a3b8';
-    ctx.fillText('ML Expected Curve', m.left + 28, m.top + 9);
+    ctx.fillText('ML Expected Curve', m.left + 28, m.top + 10);
 
     // OEM Curve
     ctx.strokeStyle = '#3b82f6';
     ctx.setLineDash([3, 3]);
     ctx.beginPath();
-    ctx.moveTo(m.left + 140, m.top + 6);
-    ctx.lineTo(m.left + 152, m.top + 6);
+    ctx.moveTo(m.left + 150, m.top + 7);
+    ctx.lineTo(m.left + 162, m.top + 7);
     ctx.stroke();
     ctx.setLineDash([]);
     ctx.fillStyle = '#94a3b8';
-    ctx.fillText('OEM Theoretical', m.left + 158, m.top + 9);
+    ctx.fillText('OEM Theoretical', m.left + 168, m.top + 10);
 
     // Setup interactive hover listener once
     if (!canvas._hasHoverListener) {
@@ -232,9 +255,9 @@ class WindGuardCharts {
         const mx = e.clientX - rect.left;
         const my = e.clientY - rect.top;
 
-        // Find closest point within 12px
+        // Find closest point within 14px
         let closest = null;
-        let minDist = 144; // 12^2
+        let minDist = 196; // 14^2
 
         for (const pt of WindGuardCharts._lastPlottedPoints) {
           const dx = pt.x - mx;
@@ -253,11 +276,11 @@ class WindGuardCharts {
             const dtStr = r.timestamp ? r.timestamp.replace('T', ' ').replace('Z', '') : '--';
             const status = r.operating_status || (r.is_curtailed ? 'Curtailed' : 'Running');
             readout.innerHTML = `
-              <strong style="color:${closest.color}">● ${status}</strong> | 
-              <span>Time: <strong>${dtStr}</strong></span> | 
-              <span>Wind: <strong>${r.wind_speed} m/s</strong></span> | 
-              <span>Power: <strong>${r.active_power} kW</strong></span> | 
-              <span>GB Temp: <strong>${r.gearbox_bearing_temp ?? '--'}°C</strong></span> | 
+              <strong style="color:${closest.color}">● ${status}</strong> &nbsp;|&nbsp; 
+              <span>Time: <strong>${dtStr}</strong></span> &nbsp;|&nbsp; 
+              <span>Wind: <strong>${r.wind_speed} m/s</strong></span> &nbsp;|&nbsp; 
+              <span>Power: <strong>${r.active_power} kW</strong></span> &nbsp;|&nbsp; 
+              <span>GB Temp: <strong>${r.gearbox_bearing_temp ?? '--'}°C</strong></span> &nbsp;|&nbsp; 
               <span>Pitch: <strong>${r.pitch_angle ?? '--'}°</strong></span>
             `;
           } else {
@@ -276,13 +299,11 @@ class WindGuardCharts {
    * @param {String} color Stroke color
    * @param {String} unit Unit label
    */
-  static renderTimeSeries(canvas, records, primaryField, color = '#06b6d4', unit = 'kW') {
-    if (!canvas || !records || records.length === 0) return;
-    const ctx = canvas.getContext('2d');
-    const width = canvas.width = canvas.parentElement.clientWidth || 500;
-    const height = canvas.height = canvas.parentElement.clientHeight || 200;
+  static renderTimeSeries(canvas, records, primaryField, color = '#00d2ff', unit = 'kW') {
+    if (!canvas || !canvas.parentElement || !records || records.length === 0) return;
+    const { ctx, width, height } = this.setupHiDPICanvas(canvas);
 
-    const m = { top: 15, right: 20, bottom: 30, left: 55 };
+    const m = { top: 18, right: 24, bottom: 32, left: 60 };
     const chartW = width - m.left - m.right;
     const chartH = height - m.top - m.bottom;
 
@@ -300,10 +321,10 @@ class WindGuardCharts {
     const scaleY = (val) => m.top + chartH - ((val - yMin) / (yMax - yMin || 1)) * chartH;
 
     // Grid lines
-    ctx.strokeStyle = 'rgba(35, 56, 99, 0.5)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
     ctx.lineWidth = 1;
     ctx.fillStyle = '#64748b';
-    ctx.font = '10px monospace';
+    ctx.font = '10px "JetBrains Mono", ui-monospace, monospace';
     ctx.textAlign = 'right';
 
     const ySteps = 4;
@@ -314,12 +335,14 @@ class WindGuardCharts {
       ctx.moveTo(m.left, y);
       ctx.lineTo(m.left + chartW, y);
       ctx.stroke();
-      ctx.fillText(`${val.toFixed(1)} ${unit}`, m.left - 6, y + 3);
+      ctx.fillText(`${val.toFixed(1)} ${unit}`, m.left - 8, y + 3.5);
     }
 
     // Plot Data Line
     ctx.strokeStyle = color;
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 2.2;
+    ctx.shadowColor = color.includes('#') ? `${color}66` : 'rgba(0, 210, 255, 0.4)';
+    ctx.shadowBlur = 6;
     ctx.beginPath();
 
     for (let i = 0; i < records.length; i++) {
@@ -329,10 +352,11 @@ class WindGuardCharts {
       else ctx.lineTo(x, y);
     }
     ctx.stroke();
+    ctx.shadowBlur = 0;
 
     // Area fill gradient
     const grad = ctx.createLinearGradient(0, m.top, 0, m.top + chartH);
-    grad.addColorStop(0, color.replace(')', ', 0.25)').replace('rgb', 'rgba').replace('#06b6d4', 'rgba(6, 182, 212, 0.25)'));
+    grad.addColorStop(0, color === '#00d2ff' || color === '#06b6d4' ? 'rgba(0, 210, 255, 0.22)' : 'rgba(244, 63, 94, 0.22)');
     grad.addColorStop(1, 'rgba(0, 0, 0, 0.0)');
     ctx.fillStyle = grad;
     ctx.lineTo(m.left + chartW, m.top + chartH);
@@ -346,8 +370,11 @@ class WindGuardCharts {
       const lastY = scaleY(values[values.length - 1]);
       ctx.fillStyle = color;
       ctx.beginPath();
-      ctx.arc(lastX, lastY, 4, 0, Math.PI * 2);
+      ctx.arc(lastX, lastY, 4.5, 0, Math.PI * 2);
       ctx.fill();
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
     }
   }
 }

@@ -756,9 +756,12 @@ class WindGuardApp {
 
     container.innerHTML = filteredIds.map(id => {
       const cached = this.state.telemetryCache[id] || {};
+      const powerVal = cached.active_power !== undefined ? Number(cached.active_power) : 0;
       const power = cached.active_power !== undefined ? `${cached.active_power.toFixed(0)} kW` : '-- kW';
       const wind = cached.wind_speed !== undefined ? `${cached.wind_speed.toFixed(1)} m/s` : '-- m/s';
       const isCurtailed = cached.is_curtailed;
+      const ratingKw = this.state.detectedRatingKw || 2000.0;
+      const powerPct = Math.min(100, Math.max(0, (powerVal / ratingKw) * 100));
       
       let badgeClass = 'status-normal';
       let badgeText = 'NORMAL';
@@ -788,6 +791,9 @@ class WindGuardApp {
               <span class="metric-label">Wind Speed</span>
               <span class="metric-value">${wind}</span>
             </div>
+          </div>
+          <div class="power-meter-track" title="Output Generation: ${powerPct.toFixed(1)}% of Rated ${ratingKw} kW">
+            <div class="power-meter-fill" style="width: ${powerPct}%;"></div>
           </div>
           <button class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 4px;">
             Investigate Deep Dive →

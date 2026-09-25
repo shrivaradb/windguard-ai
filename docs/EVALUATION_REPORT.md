@@ -11,8 +11,6 @@ depends_on:
   - docs/08_system_architecture.md
   - docs/11_ai_ml_design.md
   - docs/14_implementation_plan.md
-  - docs/PHASE_8_SCOPE_REVIEW.md
-  - docs/PHASE_8_OWNER_DECISION_RESOLUTION.md
 ---
 
 # WindGuard AI: Comprehensive Technical & Empirical Evaluation Report

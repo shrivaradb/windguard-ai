@@ -4,8 +4,7 @@ version: 0.1
 status: REVIEW
 last_updated: 2026-09-20
 author: WindGuard AI Research & Architecture Team
-depends_on:
-  - extracted_paper_1.md
+depends_on: []
 ---
 
 # 01. Problem Statement — WindGuard AI

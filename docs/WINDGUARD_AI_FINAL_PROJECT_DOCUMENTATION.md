@@ -26,7 +26,6 @@ depends_on:
   - docs/RAG_KNOWLEDGE_CATALOG.md
   - docs/RESPONSIBLE_AI_AND_SDG.md
   - docs/EVALUATION_REPORT.md
-  - docs/PHASE_9_FINAL_SIGNOFF.md
 ---
 
 # WINDGUARD AI

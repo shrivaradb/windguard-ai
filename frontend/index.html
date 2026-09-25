@@ -9,46 +9,63 @@
 <body>
 
   <!-- ==============================================================================
-       TOP NAVIGATION BAR
+       TOP NAVIGATION BAR (FROSTED GLASS COMMAND HEADER)
        ============================================================================== -->
   <header class="navbar">
     <div class="brand-section">
-      <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
-      </svg>
-      <div class="brand-title">WindGuard <span>AI</span></div>
-      <span class="mode-badge">Local Mode A Active | 100% Offline</span>
+      <div class="brand-icon-wrapper">
+        <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </div>
+      <div class="brand-text-block">
+        <div class="brand-title">WindGuard <span>AI</span></div>
+        <div class="brand-subtitle">Industrial SCADA Intelligence</div>
+      </div>
+      <div class="mode-badge" title="Local Deterministic Engine">
+        <span class="mode-dot"></span>
+        <span>Local Mode A Active | 100% Offline</span>
+      </div>
     </div>
 
-    <!-- Navigation Tabs -->
+    <!-- Navigation Segmented Tabs -->
     <nav class="nav-tabs" role="tablist">
       <button class="nav-tab-btn active" data-tab="dataset-studio" role="tab">
-        <span>[0] 📁 Real Data Studio</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        <span>[0] Data Studio</span>
       </button>
       <button class="nav-tab-btn" data-tab="fleet" role="tab">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         <span>[1] Fleet Overview</span>
       </button>
       <button class="nav-tab-btn" data-tab="turbine" role="tab">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>
         <span>[2] Turbine Deep Dive</span>
       </button>
       <button class="nav-tab-btn" data-tab="diagnostic" role="tab">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         <span>[3] Diagnostic Studio</span>
       </button>
       <button class="nav-tab-btn" data-tab="knowledge" role="tab">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         <span>[4] Knowledge Assistant</span>
       </button>
       <button class="nav-tab-btn" data-tab="tariff" role="tab">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         <span>[5] Tariff & Settings</span>
       </button>
       <button class="nav-tab-btn" data-tab="demo" role="tab">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         <span>[6] 10-Stage Demo</span>
       </button>
     </nav>
 
-    <!-- Top Controls: Operator Selector (OD-P7-04), Polling (OD-P7-05), Health -->
+    <!-- Top Controls: Operator Profile, Polling, Engine Health Probe -->
     <div class="nav-controls">
-      <!-- Operator Profile Identity Selector -->
+      <!-- Operator Profile Identity Selector (OD-P7-04) -->
       <div class="operator-selector">
+        <div class="operator-avatar">OP</div>
         <span class="operator-label">Operator:</span>
         <select id="operator-select" class="operator-select" aria-label="Select Operator Profile">
           <option value="OPERATOR_RAJESH">Rajesh Sharma (ROC Lead)</option>
@@ -59,13 +76,14 @@
         </select>
       </div>
 
-      <!-- Live Polling Controls -->
+      <!-- Live Polling Controls (OD-P7-05) -->
       <div class="polling-controls">
-        <button id="polling-toggle-btn" class="polling-toggle-btn" title="Toggle background polling">
+        <button id="polling-toggle-btn" class="polling-toggle-btn" title="Toggle background telemetry polling">
           ● LIVE (5s)
         </button>
         <button id="global-refresh-btn" class="refresh-btn" title="Refresh Active View">
-          ⟳ Refresh
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+          Refresh
         </button>
       </div>
 
@@ -99,11 +117,16 @@
     <section id="view-dataset-studio" class="view-panel active">
       <div class="section-header">
         <div>
-          <h2 class="view-title">📁 Universal Real-World SCADA Ingestion & Dataset Studio</h2>
-          <p class="view-subtitle">Ingest open-access / utility-scale wind turbine SCADA CSV files, auto-match OEM columns, and load curated benchmark datasets.</p>
+          <h2 class="view-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2.2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            Universal Real-World SCADA Ingestion & Dataset Studio
+          </h2>
+          <p class="view-subtitle">Ingest open-access or utility-scale wind turbine SCADA CSV files, auto-match OEM columns, and load curated real-world benchmark datasets.</p>
         </div>
         <div class="header-actions">
-          <button class="btn btn-secondary btn-sm" onclick="windGuardApp.switchTab('fleet')">Go to Fleet Overview →</button>
+          <button class="btn btn-secondary btn-sm" onclick="windGuardApp.switchTab('fleet')">
+            Go to Fleet Overview →
+          </button>
         </div>
       </div>
 
@@ -120,15 +143,15 @@
           <div id="csv-dropzone" class="dropzone-area">
             <input type="file" id="studio-csv-input" accept=".csv" style="display:none;">
             <div class="dropzone-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
               </svg>
             </div>
             <h4 class="dropzone-title">Drag & Drop SCADA CSV Here</h4>
             <p class="dropzone-hint">or <button type="button" class="btn-link" id="btn-browse-csv">Browse from Computer</button></p>
             <div class="dropzone-specs">
-              <span>• Auto-detects Vestas, GE, Gamesa, Goldwind, Engie, Kelmarsh columns</span>
-              <span>• Auto-converts MW / kW, timestamp formats, and estimates missing sensors</span>
+              <span>• Auto-detects Vestas, GE, Gamesa, Goldwind, Senvion, Suzlon, Kelmarsh columns</span>
+              <span>• Auto-converts MW / kW, timestamp formats, and physics-interpolates missing channels</span>
             </div>
           </div>
 
@@ -147,15 +170,15 @@
         <!-- 1-Click Real-World Benchmark Datasets Gallery -->
         <div class="panel-card studio-samples-card">
           <div class="panel-title">
-            <span>Curated Real-World Benchmark Datasets (1-Click Load)</span>
-            <span class="badge badge-success">3 Ready</span>
+            <span>Curated Real-World Benchmark Datasets</span>
+            <span class="badge badge-success">3 Ready to Ingest</span>
           </div>
 
           <div class="sample-cards-container">
             <!-- Sample 1: Engie La Haute Borne -->
             <div class="sample-dataset-item" onclick="windGuardApp.loadSampleDataset('engie_lahauteborne')">
               <div class="sample-item-header">
-                <span class="sample-badge badge-blue">🇫🇷 France (Engie Open SCADA)</span>
+                <span class="badge badge-blue">🇫🇷 France (Engie Open SCADA)</span>
                 <span class="sample-power">Senvion MM82 2.05MW</span>
               </div>
               <h4 class="sample-title">Engie La Haute Borne (48h SCADA)</h4>
@@ -171,7 +194,7 @@
             <!-- Sample 2: Kelmarsh Wind Farm -->
             <div class="sample-dataset-item" onclick="windGuardApp.loadSampleDataset('kelmarsh_uk')">
               <div class="sample-item-header">
-                <span class="sample-badge badge-amber">🇬🇧 UK (Open Data)</span>
+                <span class="badge badge-amber">🇬🇧 UK (Open Data)</span>
                 <span class="sample-power">Senvion MM92 2.05MW</span>
               </div>
               <h4 class="sample-title">Kelmarsh Wind Farm (Grid Curtailment)</h4>
@@ -187,7 +210,7 @@
             <!-- Sample 3: Tamil Nadu Indian Corridor -->
             <div class="sample-dataset-item" onclick="windGuardApp.loadSampleDataset('tamilnadu_corridor')">
               <div class="sample-item-header">
-                <span class="sample-badge badge-purple">🇮🇳 India (Muppandal Corridor)</span>
+                <span class="badge badge-purple">🇮🇳 India (Muppandal Corridor)</span>
                 <span class="sample-power">Suzlon / Gamesa 2.1MW</span>
               </div>
               <h4 class="sample-title">Tamil Nadu Summer Heatwave (42°C)</h4>
@@ -205,7 +228,7 @@
       </div>
 
       <!-- Column Mapping & Inspection Panel (Appears after file selection) -->
-      <div id="column-mapping-panel" class="panel-card" style="display:none; margin-top:20px;">
+      <div id="column-mapping-panel" class="panel-card" style="display:none; margin-top:24px;">
         <div class="panel-title">
           <span>Smart Column Auto-Mapper & Inspection</span>
           <div class="rating-selector-wrapper">
@@ -229,7 +252,7 @@
           <div class="mapper-stat"><span class="lbl">Date Range:</span> <strong id="map-date-range">--</strong></div>
         </div>
 
-        <div class="table-container" style="margin-top:15px; max-height:400px; overflow-y:auto;">
+        <div class="table-container" style="margin-top:16px; max-height:400px; overflow-y:auto;">
           <table class="data-table">
             <thead>
               <tr>
@@ -257,7 +280,7 @@
       </div>
 
       <!-- Real Data Health & Validation Summary (Populated after ingestion) -->
-      <div id="data-health-scorecard" class="panel-card" style="display:none; margin-top:20px;">
+      <div id="data-health-scorecard" class="panel-card" style="display:none; margin-top:24px;">
         <div class="panel-title">
           <span>Dataset Health & Quality Scorecard</span>
           <span id="scorecard-status-badge" class="badge badge-success">Ingestion Complete</span>
@@ -310,14 +333,14 @@
         <button class="filter-pill filter-pill-warning" data-fleet-filter="curtailed">● Curtailed</button>
       </div>
 
-      <!-- KPI Cards -->
+      <!-- KPI Cards (Bento Metric Layout) -->
       <div class="kpi-grid">
         <div class="kpi-card highlight">
           <span class="kpi-title">Monitored Turbines</span>
           <span class="kpi-value" id="kpi-total-turbines">10</span>
           <span class="kpi-subtitle">Active SCADA Fleet Telemetry</span>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card highlight">
           <span class="kpi-title">Total Active Power</span>
           <span class="kpi-value" id="kpi-total-power">-- kW</span>
           <span class="kpi-subtitle">Sum of Generation</span>
@@ -360,7 +383,7 @@
 
       <!-- Fleet Turbine Grid -->
       <div class="section-header">
-        <h3 class="section-title">Fleet Turbine Real-Time Status</h3>
+        <h3 class="view-title" style="font-size:17px;">Fleet Turbine Real-Time Status</h3>
         <button id="open-sim-modal-btn" class="btn btn-secondary btn-sm">
           + Launch SCADA Simulation / Ingest CSV
         </button>
@@ -371,7 +394,7 @@
 
       <!-- Active Maintenance Cases Table -->
       <div class="section-header">
-        <h3 class="section-title">Active Maintenance Cases & Audit Registry</h3>
+        <h3 class="view-title" style="font-size:17px;">Active Maintenance Cases & Audit Registry</h3>
       </div>
       <div class="table-container">
         <table class="data-table">
@@ -399,8 +422,8 @@
     <section id="view-turbine" class="view-panel">
       <div class="section-header">
         <div style="display:flex; align-items:center; gap:16px;">
-          <h3 class="section-title">Turbine Deep-Dive Studio:</h3>
-          <select id="turbine-deepdive-select" class="filter-select" style="font-weight:700; font-size:14px;">
+          <h3 class="view-title" style="font-size:18px;">Turbine Deep-Dive Studio:</h3>
+          <select id="turbine-deepdive-select" class="filter-select" style="font-weight:700; font-size:14px; padding:7px 14px;">
             <option value="WTG-01">WTG-01 (Healthy Baseline)</option>
             <option value="WTG-02">WTG-02 (Sub-Cut-In Idling)</option>
             <option value="WTG-03">WTG-03 (Pitch Misalignment)</option>
@@ -483,7 +506,7 @@
           <div class="chart-header">
             <span class="chart-title">Physical Engineering Specifications</span>
           </div>
-          <div style="padding:10px; font-size:12px; line-height:1.8; color:var(--text-secondary);">
+          <div style="padding:10px; font-size:12.5px; line-height:1.9; color:var(--text-secondary);">
             <div>• <strong>OEM Architecture:</strong> 2.0 MW DFIG Variable-Speed Pitch-Regulated</div>
             <div>• <strong>Hub Height & Rotor:</strong> 90m Hub Height | 90m Rotor Diameter</div>
             <div>• <strong>Transmission Ratio:</strong> 1:102.4 Planetary/Helical Step-Up Gearbox</div>
@@ -500,14 +523,14 @@
     <section id="view-diagnostic" class="view-panel">
       <div class="section-header">
         <div>
-          <h3 class="section-title">
+          <h3 class="view-title" style="font-size:18px;">
             Case Inspector: <span id="diag-case-id" style="font-family:var(--font-mono); color:var(--accent-cyan);">Select a Case</span>
           </h3>
-          <p style="font-size:12px; color:var(--text-muted); margin-top:2px;">
+          <p style="font-size:12.5px; color:var(--text-muted); margin-top:2px;">
             Target Turbine: <strong id="diag-turbine-id">--</strong> | Context State: <span id="diag-context-badge" class="status-badge status-normal">--</span>
           </p>
         </div>
-        <div style="display:flex; gap:10px;">
+        <div style="display:flex; gap:12px;">
           <button id="print-work-order-btn" class="btn btn-secondary">
             ⎙ Export Draft Work Order (Print / PDF)
           </button>
@@ -524,7 +547,7 @@
               <span>Executive Diagnostic Summary</span>
               <span id="diag-severity-badge" class="status-badge status-critical">SEVERITY: HIGH</span>
             </div>
-            <p id="diag-summary-narrative" style="font-size:14px; line-height:1.6; color:var(--text-primary);">
+            <p id="diag-summary-narrative" style="font-size:14px; line-height:1.7; color:var(--text-primary);">
               No diagnostic case evaluated yet. Run diagnosis or select a case from the registry.
             </p>
           </div>
@@ -548,7 +571,7 @@
             </table>
           </div>
 
-          <!-- Differential Diagnostic Hypotheses (Qualitative Plausibility) -->
+          <!-- Differential Diagnostic Hypotheses -->
           <div class="panel-card">
             <div class="panel-title">
               <span>Differential Diagnostic Hypotheses</span>
@@ -558,7 +581,7 @@
             </div>
           </div>
 
-          <!-- Technical RAG Citations (Phase 4 Truthful Provenance) -->
+          <!-- Technical RAG Citations -->
           <div class="panel-card">
             <div class="panel-title">
               <span>Retrieved Technical Documentation (OEM Manuals & Alarm SOPs)</span>
@@ -574,26 +597,26 @@
           <!-- Commercial & Tariff Provenance Card -->
           <div class="panel-card">
             <div class="panel-title">Commercial Loss & Tariff Provenance</div>
-            <div style="display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; justify-content:space-between;">
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
                 <span style="color:var(--text-muted); font-size:12px;">Eligible Energy Loss:</span>
-                <strong id="diag-loss-kwh">-- kWh</strong>
+                <strong id="diag-loss-kwh" style="font-family:var(--font-mono);">-- kWh</strong>
               </div>
-              <div style="display:flex; justify-content:space-between;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
                 <span style="color:var(--text-muted); font-size:12px;">Financial Impact:</span>
-                <strong id="diag-loss-inr" style="color:var(--accent-rose); font-size:16px;">--</strong>
+                <strong id="diag-loss-inr" style="color:var(--accent-rose); font-size:18px; font-family:var(--font-mono);">--</strong>
               </div>
-              <div style="display:flex; justify-content:space-between;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
                 <span style="color:var(--text-muted); font-size:12px;">Applied Tariff Rate:</span>
-                <strong id="diag-tariff-rate">--</strong>
+                <strong id="diag-tariff-rate" style="font-family:var(--font-mono);">--</strong>
               </div>
-              <div style="display:flex; justify-content:space-between;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
                 <span style="color:var(--text-muted); font-size:12px;">Tariff Mode:</span>
                 <span id="diag-tariff-mode" class="status-badge status-normal">--</span>
               </div>
-              <div style="display:flex; justify-content:space-between;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
                 <span style="color:var(--text-muted); font-size:12px;">Priority Score:</span>
-                <strong id="diag-priority-score" style="color:var(--accent-cyan);">--</strong>
+                <strong id="diag-priority-score" style="color:var(--accent-cyan); font-family:var(--font-mono);">--</strong>
               </div>
             </div>
           </div>
@@ -609,8 +632,8 @@
           <!-- HITL Decision Action Bar -->
           <div class="panel-card">
             <div class="panel-title">Human-in-the-Loop Operator Actions</div>
-            <div style="display:flex; flex-direction:column; gap:8px;">
-              <button class="btn btn-secondary" onclick="windGuardApp.openHITLModal('ACKNOWLEDGE')">
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <button class="btn btn-secondary" style="border-left:4px solid var(--accent-cyan);" onclick="windGuardApp.openHITLModal('ACKNOWLEDGE')">
                 ✓ Acknowledge Case
               </button>
               <button class="btn btn-warning" onclick="windGuardApp.openHITLModal('INVESTIGATE')">
@@ -619,7 +642,7 @@
               <button class="btn btn-danger" onclick="windGuardApp.openHITLModal('ESCALATE')">
                 ⚡ Escalate Work Order
               </button>
-              <button class="btn btn-secondary" onclick="windGuardApp.openHITLModal('DISMISS')">
+              <button class="btn btn-secondary" style="border-left:4px solid var(--text-muted);" onclick="windGuardApp.openHITLModal('DISMISS')">
                 ✕ Dismiss Case
               </button>
             </div>
@@ -641,26 +664,26 @@
          ============================================================================ -->
     <section id="view-knowledge" class="view-panel">
       <div class="section-header">
-        <h3 class="section-title">Technical Knowledge Assistant (Hybrid Vector / Lexical RAG)</h3>
+        <h3 class="view-title">Technical Knowledge Assistant (Hybrid Vector / Lexical RAG)</h3>
       </div>
-      <div class="panel-card" style="margin-bottom:20px;">
-        <form id="rag-search-form" style="display:flex; gap:12px; align-items:center;">
-          <input type="text" id="rag-query-input" class="filter-input" style="flex:1; font-size:14px; padding:10px 14px;" 
+      <div class="panel-card" style="margin-bottom:24px;">
+        <form id="rag-search-form" style="display:flex; gap:14px; align-items:center;">
+          <input type="text" id="rag-query-input" class="filter-input" style="flex:1; font-size:14px; padding:12px 18px;" 
                  placeholder="Ask technical questions over OEM manuals, alarm matrices, and Indian wind farm SOPs...">
-          <select id="rag-mode-select" class="filter-select" style="min-width:180px; padding:10px 12px; font-size:13px;">
+          <select id="rag-mode-select" class="filter-select" style="min-width:200px; padding:12px 16px; font-size:13px;">
             <option value="HYBRID_LOCAL" selected>⚡ Hybrid (Dense + BM25)</option>
             <option value="BM25_LOCAL">📖 BM25 (Lexical Only)</option>
             <option value="TFIDF_LOCAL">🔍 TF-IDF (Fallback)</option>
           </select>
-          <button type="submit" class="btn btn-primary" style="padding:10px 20px;">
+          <button type="submit" class="btn btn-primary" style="padding:12px 24px;">
             Search Knowledge Base →
           </button>
         </form>
-        <div style="margin-top:12px; font-size:12px; color:var(--text-muted); display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+        <div style="margin-top:14px; font-size:12px; color:var(--text-muted); display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
           <span>Suggested Queries:</span>
-          <button type="button" class="tag" style="cursor:pointer; color:var(--accent-cyan);" onclick="windGuardApp.triggerRAGSuggestion('AL-104 Gearbox High Temp Response')">AL-104 Alarm Response</button>
-          <button type="button" class="tag" style="cursor:pointer; color:var(--accent-cyan);" onclick="windGuardApp.triggerRAGSuggestion('High ambient summer heatwave derating protocol')">Summer Heatwave SOP</button>
-          <button type="button" class="tag" style="cursor:pointer; color:var(--accent-cyan);" onclick="windGuardApp.triggerRAGSuggestion('Blade pitch calibration and asymmetry check')">Pitch Calibration</button>
+          <button type="button" class="tag" style="cursor:pointer; color:var(--accent-cyan); font-weight:600;" onclick="windGuardApp.triggerRAGSuggestion('AL-104 Gearbox High Temp Response')">AL-104 Alarm Response</button>
+          <button type="button" class="tag" style="cursor:pointer; color:var(--accent-cyan); font-weight:600;" onclick="windGuardApp.triggerRAGSuggestion('High ambient summer heatwave derating protocol')">Summer Heatwave SOP</button>
+          <button type="button" class="tag" style="cursor:pointer; color:var(--accent-cyan); font-weight:600;" onclick="windGuardApp.triggerRAGSuggestion('Blade pitch calibration and asymmetry check')">Pitch Calibration</button>
         </div>
       </div>
 
@@ -674,32 +697,32 @@
          ============================================================================ -->
     <section id="view-tariff" class="view-panel">
       <div class="section-header">
-        <h3 class="section-title">Tariff & Commercial Loss Settings</h3>
+        <h3 class="view-title">Tariff & Commercial Loss Settings</h3>
       </div>
       <div class="chart-grid">
         <!-- Active Tariff Card -->
         <div class="panel-card">
           <div class="panel-title">Active Commercial Electricity Tariff</div>
-          <div style="display:flex; flex-direction:column; gap:12px; margin-top:8px;">
+          <div style="display:flex; flex-direction:column; gap:14px; margin-top:10px;">
             <div>
-              <span style="font-size:12px; color:var(--text-muted);">Current Active Rate:</span>
-              <div id="tariff-active-rate" style="font-size:24px; font-weight:700; color:var(--accent-cyan); font-family:var(--font-mono);">
+              <span style="font-size:12px; color:var(--text-muted); text-transform:uppercase; font-weight:700; letter-spacing:0.05em;">Current Active Rate:</span>
+              <div id="tariff-active-rate" style="font-size:32px; font-weight:800; color:var(--accent-cyan); font-family:var(--font-mono); margin-top:4px;">
                 ₹3.20 / kWh
               </div>
             </div>
             <div>
-              <span style="font-size:12px; color:var(--text-muted);">Tariff Provenance Mode:</span>
-              <div><span id="tariff-active-mode" class="status-badge status-normal">CONFIGURED_BASELINE</span></div>
+              <span style="font-size:12px; color:var(--text-muted); text-transform:uppercase; font-weight:700; letter-spacing:0.05em;">Tariff Provenance Mode:</span>
+              <div style="margin-top:4px;"><span id="tariff-active-mode" class="status-badge status-normal">CONFIGURED_BASELINE</span></div>
             </div>
             <div>
-              <span style="font-size:12px; color:var(--text-muted);">Source Reference:</span>
-              <div id="tariff-active-source" style="font-size:13px; color:var(--text-primary);">
+              <span style="font-size:12px; color:var(--text-muted); text-transform:uppercase; font-weight:700; letter-spacing:0.05em;">Source Reference:</span>
+              <div id="tariff-active-source" style="font-size:13.5px; color:var(--text-primary); margin-top:4px; font-weight:600;">
                 CERC Benchmark & Asset Baseline Configuration
               </div>
             </div>
             <div>
-              <span style="font-size:12px; color:var(--text-muted);">Effective Date:</span>
-              <div id="tariff-active-date" style="font-size:13px; color:var(--text-primary);">2026-09-20</div>
+              <span style="font-size:12px; color:var(--text-muted); text-transform:uppercase; font-weight:700; letter-spacing:0.05em;">Effective Date:</span>
+              <div id="tariff-active-date" style="font-size:13.5px; color:var(--text-primary); margin-top:4px; font-family:var(--font-mono);">2026-09-20</div>
             </div>
           </div>
         </div>
@@ -709,11 +732,11 @@
           <div class="panel-title">Update Active Tariff Configuration (Prospective Only)</div>
           <form id="tariff-update-form" style="display:flex; flex-direction:column; gap:14px;">
             <div>
-              <label style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:4px;">New Rate (INR / kWh):</label>
+              <label style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:6px; font-weight:600;">New Rate (INR / kWh):</label>
               <input type="number" step="0.01" min="0.01" max="20.00" id="tariff-input-rate" class="filter-input" style="width:100%;" value="3.20">
             </div>
             <div>
-              <label style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:4px;">Tariff Mode Classification:</label>
+              <label style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:6px; font-weight:600;">Tariff Mode Classification:</label>
               <select id="tariff-input-mode" class="filter-select" style="width:100%;">
                 <option value="PROJECT_PPA">PROJECT_PPA (Verified Power Purchase Agreement)</option>
                 <option value="REGULATORY_BENCHMARK">REGULATORY_BENCHMARK (Official CERC Reference)</option>
@@ -722,10 +745,10 @@
               </select>
             </div>
             <div>
-              <label style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:4px;">Source Citation / Contract Reference:</label>
+              <label style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:6px; font-weight:600;">Source Citation / Contract Reference:</label>
               <input type="text" id="tariff-input-source" class="filter-input" style="width:100%;" value="PPA-2026-WIND-07">
             </div>
-            <button type="submit" class="btn btn-primary" style="margin-top:6px;">
+            <button type="submit" class="btn btn-primary" style="margin-top:8px;">
               Apply Prospective Tariff Rate →
             </button>
           </form>
@@ -734,7 +757,7 @@
 
       <!-- Historical Tariff Provenance Log -->
       <div class="section-header">
-        <h3 class="section-title">Tariff Configuration Provenance Audit Log</h3>
+        <h3 class="view-title" style="font-size:17px;">Tariff Configuration Provenance Audit Log</h3>
       </div>
       <div class="table-container">
         <table class="data-table">
@@ -758,7 +781,7 @@
          ============================================================================ -->
     <section id="view-demo" class="view-panel">
       <div class="section-header">
-        <h3 class="section-title">10-Stage Reproducible Benchmark Demonstration</h3>
+        <h3 class="view-title">10-Stage Reproducible Benchmark Demonstration</h3>
       </div>
 
       <!-- Top Stepper Bar -->
@@ -783,10 +806,10 @@
             <span id="demo-stage-title">Stage 1: Healthy Fleet Baseline</span>
             <span id="demo-expected-status" class="status-badge status-normal">NORMAL</span>
           </div>
-          <p id="demo-stage-desc" style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
+          <p id="demo-stage-desc" style="font-size:13px; color:var(--text-secondary); margin-bottom:14px; line-height:1.5;">
             Multi-turbine fleet operating under normal weather transients and balanced thermal dissipation.
           </p>
-          <div style="margin-bottom:12px; font-size:12px;">
+          <div style="margin-bottom:14px; font-size:12.5px;">
             Injected Fault: <strong id="demo-injected-fault" style="color:var(--accent-amber);">None (Healthy Baseline)</strong>
           </div>
           <div class="canvas-wrapper" style="height:220px;">
@@ -798,7 +821,7 @@
         <div class="panel-card" style="display:flex; flex-direction:column; justify-content:space-between;">
           <div>
             <div class="panel-title">Deterministic 6-Layer Diagnostic Evolution</div>
-            <div style="font-size:12px; line-height:1.8; color:var(--text-secondary); margin-top:8px;">
+            <div style="font-size:12.5px; line-height:1.9; color:var(--text-secondary); margin-top:10px;">
               <div>• <strong>Layer 1 (Telemetry):</strong> Observed SCADA state validated with physics bounds</div>
               <div>• <strong>Layer 2 (Analytical ML):</strong> Power deficit ΔP & component thermal rise ΔT calculated</div>
               <div>• <strong>Layer 3 (Context & Reasoner):</strong> Curtailment & ambient rules evaluated</div>
@@ -807,7 +830,7 @@
               <div>• <strong>Layer 6 (HITL Audit):</strong> Operator triage recorded to append-only case store</div>
             </div>
           </div>
-          <div style="margin-top:20px; display:flex; gap:10px;">
+          <div style="margin-top:24px; display:flex; gap:12px;">
             <button class="btn btn-primary" style="flex:1;" onclick="windGuardApp.runDemoDiagnosis()">
               ▶ Synthesize Diagnosis for Stage
             </button>
@@ -830,13 +853,13 @@
         <button class="modal-close-btn" onclick="windGuardApp.closeHITLModal()">✕</button>
       </div>
       <div>
-        <p style="font-size:12px; color:var(--text-secondary); margin-bottom:10px;">
-          Case ID: <strong id="hitl-modal-case-id" style="color:var(--accent-cyan);">--</strong>
+        <p style="font-size:12.5px; color:var(--text-secondary); margin-bottom:12px;">
+          Case ID: <strong id="hitl-modal-case-id" style="color:var(--accent-cyan); font-family:var(--font-mono);">--</strong>
         </p>
-        <label style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:4px;">
+        <label style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:6px; font-weight:600;">
           Mandatory Engineering Notes / Work Order Rationale (1–2000 characters):
         </label>
-        <textarea id="hitl-modal-notes" class="filter-input" style="width:100%; height:100px; resize:vertical;" 
+        <textarea id="hitl-modal-notes" class="filter-input" style="width:100%; height:110px; resize:vertical; line-height:1.5;" 
                   placeholder="Enter specific site inspection notes, technician dispatch instructions, or false-alarm verification details..."></textarea>
       </div>
       <div class="modal-footer">
@@ -853,12 +876,12 @@
         <h3 class="modal-title">SCADA Telemetry Ingestion Studio</h3>
         <button class="modal-close-btn" onclick="windGuardApp.closeSimulationModal()">✕</button>
       </div>
-      <div style="display:flex; flex-direction:column; gap:16px;">
+      <div style="display:flex; flex-direction:column; gap:18px;">
         <div>
-          <span style="font-size:13px; font-weight:700; color:var(--text-primary); display:block; margin-bottom:8px;">
+          <span style="font-size:13px; font-weight:700; color:var(--text-primary); display:block; margin-bottom:10px;">
             1. Launch Pre-Configured Benchmark Simulation:
           </span>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
             <button class="btn btn-secondary btn-sm" onclick="windGuardApp.runSimulation('S1_BASELINE_HEALTHY')">
               S1: Healthy Baseline
             </button>
@@ -875,10 +898,10 @@
         </div>
         <hr style="border:none; border-top:1px solid var(--border-color);">
         <div>
-          <span style="font-size:13px; font-weight:700; color:var(--text-primary); display:block; margin-bottom:8px;">
+          <span style="font-size:13px; font-weight:700; color:var(--text-primary); display:block; margin-bottom:10px;">
             2. Upload SCADA CSV File (Max 10MB / 2016 rows):
           </span>
-          <form id="csv-upload-form" style="display:flex; gap:10px;">
+          <form id="csv-upload-form" style="display:flex; gap:12px;">
             <input type="file" id="csv-file-input" accept=".csv" class="filter-input" style="flex:1;">
             <button type="submit" class="btn btn-primary btn-sm">Upload CSV</button>
           </form>
